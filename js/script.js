@@ -21,7 +21,8 @@ $(function() {
 // slider js
 $('.owl-carousel').owlCarousel({
   loop:true,
-  margin:10,
+  margin:24,
+  width:3300,
   navText: ["<span aria-label='Previous'><i class='fa-sharp fa-solid fa-arrow-left'></i></span>", "<span aria-label='Next'><i class='fa-sharp fa-solid fa-arrow-right'></i></span>"],
   dots: false,
   responsiveClass:true,
