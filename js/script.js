@@ -33,20 +33,31 @@ $(".owl-carousel").owlCarousel({
   responsive: {
     0: {
       items: 1,
+      loop: false,
+    },
+    768: {
+      items: 2,
       nav: true,
+      loop: false,
+      autoHeight: true,
     },
-    600: {
-      items: 3,
-      nav: false,
-    },
-    1240: {
+    992: {
       items: 3,
       nav: true,
       loop: false,
       margin: 15,
+      autoHeight: true,
+    },
+    1200: {
+      items: 3,
+      nav: true,
+      loop: false,
+      margin: 20,
+      autoHeight: true,
     },
     1400: {
       items: 4,
+      margin: 24,
       nav: true,
       loop: false,
     },
