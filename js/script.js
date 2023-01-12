@@ -19,10 +19,33 @@ $(function () {
   //end do something
 });
 
+// accordion start
+const accordion = document.querySelectorAll(".accordion");
+
+accordion.forEach((element) => {
+  element.addEventListener("click", () => {
+    element.classList.toggle("toggle");
+    let panel = element.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    }
+  });
+});
+
+$(document).ready(function(){
+  $(".accordion").click(function(){
+    $(this).parent().toggleClass('active-border');
+  });
+});
+// accordion end
+
 // slider js
 $(".owl-carousel").owlCarousel({
   loop: true,
   margin: 24,
+  padding: 30,
   width: 3300,
   navText: [
     "<span aria-label='Previous'><i class='fa-sharp fa-solid fa-arrow-left'></i></span>",
