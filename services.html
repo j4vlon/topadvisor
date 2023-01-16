@@ -49,37 +49,40 @@
       </nav>
     </header>
     <!-- HEADER END -->
+    <!-- BREAD CRUMBS START -->
+    <div class="container">
+      <div class="bread-crumbs">
+        <span class="gray">услуги / решения для развития бизнеса</span>
+      </div>
+    </div>
+    <!-- BREAD CRUMBS END -->
     <!-- CONTENT START -->
     <div class="container">
       <!-- HERO BLOCK START -->
       <div class="business-info">
         <div class="block-header">
-          <div class="bread-crumbs">
-            <span class="gray">услуги / решения для развития бизнеса</span>
-          </div>
           <h1>Решения для развития бизнеса</h1>
         </div>
         <div class="service-img-wrapper">
           <img src="images/globus.svg" alt="" />
         </div>
-        <div class="service-consulting">
-          <a href="" class="more-btn"><span>Консультация</span><svg width="11" height="11" viewBox="0 0 11 11"
+        
+          <a href="" class="service-consulting more-btn"><span>Консультация</span><svg width="11" height="11" viewBox="0 0 11 11"
               fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M2 1H10M10 1V9M10 1L1 10" stroke="white" stroke-width="1.5"></path>
             </svg>
           </a>
-        </div>
       </div>
       <!-- HERO BLOCK END -->
       <!-- ACCORDION START -->
-      <div class="accordion accordion-flush accordion-flush-wrapper" id="accordionFlushExample">
+      <div class="accordion-flush accordion-flush-wrapper" id="accordionFlushExample">
         <div class="accordion-item">
           <div class="accordion-wrapper">
             <div class="row">
               <div class="col-md-4">
                 <div class="accordion-title accordion-item-wrapper">
                   <h4 class="accordion-header" id="flush-headingOne">
-                    Оптимизация бизнес-процессов (BPM, BPR)
+                    Оптимизация бизнес - процессов (BPM, BPR)
                   </h4>
                 </div>
               </div>
@@ -113,11 +116,11 @@
           <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
             data-bs-parent="#accordionFlushExample">
             <div class="accordion-body">
-              <div class="accordion-content">
-                <div class="accordion-img">
+              <div class="row accordion-content">
+                <div class="col-xl-4 col-lg-4 accordion-img">
                   <img src="images/accordion-img.svg" alt="" />
                 </div>
-                <div class="accordion-descr-wrapper">
+                <div class="col-xl-8 col-lg-8 accordion-descr-wrapper">
                   <div class="accordion-descr">
                     <p>
                       Поможем оптимизировать бизнес-процессы, построить алгоритм
@@ -160,7 +163,7 @@
                           stroke-width="1.5" />
                       </svg>
                     </a>
-                    <div>
+                    <div class="arrow-icon">
                       <svg width="31" height="38" viewBox="0 0 31 38" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                           d="M2.71673 0V6.21186H20.832C12.9073 10.1587 0 15.1484 0 26.1145C0 33.1785 5.58 38 13.3131 38C13.3469 38 24.9916 38 24.9916 38V32.1582H13.7527C7.89091 32.2254 6.448 28.7495 6.448 25.3408C6.448 17.2228 24.6985 10.5624 24.7549 10.54V25.4866H31V0H2.71673Z"
@@ -274,7 +277,7 @@
     <!-- USE INFOBLOCK START -->
     <div class="container">
       <div class="use-infoblock">
-        <div class="header-block">
+        <div class="block-header">
           <h2>Кому будет полезно</h2>
           <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
         </div>
@@ -363,69 +366,59 @@
     <!-- PROJECTS BLOCK START -->
     <div class="project-block">
       <div class="container">
-        <div class="row">
-          <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-            <div class="block-header">
-              <h2>Реализованные проекты</h2>
-            </div>
-            <div class="projects-block-txt">
-              <p></p>
+        <div class="row projects-box">
+          <div class="col-xl-6 col-lg-6 col-md-12 block-header">
+            <h2>Реализованные проекты</h2>
+          </div>
+          <div class="col-xl-2 col-lg-2 col-md-4 accordion-container">
+            <button type="button" class="accordion" id="accordion">
+
+              <span class="accordion-title">
+                Услуги
+              </span>
+              <p class="accordion-list-item">Юридическое обслуживание бизнеса</p>
+            </button>
+            <div class="panel">
+              <ul class="accordion-list">
+                <li class="accordion-list-item">Оптимизация бизнес-процессов (BPM, BPR)</li>
+              </ul>
             </div>
           </div>
-          <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12 projects-block-wrapper">
-            <div class="projects-block">
-              <div class="projects-block-header">
-                <h4>Услуги</h4>
-                <div class="btn-round">
-                  <span class="close"></span>
-                </div>
-              </div>
-              <div class="projects-block-txt">
-                <p>Юридическое обслуживание бизнеса</p>
-              </div>
+          <div class="col-xl-2 col-lg-2 col-md-4 accordion-container">
+
+            <button type='button' class="accordion" id="accordion">
+              <span class="accordion-title">
+                Направление
+              </span>
+              <p class="accordion-list-item">Оптимизация бизнес-процессов (BPM, BPR)</p>
+            </button>
+
+            <div class="panel">
+              <ul class="accordion-list">
+                <li class="accordion-list-item">Стратегическое развитие компании</li>
+                <li class="accordion-list-item">Интернет-маркетинг</li>
+              </ul>
             </div>
           </div>
-          <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12 projects-block-wrapper">
-            <div class="projects-block">
-              <div class="projects-block-header">
-                <h4>Направление</h4>
-                <div class="btn-round">
-                  <span class="close"></span>
-                </div>
-              </div>
-              <div class="projects-block-txt">
-                <p>Все</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12 projects-block-wrapper">
-            <div class="projects-block">
-              <div class="projects-block-header">
-                <h4>Отрасли клиентов</h4>
-                <div class="btn-round">
-                  <span class="close"></span>
-                </div>
-              </div>
-              <div class="projects-block-txt">
-                <p>По дате</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-            <div class="project-link">
-              <a href="" class="more">Посмотреть все
-                <span>
-                  <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M2 1H10M10 1V9M10 1L1 10" stroke="black" stroke-width="1.5"></path>
-                  </svg>
-                </span>
-              </a>
+          <div class="col-xl-2 col-lg-2 col-md-4 accordion-container">
+
+            <button type="button" class="accordion" id="accordion">
+
+              <span class="accordion-title">
+                Отрасли клиентов
+              </span>
+              <p class="accordion-list-item">По дате</p>
+            </button>
+            <div class="panel">
+              <ul class="accordion-list">
+                <li class="accordion-list-item">Оптимизация бизнес-процессов (BPM, BPR)</li>
+              </ul>
             </div>
           </div>
         </div>
         <div class="info-list-wrapper">
           <div class="row">
-            <div class="col-xl-4 col-lg-4 col-md-12 project-info-list">
+            <div class="col-xl-4 col-lg-4 col-md-4 project-info-list">
               <div class="info-list-title">
                 <div class="date">
                   <span>20 мая, 2022</span>
@@ -435,7 +428,7 @@
                 </h4>
               </div>
             </div>
-            <div class="col-xl-4 col-lg-4 col-md-12 project-info-list">
+            <div class="col-xl-4 col-lg-4 col-md-4 project-info-list">
               <div class="info-list-txt">
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
@@ -443,16 +436,16 @@
                 </p>
               </div>
             </div>
-            <div class="col-xl-4 col-lg-4 col-md-12 project-info-list">
+            <div class="col-xl-4 col-lg-4 col-md-4 project-info-list">
               <div class="info-list-img">
-                <img src="images/logos/accor.svg" alt="" />
+                <img src="images/logos/accor.svg" alt="">
               </div>
             </div>
           </div>
         </div>
         <div class="info-list-wrapper">
           <div class="row">
-            <div class="col-xl-4 col-lg-4 col-md-12 project-info-list">
+            <div class="col-xl-4 col-lg-4 col-md-4 project-info-list">
               <div class="info-list-title">
                 <div class="date">
                   <span>20 мая, 2022</span>
@@ -463,7 +456,7 @@
                 </h4>
               </div>
             </div>
-            <div class="col-xl-4 col-lg-4 col-md-12 project-info-list">
+            <div class="col-xl-4 col-lg-4 col-md-4 project-info-list">
               <div class="info-list-txt">
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
@@ -471,16 +464,16 @@
                 </p>
               </div>
             </div>
-            <div class="col-xl-4 col-lg-4 col-md-12 project-info-list">
+            <div class="col-xl-4 col-lg-4 col-md-4 project-info-list">
               <div class="info-list-img">
-                <img src="images/logos/aloqabank.svg" alt="" />
+                <img src="images/logos/aloqabank.svg" alt="">
               </div>
             </div>
           </div>
         </div>
         <div class="info-list-wrapper">
           <div class="row">
-            <div class="col-xl-4 col-lg-4 col-md-12 project-info-list">
+            <div class="col-xl-4 col-lg-4 col-md-4 project-info-list">
               <div class="info-list-title">
                 <div class="date">
                   <span>20 мая, 2022</span>
@@ -491,7 +484,7 @@
                 </h4>
               </div>
             </div>
-            <div class="col-xl-4 col-lg-4 col-md-12 project-info-list">
+            <div class="col-xl-4 col-lg-4 col-md-4 project-info-list">
               <div class="info-list-txt">
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
@@ -499,16 +492,16 @@
                 </p>
               </div>
             </div>
-            <div class="col-xl-4 col-lg-4 col-md-12 project-info-list">
+            <div class="col-xl-4 col-lg-4 col-md-4 project-info-list">
               <div class="info-list-img">
-                <img src="images/logos/SevemlyTV.svg" alt="" />
+                <img src="images/logos/SevemlyTV.svg" alt="">
               </div>
             </div>
           </div>
         </div>
         <div class="info-list-wrapper project-last-border">
           <div class="row">
-            <div class="col-xl-4 col-lg-4 col-md-12 project-info-list">
+            <div class="col-xl-4 col-lg-4 col-md-4 project-info-list">
               <div class="info-list-title">
                 <div class="date">
                   <span>20 мая, 2022</span>
@@ -516,7 +509,7 @@
                 <h4>Автоматизация процессов складской логистики</h4>
               </div>
             </div>
-            <div class="col-xl-4 col-lg-4 col-md-12 project-info-list">
+            <div class="col-xl-4 col-lg-4 col-md-4 project-info-list">
               <div class="info-list-txt">
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
@@ -524,9 +517,9 @@
                 </p>
               </div>
             </div>
-            <div class="col-xl-4 col-lg-4 col-md-12 project-info-list">
+            <div class="col-xl-4 col-lg-4 col-md-4 project-info-list">
               <div class="info-list-img">
-                <img src="images/logos/undp.svg" alt="" />
+                <img src="images/logos/undp.svg" alt="">
               </div>
             </div>
           </div>
