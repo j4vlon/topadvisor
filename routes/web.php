@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\Admin\ServicesController;
+use App\Http\Controllers\Admin\SubservicesController;
 use App\Http\Controllers\Admin\ViewController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,4 +25,17 @@ Route::get('contacts', function(){
 });
 Route::get('dashboard', [ViewController::class, 'index'])->name('dashboard');
 
+Route::prefix('admin')->group(function (){
+    Route::resource('services', ServicesController::class);
+    Route::resource('subservices', SubservicesController::class);
+});
 
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

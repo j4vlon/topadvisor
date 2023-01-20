@@ -84,6 +84,24 @@
                             width="25"
                         />
                     </b>
+                    <!--End Logo icon -->
+                    {{--                    <!-- Logo text -->--}}
+                    {{--                    <span class="logo-text ms-2">--}}
+                    {{--                <!-- dark Logo text -->--}}
+                    {{--                <img--}}
+                    {{--                    src="../assets/images/logo-text.png"--}}
+                    {{--                    alt="homepage"--}}
+                    {{--                    class="light-logo"--}}
+                    {{--                />
+                                  </span>--}}
+                    <!-- Logo icon -->
+                    <!-- <b class="logo-icon"> -->
+                    <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                    <!-- Dark Logo icon -->
+                    <!-- <img src="../assets/images/logo-text.png" alt="homepage" class="light-logo" /> -->
+
+                    <!-- </b> -->
+                    <!--End Logo icon -->
                 </a>
                 <!-- ============================================================== -->
                 <!-- End Logo -->
@@ -388,7 +406,7 @@
                     <li class="sidebar-item">
                         <a
                             class="sidebar-link waves-effect waves-dark sidebar-link"
-                            href=""
+                            href="{{ url('/admin/dashboard') }}"
                             aria-expanded="false"
                         ><i class="mdi mdi-view-dashboard"></i
                             ><span class="hide-menu">Dashboard</span></a
@@ -397,10 +415,19 @@
                     <li class="sidebar-item">
                         <a
                             class="sidebar-link waves-effect waves-dark sidebar-link"
-                            href=""
+                            href="{{ route('services.index') }}"
                             aria-expanded="false"
                         ><i class="mdi mdi-view-dashboard"></i
-                            ><span class="hide-menu">Cars list</span></a
+                            ><span class="hide-menu">Список услуг</span></a
+                        >
+                    </li>
+                    <li class="sidebar-item">
+                        <a
+                            class="sidebar-link waves-effect waves-dark sidebar-link"
+                            href="{{ route('subservices.index') }}"
+                            aria-expanded="false"
+                        ><i class="mdi mdi-view-dashboard"></i
+                            ><span class="hide-menu">Под услуги</span></a
                         >
                     </li>
                     <li class="sidebar-item">
@@ -409,7 +436,7 @@
                             href=""
                             aria-expanded="false"
                         ><i class="mdi mdi-view-dashboard"></i
-                            ><span class="hide-menu">Category list</span></a
+                            ><span class="hide-menu">Список проектов</span></a
                         >
                     </li>
                     <li class="sidebar-item">
@@ -418,7 +445,7 @@
                             href=""
                             aria-expanded="false"
                         ><i class="mdi mdi-view-dashboard"></i
-                            ><span class="hide-menu">Subcategory list</span></a
+                            ><span class="hide-menu">Спиоск заявок</span></a
                         >
                     </li>
                     <li class="sidebar-item">
@@ -427,7 +454,7 @@
                             href=""
                             aria-expanded="false"
                         ><i class="mdi mdi-view-dashboard"></i
-                            ><span class="hide-menu">Product list</span></a
+                            ><span class="hide-menu">Статьи</span></a
                         >
                     </li>
                     <li class="sidebar-item">
@@ -436,16 +463,7 @@
                             href=""
                             aria-expanded="false"
                         ><i class="mdi mdi-view-dashboard"></i
-                            ><span class="hide-menu">Service list</span></a
-                        >
-                    </li>
-                    <li class="sidebar-item">
-                        <a
-                            class="sidebar-link waves-effect waves-dark sidebar-link"
-                            href=""
-                            aria-expanded="false"
-                        ><i class="mdi mdi-view-dashboard"></i
-                            ><span class="hide-menu">Order list</span></a
+                            ><span class="hide-menu">Партнеры</span></a
                         >
                     </li>
                     <li class="sidebar-item">
@@ -454,7 +472,7 @@
                             href=""
                             aria-expanded="false"
                         ><i class="mdi mdi-border-inside"></i
-                            ><span class="hide-menu">User list</span></a
+                            ><span class="hide-menu">Участники компании</span></a
                         >
                     </li>
                 </ul>

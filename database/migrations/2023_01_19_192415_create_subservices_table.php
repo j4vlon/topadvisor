@@ -15,6 +15,12 @@ return new class extends Migration
     {
         Schema::create('subservices', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->text('descr');
+            $table->string('slug')->unique();
+            $table->string('file_url');
+            $table->foreignIdFor(\App\Models\Admin\Service::class);
+            $table->boolean('is_active')->nullable();
             $table->timestamps();
         });
     }

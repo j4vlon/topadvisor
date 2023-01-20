@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\StoreServiceRequest;
-use App\Http\Requests\Admin\UpdateServiceRequest;
+use App\Http\Requests\Admin\StoreSubserviceRequest;
 use App\Models\Admin\Service;
+use App\Models\Admin\Subservice;
 use Illuminate\Http\Request;
 
-class ServicesController extends Controller
+class SubservicesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +17,8 @@ class ServicesController extends Controller
      */
     public function index()
     {
-        $services = Service::all();
-        return view('admin.services.index', compact('services'));
+        $subservices = Subservice::all();
+        return view('admin.subservices.index', compact('subservices'));
     }
 
     /**
@@ -28,23 +28,28 @@ class ServicesController extends Controller
      */
     public function create()
     {
-        return view('admin.services.create');
+        $services = Service::all();
+        return view('admin.subservices.create', compact('services'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @return \Illuminate\Http\Response
      */
-    public function store(StoreServiceRequest $request)
+    public function store(StoreSubserviceRequest $request)
     {
-        $data = $request->validated();
-        $service = Service::create($data);
+        $subservice = new Subservice();
+        $subservice->title = $request->title;
+        $subservice->descr = $request->descr;
         if ($request->hasfile('file_url')){
             $path = $request->file_url->store('uploads', 'public');
-            $service->file_url = '/storage/'.$path;
+            $subservice->file_url = '/storage/'.$path;
         }
+        $subservice->service_id = $request->service_id;
+        $subservice->is_active = $request->is_active;
+        $subservice->save();
         return redirect()->back();
     }
 
@@ -54,9 +59,9 @@ class ServicesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Service $service)
+    public function show($id)
     {
-        $service = Service::all();
+        //
     }
 
     /**
@@ -65,9 +70,10 @@ class ServicesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function edit(Service $service)
+    public function edit(Subservice $subservice)
     {
-        return view('admin.services.update', compact('service'));
+        $services = Service::all();
+        return view('admin.subservices.update', compact('subservice', 'services'));
     }
 
     /**
@@ -75,13 +81,19 @@ class ServicesController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\RedirectResponse
+     * @return \Illuminate\Http\Response
      */
-    public function update(UpdateServiceRequest $request, Service $service)
+    public function update(Request $request, $id)
     {
-        $services = Service::firstOrfail('id', $service);
-        $services->title = $request->title;
-        $services->save();
+        $subservice->title = $request->title;
+        $subservice->descr = $request->descr;
+        if ($request->hasfile('file_url')){
+            $path = $request->file_url->store('uploads', 'public');
+            $subservice->file_url = '/storage/'.$path;
+        }
+        $subservice->service_id = $request->service_id;
+        $subservice->is_active = $request->is_active;
+        $subservice->save();
         return redirect()->back();
     }
 
@@ -91,9 +103,8 @@ class ServicesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Service $service)
+    public function destroy($id)
     {
-        $service->delete();
-        return redirect()->back();
+        //
     }
 }
