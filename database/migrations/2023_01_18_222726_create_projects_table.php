@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignIdFor(\App\Models\Admin\Service::class);
             $table->foreignIdFor(\App\Models\Admin\Subservice::class);
             $table->string('title');
+            $table->string('slug');
             $table->text('descr');
             $table->string('project_img');
             $table->integer('project_qty');

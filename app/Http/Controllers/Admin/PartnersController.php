@@ -65,9 +65,9 @@ class PartnersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Partner $partner)
     {
-        //
+        return view('admin.partners.update', compact('partner'));
     }
 
     /**
@@ -77,9 +77,15 @@ class PartnersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StorePartnerRequest $request, Partner $partner)
     {
-        //
+        $partner->title = $request->title;
+        if ($request->hasfile('file_url')){
+            $path = $request->file_url->store('uploads', 'public');
+            $partner->file_url = '/storage/'.$path;
+        }
+        $partner->save();
+        return redirect()->back();
     }
 
     /**
@@ -88,8 +94,9 @@ class PartnersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Partner $partner)
     {
-        //
+        $partner->delete();
+        return redirect()->back();
     }
 }

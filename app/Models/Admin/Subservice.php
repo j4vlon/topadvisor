@@ -10,6 +10,13 @@ class Subservice extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'title',
+        'descr',
+        'file_url',
+        'is_active',
+    ];
+
     use Sluggable;
     /**
      * Return the sluggable configuration array for this model.
