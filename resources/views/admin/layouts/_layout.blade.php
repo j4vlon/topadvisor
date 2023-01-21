@@ -433,7 +433,7 @@
                     <li class="sidebar-item">
                         <a
                             class="sidebar-link waves-effect waves-dark sidebar-link"
-                            href=""
+                            href="{{ route('projects.index') }}"
                             aria-expanded="false"
                         ><i class="mdi mdi-view-dashboard"></i
                             ><span class="hide-menu">Список проектов</span></a
@@ -442,7 +442,7 @@
                     <li class="sidebar-item">
                         <a
                             class="sidebar-link waves-effect waves-dark sidebar-link"
-                            href=""
+                            href="{{ route('contacts.index') }}"
                             aria-expanded="false"
                         ><i class="mdi mdi-view-dashboard"></i
                             ><span class="hide-menu">Спиоск заявок</span></a
@@ -451,7 +451,7 @@
                     <li class="sidebar-item">
                         <a
                             class="sidebar-link waves-effect waves-dark sidebar-link"
-                            href=""
+                            href="{{ route('articles.index') }}"
                             aria-expanded="false"
                         ><i class="mdi mdi-view-dashboard"></i
                             ><span class="hide-menu">Статьи</span></a
@@ -460,7 +460,7 @@
                     <li class="sidebar-item">
                         <a
                             class="sidebar-link waves-effect waves-dark sidebar-link"
-                            href=""
+                            href="{{ route('partners.index') }}"
                             aria-expanded="false"
                         ><i class="mdi mdi-view-dashboard"></i
                             ><span class="hide-menu">Партнеры</span></a
@@ -469,7 +469,7 @@
                     <li class="sidebar-item">
                         <a
                             class="sidebar-link waves-effect waves-dark sidebar-link"
-                            href=""
+                            href="{{ route('members.index') }}"
                             aria-expanded="false"
                         ><i class="mdi mdi-border-inside"></i
                             ><span class="hide-menu">Участники компании</span></a

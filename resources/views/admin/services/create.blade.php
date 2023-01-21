@@ -13,13 +13,6 @@
                         @enderror
                         <input type="text" class="form-control" name="title" placeholder="Введите название услуги">
                     </div>
-{{--                    <label for="specific" class="col-sm-3 text-end control-label col-form-label">Описание услуги</label>--}}
-{{--                    <div class="col-sm-9" style="margin-bottom: 20px">--}}
-{{--                        @error('descr')--}}
-{{--                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>--}}
-{{--                        @enderror--}}
-{{--                        <textarea class="form-control {{ $errors->has('descr') ? 'is-invalid' : '' }}" name="descr" placeholder="Введите описание услуги"></textarea>--}}
-{{--                    </div>--}}
                 </div>
             </div>
             <div class="border-top">

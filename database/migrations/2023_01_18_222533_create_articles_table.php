@@ -15,6 +15,12 @@ return new class extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
+            $table->foreignIdFor(\App\Models\Admin\Member::class);
+            $table->string('title');
+            $table->string('slug');
+            $table->string('descr_title');
+            $table->text('descr');
+            $table->string('file_url');
             $table->timestamps();
         });
     }

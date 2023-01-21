@@ -15,6 +15,14 @@ return new class extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
+            $table->foreignIdFor(\App\Models\Admin\Partner::class);
+            $table->foreignIdFor(\App\Models\Admin\Service::class);
+            $table->foreignIdFor(\App\Models\Admin\Subservice::class);
+            $table->string('title');
+            $table->text('descr');
+            $table->string('project_img');
+            $table->integer('project_qty');
+            $table->string('img_author');
             $table->timestamps();
         });
     }

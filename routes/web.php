@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\Admin\ArticlesController;
+use App\Http\Controllers\Admin\ContactsController;
+use App\Http\Controllers\Admin\MembersController;
+use App\Http\Controllers\Admin\PartnersController;
+use App\Http\Controllers\Admin\ProjectsController;
 use App\Http\Controllers\Admin\ServicesController;
 use App\Http\Controllers\Admin\SubservicesController;
 use App\Http\Controllers\Admin\ViewController;
@@ -23,11 +28,15 @@ Route::get('/', function () {
 Route::get('contacts', function(){
     return view('front.contacts');
 });
-Route::get('dashboard', [ViewController::class, 'index'])->name('dashboard');
 
 Route::prefix('admin')->group(function (){
     Route::resource('services', ServicesController::class);
     Route::resource('subservices', SubservicesController::class);
+    Route::resource('partners', PartnersController::class);
+    Route::resource('projects', ProjectsController::class);
+    Route::resource('members', MembersController::class);
+    Route::resource('articles', ArticlesController::class);
+    Route::resource('contacts', ContactsController::class);
 });
 
 
@@ -36,6 +45,3 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

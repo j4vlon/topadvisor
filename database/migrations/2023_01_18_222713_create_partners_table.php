@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('partners', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->string('file_url');
             $table->timestamps();
         });
     }

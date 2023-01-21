@@ -3,31 +3,28 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\StorePartnerRequest;
-use App\Models\Admin\Partner;
 use Illuminate\Http\Request;
 
-class PartnersController extends Controller
+class ContactsController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $partners = Partner::all();
-        return view('admin.partners.index', compact('partners'));
+        //
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        return view('admin.partners.create');
+        //
     }
 
     /**
@@ -36,16 +33,9 @@ class PartnersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorePartnerRequest $request)
+    public function store(Request $request)
     {
-        $partner = new Partner();
-        $partner->title = $request->title;
-        if ($request->hasfile('file_url')){
-            $path = $request->file_url->store('uploads', 'public');
-            $partner->file_url = '/storage/'.$path;
-        }
-        $partner->save();
-        return redirect()->back();
+        //
     }
 
     /**
