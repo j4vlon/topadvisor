@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin\Partner;
 use App\Models\Admin\Project;
+use App\Models\Admin\Subservice;
 use Illuminate\Http\Request;
 
 class ProjectsController extends Controller
@@ -26,7 +28,9 @@ class ProjectsController extends Controller
      */
     public function create()
     {
-        return view('admin.projects.create');
+        $partners = Partner::all();
+        $subservices = Subservice::with('service')->get();
+        return view('admin.projects.create', compact('partners', 'subservices'));
     }
 
     /**
