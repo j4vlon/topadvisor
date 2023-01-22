@@ -104,16 +104,23 @@
                                 <thead>
                                 <tr>
                                     <th>Title</th>
+                                    <th>Услуги</th>
+                                    <th>Партнеры</th>
+                                    <th>Описание проекта</th>
+                                    <th>Title</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($projects as $project)
                                     <tr>
                                         <td>{{ $project->title }}</td>
+                                        <td>{{ $project->subservice->title }}</td>
+                                        <td>{{ $project->partner->title }}</td>
+                                        <td>{{ $project->descr }}</td>
                                         <td>
-                                            <a href="{{ route('partners.edit', $project->id) }}" class="btn btn-primary" style="margin-bottom: 5px; width: 100%">Edit</a>
+                                            <a href="{{ route('projects.edit', $project->id) }}" class="btn btn-primary" style="margin-bottom: 5px; width: 100%">Edit</a>
                                             <br>
-                                            <form action="{{ route('partners.destroy', $project->id) }}" method="post">
+                                            <form action="{{ route('projects.destroy', $project->id) }}" method="post">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger" style="width: 100%">

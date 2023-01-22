@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\StoreProjectRequest;
 use App\Models\Admin\Partner;
 use App\Models\Admin\Project;
 use App\Models\Admin\Subservice;
@@ -17,7 +18,7 @@ class ProjectsController extends Controller
      */
     public function index()
     {
-        $projects = Project::all();
+        $projects = Project::with('subservice', 'partner')->get();
         return view('admin.projects.index', compact('projects'));
     }
 
@@ -37,11 +38,22 @@ class ProjectsController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request)
+    public function store(StoreProjectRequest $request)
     {
-        //
+        $project = new Project();
+        $project->partner_id = $request->partner_id;
+        $project->subservice_id = $request->subservice_id;
+        $project->title = $request->title;
+        $project->descr = $request->descr;
+        $project->img_author = $request->img_author;
+        if ($request->hasFile('project_img')){
+            $path = $request->project_img->store('uploads', 'public');
+            $project->project_img = '/storage'.$path;
+        }
+        $project->save();
+        return redirect()->back();
     }
 
     /**

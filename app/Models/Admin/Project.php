@@ -23,8 +23,13 @@ class Project extends Model
             ]
         ];
     }
-    public function partners()
+    public function partner()
     {
-       return $this->hasMany(Partner::class);
+       return $this->belongsTo(Partner::class);
+    }
+
+    public function subservice()
+    {
+        return$this->belongsTo(Subservice::class);
     }
 }

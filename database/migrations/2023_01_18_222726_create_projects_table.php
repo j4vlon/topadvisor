@@ -21,7 +21,6 @@ return new class extends Migration
             $table->string('slug');
             $table->text('descr');
             $table->string('project_img');
-            $table->integer('project_qty');
             $table->string('img_author');
             $table->timestamps();
         });

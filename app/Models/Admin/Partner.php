@@ -14,8 +14,8 @@ class Partner extends Model
         'file_url',
     ];
 
-    public function project()
+    public function projects()
     {
-        return $this->belongsTo(Project::class);
+        return $this->hasMany(Project::class);
     }
 }
