@@ -30,10 +30,10 @@
                     </div>
                     <label class="col-sm-3 text-end control-label col-form-label" for="car_id">Выберите услугу</label>
                     <div class="col-md-9" style="margin-bottom: 20px">
-                        @error('car_id')
+                        @error('service_id')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
-                        <select name="service_id" class="select2 form-select shadow-none select2-hidden-accessible {{ $errors->has('car_id') ? 'is-invalid' : '' }}" style="width: 100%; height: 36px" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                        <select name="service_id" class="select2 form-select shadow-none select2-hidden-accessible {{ $errors->has('service_id') ? 'is-invalid' : '' }}" style="width: 100%; height: 36px" data-select2-id="1" tabindex="-1" aria-hidden="true">
                             @foreach($services as $service)
                                 <option value="{{ $service->id }}" data-select2-id="{{ $service->id }}">{{ $service->title }}</option>
                             @endforeach

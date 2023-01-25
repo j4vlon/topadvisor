@@ -79,9 +79,8 @@ class ServicesController extends Controller
      */
     public function update(UpdateServiceRequest $request, Service $service)
     {
-        $services = Service::firstOrfail('id', $service);
-        $services->title = $request->title;
-        $services->save();
+        $service->title = $request->title;
+        $service->save();
         return redirect()->back();
     }
 

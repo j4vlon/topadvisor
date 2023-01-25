@@ -5,12 +5,11 @@
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-12 d-flex no-block align-items-center">
-                <h4 class="page-title">Tables</h4>
+                <h4 class="page-title">Статьи</h4>
                 <div class="ms-auto text-end">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item"><i class="fas fa-chevron-right"></i></li>
                             <li class="breadcrumb-item active" aria-current="page">
                                 Library
                             </li>
@@ -27,14 +26,11 @@
     <!-- Container fluid  -->
     <!-- ============================================================== -->
     <div class="container-fluid">
-        <!-- ============================================================== -->
-        <!-- Start Page Content -->
-        <!-- ============================================================== -->
         <div class="row">
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Basic Datatable</h5>
+                        <h5 class="card-title"><a class="card-title" href="{{ route('articles.create') }}">Добавить статью</a></h5>
                         <div class="table-responsive">
                             <table
                                 id="zero_config"
@@ -43,30 +39,23 @@
                                 <thead>
                                 <tr>
                                     <th>Название</th>
+                                    <th>Автор</th>
+                                    <th>Заголовок</th>
                                     <th>Описание</th>
-                                    <th>Картинка</th>
-                                    <th>Активность</th>
-                                    <th>Дата добавления</th>
                                     <th>Изменить</th>
-                                    <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($subservices as $subservice)
+                                @foreach($articles as $article)
                                     <tr>
-                                        <td>{{ $subservice->title }}</td>
-                                        <td>{{ $subservice->descr }}</td>
-                                        <td>{{ $subservice->file_url }}</td>
-                                        @if($subservice->is_active)
-                                            <td>Услуга активна</td>
-                                        @else
-                                            <td>Услуга не активна</td>
-                                        @endif
-
-                                        <td>{{ $subservice->created_at }}</td>
-                                        <td><a href="{{ route('subservices.edit', $subservice->id) }}" class="btn btn-primary" style="margin-bottom: 5px; width: 100%">Edit</a>
+                                        <td>{{ $article->title }}</td>
+                                        <td>{{ $article->member->name }}</td>
+                                        <td>{{ $article->descr_title }}</td>
+                                        <td>{{ $article->descr }}</td>
+                                        <td>
+                                            <a href="{{ route('articles.edit', $article->id) }}" class="btn btn-primary" style="margin-bottom: 5px; width: 100%">Edit</a>
                                             <br>
-                                            <form action="{{ route('subservices.destroy', $subservice->id) }}" method="post">
+                                            <form action="{{ route('articles.destroy', $article->id) }}" method="post">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger" style="width: 100%">
@@ -76,7 +65,6 @@
                                         </td>
                                     </tr>
                                 @endforeach
-                                </tbody>
                             </table>
                         </div>
                     </div>

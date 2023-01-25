@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreProjectRequest;
+use App\Http\Requests\Admin\UpdatePartnerRequest;
+use App\Http\Requests\Admin\UpdateProjectRequest;
 use App\Models\Admin\Partner;
 use App\Models\Admin\Project;
 use App\Models\Admin\Subservice;
@@ -50,7 +52,7 @@ class ProjectsController extends Controller
         $project->img_author = $request->img_author;
         if ($request->hasFile('project_img')){
             $path = $request->project_img->store('uploads', 'public');
-            $project->project_img = '/storage'.$path;
+            $project->project_img = '/storage/'.$path;
         }
         $project->save();
         return redirect()->back();
@@ -71,11 +73,13 @@ class ProjectsController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function edit($id)
+    public function edit(Project $project)
     {
-        //
+        $partners = Partner::all();
+        $subservices = Subservice::with('service')->get();
+        return view('admin.projects.update', compact('partners', 'subservices', 'project'));
     }
 
     /**
@@ -85,9 +89,19 @@ class ProjectsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateProjectRequest $request, Project $project)
     {
-        //
+        $project->partner_id = $request->partner_id;
+        $project->subservice_id = $request->subservice_id;
+        $project->title = $request->title;
+        $project->descr = $request->descr;
+        $project->img_author = $request->img_author;
+        if ($request->hasFile('project_img')){
+            $path = $request->project_img->store('uploads', 'public');
+            $project->project_img = '/storage/'.$path;
+        }
+        $project->update();
+        return redirect()->back();
     }
 
     /**
@@ -96,8 +110,9 @@ class ProjectsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Project $project)
     {
-        //
+        $project->delete();
+        return redirect()->back();
     }
 }
