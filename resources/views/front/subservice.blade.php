@@ -8,7 +8,7 @@
                 <div class="bread-crumbs">
                     <span class="gray">услуги / {{ $subservice->title }}</span>
                 </div>
-                <h1>Стратегическое развитие компании</h1>
+                <h1>{{ $subservice->title }}</h1>
             </div>
             <a href="" class="more-btn" type="submit">
                 <span>Оставить заявку</span><svg width="11" height="11" viewBox="0 0 11 11" fill="none"

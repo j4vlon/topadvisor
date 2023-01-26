@@ -78,7 +78,8 @@
                 </svg>
             </div>
             <div class="feedback-wrapper">
-                <form action="" class="feedback-form">
+                <form action="" class="feedback-form" method="POST">
+                    @csrf
                     <input type="text" class="form_input" name="name" placeholder="Введите ваше имя" />
                     <input type="text" class="form_input" name="company_name" placeholder="Введите вашу компанию" />
                     <input type="text" class="form_input" name="phne" placeholder="Введите ваш телефон" />
@@ -145,6 +146,17 @@
                 </div>
             </div>
             @endforeach
+        </div>
+        <div class="col-md-12">
+            <div class="project-link">
+                <a href="{{ route('partners') }}" class="more">Посмотреть все
+                    <span>
+                  <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 1H10M10 1V9M10 1L1 10" stroke="black" stroke-width="1.5"></path>
+                  </svg>
+                </span>
+                </a>
+            </div>
         </div>
     </div>
 </div>

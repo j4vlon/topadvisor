@@ -24,7 +24,7 @@
                             </li>
                             @foreach($service->subservices as $subservice)
                                 <li class="dropdown-list-item">
-                                    <a href="" class="dropdown-link">{{ $subservice->title }}</a>
+                                    <a href="{{ route('category', $subservice->slug) }}" class="dropdown-link">{{ $subservice->title }}</a>
                                 </li>
                             @endforeach
                         </ul>
@@ -54,7 +54,7 @@
             <li class="nav-list-item">
                 <a href="">Команда</a>
             </li>
-            <li class="nav-list-item"><a href="">Статьи</a></li>
+            <li class="nav-list-item"><a href="{{ route('articles') }}">Статьи</a></li>
             <li class="nav-list-item"><a href="{{ route('contacts') }}">Контакты</a></li>
         </ul>
         <button class="burger" onclick="$('.burger').toggleClass('active un-active');"></button>

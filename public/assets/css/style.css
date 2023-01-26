@@ -363,7 +363,7 @@ a {
 .service-block hr {
     width: 100%;
     position: absolute;
-    top: 379px;
+    top: 366px;
 }
 
 .projects-block-wrapper {
@@ -811,7 +811,7 @@ a {
     height: 100%;
 }
 .author-dateails {
-    margin-left: 23px;
+    margin-left: 18px;
 }
 .author-dateails p {
     margin-bottom: 2px;
@@ -897,16 +897,24 @@ a {
     grid-gap: 1px;
     border-left: 1px solid #D2D2D4;
     border-right: 1px solid #D2D2D4;
+    margin-bottom: 38px;
 }
 
 .grid-item {
     padding: 40px 25px !important;
     background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
 .partner-image-area {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.partner-image-area img{
+    width: 100%;
 }
 .company-title h4 {
     font-style: normal;
@@ -1334,6 +1342,7 @@ a {
 }
 .articles-box .load-more {
     margin-bottom: 60px;
+    margin-top: 60px;
 }
 .wrapper-info-img.page-info-img {
     margin-bottom: 30px;
@@ -1776,6 +1785,9 @@ a {
     .team-member-job {
         padding-top: 15px;
     }
+    .partners-grid{
+        grid-template-columns: repeat(4, 278px);
+    }
 }
 @media (max-width: 1200px) {
     .first-service,
@@ -1870,6 +1882,9 @@ a {
     .team-member-job {
         padding-top: 0;
     }
+    .partners-grid {
+        grid-template-columns: repeat(4, 233px);
+    }
 }
 @media (max-width: 992px) {
     .first-service,
@@ -1955,19 +1970,8 @@ a {
         margin-bottom: 40px;
         padding-bottom: 12px;
     }
-
-    .partner-wrapper:nth-child(8),
-    .partner-wrapper:nth-child(9) {
-        border-bottom: 0;
-    }
-    .partner-wrapper:nth-child(1),
-    .partner-wrapper:nth-child(4),
-    .partner-wrapper:nth-child(7) {
-        border-left: 1.5px solid #d2d2d4;
-    }
-    .partner-wrapper:nth-child(5),
-    .partner-wrapper:nth-child(6) {
-        border-bottom: 1.5px solid #d2d2d4;
+    .partners-grid {
+        grid-template-columns: repeat(3, 231px);
     }
     .l-border {
         border-left: 0;
@@ -2185,6 +2189,9 @@ a {
     .member-list .author-details{
         margin-left: 0;
     }
+    .partners-grid {
+        grid-template-columns: repeat(2, 257px);
+    }
 }
 @media (max-width: 576px) {
     .header-wrapper {
@@ -2237,7 +2244,16 @@ a {
     .author-dateails{
         margin-left: 23px
     }
+    .feedback-form{
+        width: 100%;
+    }
+    .partners-grid {
+        grid-template-columns: repeat(2, 225px);
+    }
 }
 @media (max-width: 500px) {
+    .partners-grid {
+        grid-template-columns: repeat(1, 381px);
+    }
 }
 /* MEDIA QUERIES END */

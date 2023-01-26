@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\PartnersController;
 use App\Http\Controllers\Admin\ProjectsController;
 use App\Http\Controllers\Admin\ServicesController;
 use App\Http\Controllers\Admin\SubservicesController;
+use App\Http\Controllers\Front\ArticleController;
 use App\Http\Controllers\Front\FrontController;
 use App\Http\Controllers\Front\PartnerController;
 use App\Http\Controllers\Front\ServiceController;
@@ -29,6 +30,7 @@ Route::get('contacts', [FrontController::class, 'contacts'])->name('contacts');
 Route::get('services/{slug}', [ServiceController::class, 'serviceView'])->name('services');
 Route::get('services/category/{slug}', [SubserviceController::class, 'subserviceView'])->name('category');
 Route::get('partners', [PartnerController::class, 'partners'])->name('partners');
+Route::get('articles', [ArticleController::class, 'articles'])->name('articles');
 
 Route::prefix('admin')->group(function (){
     Route::resource('services', ServicesController::class);
