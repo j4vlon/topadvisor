@@ -26,11 +26,11 @@
                         @foreach($subservices as $subservice)
                             <ul class="dropdown-list">
                                 <li class="dropdown-list-item dropdown-head">
-                                    <a href="{{ url($subservice->slug) }}" class="dropdown-link">{{ $subservice->title }}</a>
+                                    <a href="{{ route('category',$subservice->slug) }}" class="dropdown-link">{{ $subservice->title }}</a>
                                 </li>
                                 @foreach($subservice->projects as $project)
                                     <li class="dropdown-list-item">
-                                        <a href="" class="dropdown-link">{{ $project->title }}</a>
+                                        <a href="{{ route('project', $project->slug) }}" class="dropdown-link">{{ $project->title }}</a>
                                     </li>
                                 @endforeach
                             </ul>

@@ -5,14 +5,14 @@
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-12 d-flex no-block align-items-center">
-                <h4 class="page-title">Tables</h4>
+                <h4 class="page-title">Категории услуг</h4>
                 <div class="ms-auto text-end">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="#">админка</a></li>
                             <li class="breadcrumb-item"><i class="fas fa-chevron-right"></i></li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                Library
+                                категория услуг
                             </li>
                         </ol>
                     </nav>
@@ -34,7 +34,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Basic Datatable</h5>
+                        <h5 class="card-title">Категория услуг</h5>
                         <div class="table-responsive">
                             <table
                                 id="zero_config"
@@ -44,7 +44,7 @@
                                 <tr>
                                     <th>Название</th>
                                     <th>Описание</th>
-                                    <th>Картинка</th>
+{{--                                    <th>Картинка</th>--}}
                                     <th>Активность</th>
                                     <th>Дата добавления</th>
                                     <th>Изменить</th>
@@ -56,7 +56,7 @@
                                     <tr>
                                         <td>{{ $subservice->title }}</td>
                                         <td>{{ $subservice->descr }}</td>
-                                        <td>{{ $subservice->file_url }}</td>
+{{--                                        <td><img src="{{ $subservice->file_url }}" alt=""></td>--}}
                                         @if($subservice->is_active)
                                             <td>Услуга активна</td>
                                         @else
@@ -64,13 +64,13 @@
                                         @endif
 
                                         <td>{{ $subservice->created_at }}</td>
-                                        <td><a href="{{ route('subservices.edit', $subservice->id) }}" class="btn btn-primary" style="margin-bottom: 5px; width: 100%">Edit</a>
+                                        <td><a href="{{ route('subservices.edit', $subservice->id) }}" class="btn btn-primary" style="margin-bottom: 5px; width: 100%">Редактировать</a>
                                             <br>
                                             <form action="{{ route('subservices.destroy', $subservice->id) }}" method="post">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger" style="width: 100%">
-                                                    Delete
+                                                    Удалить
                                                 </button>
                                             </form>
                                         </td>

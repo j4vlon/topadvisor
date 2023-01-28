@@ -9,9 +9,10 @@
                 <div class="ms-auto text-end">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="#">админка</a></li>
+                            <li class="breadcrumb-item"><i class="fas fa-chevron-right"></i></li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                Library
+                                участники
                             </li>
                         </ol>
                     </nav>
@@ -26,76 +27,11 @@
     <!-- Container fluid  -->
     <!-- ============================================================== -->
     <div class="container-fluid">
-        {{--        <div class="row">--}}
-        {{--            <!-- Column -->--}}
-        {{--            <div class="col-md-6 col-lg-2 col-xlg-3">--}}
-        {{--                <a href="{{ route('products.create') }}">--}}
-        {{--                    <div class="card card-hover">--}}
-        {{--                        <div class="box bg-cyan text-center">--}}
-        {{--                            <h1 class="font-light text-white">--}}
-        {{--                                <i class="mdi mdi-view-dashboard"></i>--}}
-        {{--                            </h1>--}}
-        {{--                            <h6 class="text-white">Add product</h6>--}}
-        {{--                        </div>--}}
-        {{--                    </div>--}}
-        {{--                </a>--}}
-        {{--            </div>--}}
-        {{--            <div class="col-md-6 col-lg-2 col-xlg-3">--}}
-        {{--                <a href="{{ route('sales.index') }}">--}}
-        {{--                    <div class="card card-hover">--}}
-        {{--                        <div class="box bg-warning text-center">--}}
-        {{--                            <h1 class="font-light text-white">--}}
-        {{--                                <i class="mdi mdi-collage"></i>--}}
-        {{--                            </h1>--}}
-        {{--                            <h6 class="text-white">Sales</h6>--}}
-        {{--                        </div>--}}
-        {{--                    </div>--}}
-        {{--                </a>--}}
-        {{--            </div>--}}
-        {{--            <!-- Column -->--}}
-        {{--            <div class="col-md-6 col-lg-2 col-xlg-3">--}}
-        {{--                <a href="{{ route('stocks.index') }}">--}}
-        {{--                    <div class="card card-hover">--}}
-        {{--                        <div class="box bg-danger text-center">--}}
-        {{--                            <h1 class="font-light text-white">--}}
-        {{--                                <i class="mdi mdi-border-outside"></i>--}}
-        {{--                            </h1>--}}
-        {{--                            <h6 class="text-white">Stocks</h6>--}}
-        {{--                        </div>--}}
-        {{--                    </div>--}}
-        {{--                </a>--}}
-        {{--            </div>--}}
-        {{--            <!-- Column -->--}}
-        {{--            <div class="col-md-6 col-lg-2 col-xlg-3">--}}
-        {{--                <div class="card card-hover">--}}
-        {{--                    <div class="box bg-info text-center">--}}
-        {{--                        <h1 class="font-light text-white">--}}
-        {{--                            <i class="mdi mdi-arrow-all"></i>--}}
-        {{--                        </h1>--}}
-        {{--                        <h6 class="text-white">Featured</h6>--}}
-        {{--                    </div>--}}
-        {{--                </div>--}}
-        {{--            </div>--}}
-        {{--            <!-- Column -->--}}
-        {{--            <div class="col-md-6 col-lg-2 col-xlg-3">--}}
-        {{--                <div class="card card-hover">--}}
-        {{--                    <div class="box bg-info text-center">--}}
-        {{--                        <h1 class="font-light text-white">--}}
-        {{--                            <i class="mdi mdi-relative-scale"></i>--}}
-        {{--                        </h1>--}}
-        {{--                        <h6 class="text-white">Recommended</h6>--}}
-        {{--                    </div>--}}
-        {{--                </div>--}}
-        {{--            </div>--}}
-        {{--        </div>--}}
-        <!-- ============================================================== -->
-        <!-- Start Page Content -->
-        <!-- ============================================================== -->
         <div class="row">
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Product list</h5>
+                        <h5 class="card-title">Усатсники команды</h5>
                         <div class="table-responsive">
                             <table
                                 id="zero_config"

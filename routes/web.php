@@ -29,6 +29,7 @@ Route::get('projects', [ProjectController::class, 'projects'])->name('projects')
 Route::get('projects/{slug}', [ProjectController::class, 'project'])->name('project');
 Route::get('partners', [PartnerController::class, 'partners'])->name('partners');
 Route::get('articles', [ArticleController::class, 'articles'])->name('articles');
+Route::get('article/{slug}', [ArticleController::class, 'getArticle'])->name('article');
 Route::get('team', [TeamController::class, 'team'])->name('team');
 Route::get('team/{id}', [TeamController::class, 'member'])->name('member');
 Route::post('feedback', [ContactController::class, 'feedback'])->name('feedback');

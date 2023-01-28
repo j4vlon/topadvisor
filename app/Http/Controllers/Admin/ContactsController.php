@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin\Contact;
 use Illuminate\Http\Request;
 
 class ContactsController extends Controller
@@ -10,11 +11,12 @@ class ContactsController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function index()
     {
-        //
+        $contacts = Contact::all();
+        return view('admin.contacts.index', compact('contacts'));
     }
 
     /**
@@ -31,11 +33,17 @@ class ContactsController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
-        //
+        $feedback = new Contact();
+        $feedback->name = $request->name;
+        $feedback->company_name = $request->company_name;
+        $feedback->phone = $request->phone;
+        $feedback->is_active = 1;
+        $feedback->save();
+        return redirect()->back();
     }
 
     /**
@@ -53,11 +61,11 @@ class ContactsController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function edit($id)
+    public function edit(Contact $contact)
     {
-        //
+
     }
 
     /**
@@ -65,11 +73,11 @@ class ContactsController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Contact $contact)
     {
-        //
+
     }
 
     /**
@@ -78,8 +86,8 @@ class ContactsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Contact $contact)
     {
-        //
+        $contact->delete();
     }
 }

@@ -4,29 +4,29 @@
         <form class="form-horizontal" method="POST" action="{{ route('subservices.store') }}" enctype="multipart/form-data">
             @csrf
             <div class="card-body">
-                <h4 class="card-title">Добавить услугу</h4>
+                <h4 class="card-title">Добавить категорию услуги</h4>
                 <div class="form-group row">
-                    <label for="title" class="col-sm-3 text-end control-label col-form-label">Название услуги</label>
+                    <label for="title" class="col-sm-3 text-end control-label col-form-label">Название категории</label>
                     <div class="col-sm-9" style="margin-bottom: 20px">
                         @error('title')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
                         <input type="text" class="form-control" name="title" placeholder="Введите название услуги">
                     </div>
-                    <label for="file_url" class="col-sm-3 text-end control-label col-form-label">Фоновая картинка под услуги</label>
+                    <label for="file_url" class="col-sm-3 text-end control-label col-form-label">Фоновая картинка категории услуги</label>
                     <div class="col-sm-9" style="margin-bottom: 20px">
                         @error('file_url')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
                         <input type="file" name="file_url" class="form-control {{ $errors->has('file_url') ? 'is-invalid' : '' }}">
                     </div>
-                    <label for="specific" class="col-sm-3 text-end control-label col-form-label">Описание услуги</label>
+                    <label for="specific" class="col-sm-3 text-end control-label col-form-label">Описание категории услуги</label>
                     <div class="col-sm-9" style="margin-bottom: 20px">
                         @error('descr')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
                         <textarea class="form-control {{ $errors->has('descr') ? 'is-invalid' : '' }}" name="descr"
-                                  placeholder="Введите описание услуги"></textarea>
+                                  placeholder="Введите описание категории услуги"></textarea>
                     </div>
                     <label class="col-sm-3 text-end control-label col-form-label" for="car_id">Выберите услугу</label>
                     <div class="col-md-9" style="margin-bottom: 20px">
@@ -40,7 +40,7 @@
                         </select>
                     </div>
                     <div style="display: flex;align-items: center;">
-                        <label class="col-sm-3 text-end control-label col-form-label" for="is_active" style="padding-right: 20px;">Активна ли данная услуга</label>
+                        <label class="col-sm-3 text-end control-label col-form-label" for="is_active" style="padding-right: 20px;">Активна ли данная категории?</label>
                         <div class="col-md-9" style="margin-left: 5px;">
                             <div class="form-check mr-sm-2">
                                 @error('is_active')

@@ -9,9 +9,10 @@
                 <div class="ms-auto text-end">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="#">админка</a></li>
+                            <li class="breadcrumb-item"><i class="fas fa-chevron-right"></i></li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                Library
+                                статьи
                             </li>
                         </ol>
                     </nav>
@@ -30,7 +31,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title"><a class="card-title" href="{{ route('articles.create') }}">Добавить статью</a></h5>
+                        <h5 class="card-title">Все статьи</h5>
                         <div class="table-responsive">
                             <table
                                 id="zero_config"

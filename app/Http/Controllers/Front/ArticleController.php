@@ -12,4 +12,9 @@ class ArticleController extends Controller
         $articles = Article::with('member')->get();
         return view('front.articles', compact('articles'));
     }
+
+    public function getArticle($slug){
+        $article = Article::with('member')->where('slug', $slug)->first();
+        return view('front.article', compact('article'));
+    }
 }

@@ -67,6 +67,9 @@ a {
     letter-spacing: -0.01em;
     padding-left: 60px;
 }
+.call-back a {
+    border-bottom: none !important;
+}
 .dropdown-content-wrapper{
     display: none;
     position: absolute;

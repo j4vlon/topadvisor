@@ -14,7 +14,7 @@
         content="Matrix Admin Lite Free Version is powerful and clean admin dashboard template, inpired from Bootstrap Framework"
     />
     <meta name="robots" content="noindex,nofollow"/>
-    <title>Matrix Admin Lite Free Versions Template by WrapPixel</title>
+    <title>Админ панель - topadvisor</title>
     <!-- Favicon icon -->
     <link
         rel="icon"
@@ -177,10 +177,6 @@
                         <ul aria-expanded="false" class="collapse first-level">
                             <li class="sidebar-item">
                                 <a href="{{ route('contacts.index') }}" class="sidebar-link"><i class="fas fa-list"></i><span class="hide-menu"> Все обращения </span></a>
-                            </li>
-                            <li class="sidebar-item">
-                                <a href="{{ route('contacts.create') }}" class="sidebar-link"><i class="far fa-plus"></i><span
-                                        class="hide-menu"> Добавить обращение </span></a>
                             </li>
                         </ul>
                     </li>

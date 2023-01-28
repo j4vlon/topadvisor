@@ -83,7 +83,7 @@
                         </div>
                         <div class="article-info">
                             <div class="article-link">
-                                <a href="">раздел статьи</a>
+                                <a href="{{ route('article',$article->slug) }}">раздел статьи</a>
                             </div>
                             <div class="article-header">
                                 <h2>{{ $article->title }}</h2>

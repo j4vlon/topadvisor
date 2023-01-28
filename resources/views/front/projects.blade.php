@@ -58,7 +58,7 @@
                 <div class="info-list-item">
                     <div class="logo-img-area">
                         <img src="{{ $project->partner->file_url }}">
-                        <span>{{ $project->updated_at }}</span>
+                        <span>{{ date('d F, Y', strtotime($project->updated_at)) }}</span>
                     </div>
                     <div class="info-list-img-area">
                         <img src="{{ $project->project_img }}">

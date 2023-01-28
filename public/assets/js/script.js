@@ -25,15 +25,15 @@ $(document).ready(function() {
     //     $(this).toggleClass("article-news-txt");
     //     $(".article-news-p").toggleClass("un-active");
     //  });
-    $(window).scroll(function() {
-        if ($(document).scrollTop() > 200) {
-            $("header").addClass("header-bg");
-            $("header").removeClass("main-nav-header");
-        } else {
-            $("header").removeClass("header-bg");
-            $("header").addClass("main-nav-header");
-        }
-    });
+    // $(window).scroll(function() {
+    //     if ($(document).scrollTop() > 200) {
+    //         $("header").addClass("header-bg");
+    //         $("header").removeClass("main-nav-header");
+    //     } else {
+    //         $("header").removeClass("header-bg");
+    //         $("header").addClass("main-nav-header");
+    //     }
+    // });
 });
 
 // accordion start
