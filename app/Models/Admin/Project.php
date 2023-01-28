@@ -30,6 +30,10 @@ class Project extends Model
 
     public function subservice()
     {
-        return$this->belongsTo(Subservice::class);
+        return $this->belongsTo(Subservice::class);
+    }
+
+    public function member(){
+        return $this->belongsTo(Member::class);
     }
 }

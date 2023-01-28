@@ -566,6 +566,7 @@ a {
 .project-link {
     text-align: end;
     margin-bottom: 42px;
+    margin-top: 60px;
 }
 .block-header h2 {
     font-style: normal;
@@ -866,7 +867,7 @@ a {
     margin-bottom: 19px;
 }
 .article-txt span,
-.read-time span {
+.gray-txt span {
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
@@ -1328,6 +1329,7 @@ a {
 }
 .load-more {
     text-align: center;
+    margin-top: 80px;
 }
 
 .load-more a {
@@ -1375,7 +1377,7 @@ a {
     margin-bottom: 45px;
     display: block;
 }
-.info-box-img .read-time span {
+.info-box-img .gray-txt span {
     text-transform: unset;
     display: block;
     margin-bottom: 30px;
@@ -1394,6 +1396,7 @@ a {
 .img-box img {
     display: block;
     width: 100%;
+    object-fit: cover;
 }
 .title-box{
     display: flex;
@@ -1678,6 +1681,8 @@ a {
 }
 .info-list-img-area img{
     width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 .logo-img-area span{
     font-style: normal;

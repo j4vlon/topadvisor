@@ -52,10 +52,11 @@
                 <div class="col-xl-4 col-lg-6 col-md-6">
                     <div class="contact-form-wrapper">
                         <h3 class="box-title" style="margin-bottom: 48px">Напишите нам</h3>
-                        <form class="contact-form">
-                            <input type="" name="" class="contact-form-item" placeholder="Введите ваше имя">
-                            <input type="" name="" class="contact-form-item" placeholder="Введите вашу компанию">
-                            <input type="" name="" class="contact-form-item" placeholder="Введите ваш телефон">
+                        <form class="contact-form" action="{{ route('feedback') }}" method="POST">
+                            @csrf
+                            <input type="text" name="name" class="contact-form-item" placeholder="Введите ваше имя">
+                            <input type="text" name="company_name" class="contact-form-item" placeholder="Введите вашу компанию">
+                            <input type="text" name="phone" class="contact-form-item" placeholder="Введите ваш телефон">
                             <button class="more-btn" type="submit">
                                 <span>Оставить заявку</span><svg width="11" height="11" viewBox="0 0 11 11" fill="none"
                                                                  xmlns="http://www.w3.org/2000/svg">

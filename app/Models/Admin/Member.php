@@ -12,4 +12,8 @@ class Member extends Model
     public function articles(){
        return $this->hasMany(Article::class);
     }
+
+    public function projects(){
+        return $this->hasMany(Project::class);
+    }
 }

@@ -53,8 +53,8 @@
                                     <span>проектов</span>
                                 </div>
 
-                                <div class="collapsed" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
-                                     aria-expanded="false" aria-controls="flush-collapseOne">
+                                <div class="collapsed" data-bs-toggle="collapse" data-bs-target="#flush-collapse{{ $subservice->id }}"
+                                     aria-expanded="false" aria-controls="flush-collapse{{ $subservice->id }}">
                                     Подробнее
                                     <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M2 1H10M10 1V9M10 1L1 10" stroke="black" stroke-width="1.5" />
@@ -64,7 +64,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                <div id="flush-collapse{{ $subservice->id }}" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
                      data-bs-parent="#accordionFlushExample">
                     <div class="accordion-body">
                         <div class="row accordion-content">

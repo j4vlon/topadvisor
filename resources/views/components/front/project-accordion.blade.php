@@ -81,7 +81,7 @@
         </div>
         @endforeach
         <div class="project-link">
-            <a href="" class="more">Посмотреть все
+            <a href="{{ route('projects') }}" class="more">Посмотреть все
                 <span>
               <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M2 1H10M10 1V9M10 1L1 10" stroke="black" stroke-width="1.5"></path>

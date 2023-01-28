@@ -1,7 +1,66 @@
 @extends('layouts._layout')
 @section('content')
 @include('layouts.main-header')
-    @include('front.sections.info-block')
+<!-- INFO BLOCK START -->
+<div class="info-block">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-6 border-left">
+                <div class="info-blocks">
+                    <h3>27+</h3>
+                    <a href="" class="info-block-link">направлений<span>
+                  <svg width="11" height="12" viewBox="0 0 11 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 1.5H10M10 1.5V9.5M10 1.5L1 10.5" stroke="black" stroke-width="1.5" />
+                  </svg>
+                </span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-6 border-left">
+                <div class="info-blocks">
+                    <h3>398+</h3>
+                    <a href="" class="info-block-link">проектов сделано<span>
+                  <svg width="11" height="12" viewBox="0 0 11 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 1.5H10M10 1.5V9.5M10 1.5L1 10.5" stroke="black" stroke-width="1.5" />
+                  </svg>
+                </span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-6 border-left">
+                <div class="info-blocks">
+                    <h3>12+</h3>
+                    <a href="" class="info-block-link">сотрудников<span>
+                  <svg width="11" height="12" viewBox="0 0 11 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 1.5H10M10 1.5V9.5M10 1.5L1 10.5" stroke="black" stroke-width="1.5" />
+                  </svg>
+                </span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                <div class="info-blocks">
+                    <h3>412+</h3>
+                    <a href="" class="info-block-link">статей<span>
+                  <svg width="11" height="12" viewBox="0 0 11 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 1.5H10M10 1.5V9.5M10 1.5L1 10.5" stroke="black" stroke-width="1.5" />
+                  </svg>
+                </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="load-array">
+            <a href="">
+                <svg width="43" height="24" viewBox="0 0 43 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 1L21.5 22L42 1" stroke="#6B99C3" stroke-width="1.5" />
+                </svg>
+            </a>
+        </div>
+    </div>
+</div>
+<!-- INFO BLOCK END -->
+
 <!-- SERVICE BLOCK START -->
 <div class="container">
     <div class="service-block-header">
@@ -78,12 +137,12 @@
                 </svg>
             </div>
             <div class="feedback-wrapper">
-                <form action="" class="feedback-form" method="POST">
+                <form action="{{ route('feedback') }}" class="feedback-form" method="POST">
                     @csrf
-                    <input type="text" class="form_input" name="name" placeholder="Введите ваше имя" />
-                    <input type="text" class="form_input" name="company_name" placeholder="Введите вашу компанию" />
-                    <input type="text" class="form_input" name="phne" placeholder="Введите ваш телефон" />
-                    <button href="" class="more-btn" type="submit">
+                    <input type="text" class="form_input" name="name" placeholder="Введите ваше имя">
+                    <input type="text" class="form_input" name="company_name" placeholder="Введите вашу компанию">
+                    <input type="text" class="form_input" name="phone" placeholder="Введите ваш телефон">
+                    <button class="more-btn" type="submit">
                         <span>Оставить заявку</span><svg width="11" height="11" viewBox="0 0 11 11" fill="none"
                                                          xmlns="http://www.w3.org/2000/svg">
                             <path d="M2 1H10M10 1V9M10 1L1 10" stroke="white" stroke-width="1.5"></path>
@@ -117,7 +176,7 @@
             </div>
         </section>
         <div class="project-link">
-            <a href="" class="more">Посмотреть все
+            <a href="{{ route('articles') }}" class="more">Посмотреть все
                 <span>
               <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M2 1H10M10 1V9M10 1L1 10" stroke="black" stroke-width="1.5"></path>

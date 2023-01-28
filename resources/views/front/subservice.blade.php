@@ -35,7 +35,7 @@
                 </p>
             </div>
         </div>
-    </div>
+
     <div class="work-info-block">
         <div class="work-info-title">
             <div class="block-header">
@@ -46,7 +46,7 @@
         <div class="work-info-body">
             <div class="work-info-item">
                 <h3>01</h3>
-                <img src="images/ellipse.svg" alt="" />
+                <img src="{{ asset('assets/images/ellipse.svg') }}" alt="" />
                 <p>
                     Поможем оптимизировать бизнес-процессы, построить алгоритм
                     управления компанией. Эти услуги повысят эффективность работы
@@ -57,7 +57,7 @@
             </div>
             <div class="work-info-item">
                 <h3>02</h3>
-                <img src="images/ellipse.svg" alt="" />
+                <img src="{{ asset('assets/images/ellipse.svg') }}" alt="" />
                 <p>
                     Стратегическое планирование позволит увидеть, каким будет ваш
                     бизнес через несколько лет, определит точки роста и конкурентные
@@ -67,7 +67,7 @@
             <!-- <hr style="background: #6b99c3; transform: rotate(90deg)" /> -->
             <div class="work-info-item">
                 <h3>03</h3>
-                <img src="images/ellipse.svg" alt="" />
+                <img src="{{ asset('assets/images/ellipse.svg') }}" alt="" />
                 <p>
                     Стратегия развития — это ваша «дорожная карта» с конкретными,
                     измеримыми и достижимыми целями и задачами, следуя которой можно
@@ -76,7 +76,7 @@
             </div>
             <div class="work-info-item">
                 <h3>04</h3>
-                <img src="images/ellipse.svg" alt="" />
+                <img src="{{ asset('assets/images/ellipse.svg') }}" alt="" />
                 <p class="last-child">
                     Интернет-маркетинг включает в себя стратегию онлайн-продвижения,
                     привлечения и удержания клиентов, создание воронки
@@ -89,7 +89,7 @@
         </div>
     </div>
     </div>
-
+    </div>
     <div class="container">
         <div class="use-infoblock">
             <div class="block-header">
@@ -190,10 +190,11 @@
                     </svg>
                 </div>
                 <div class="feedback-wrapper">
-                    <form action="" class="feedback-form">
-                        <input type="text" class="form_input" name="name" placeholder="Введите ваше имя" />
-                        <input type="text" class="form_input" name="company_name" placeholder="Введите вашу компанию" />
-                        <input type="text" class="form_input" name="phone" placeholder="Введите ваш телефон" />
+                    <form action="{{ route('feedback') }}" class="feedback-form" method="POST">
+                        @csrf
+                        <input type="text" class="form_input" name="name" placeholder="Введите ваше имя">
+                        <input type="text" class="form_input" name="company_name" placeholder="Введите вашу компанию">
+                        <input type="text" class="form_input" name="phone" placeholder="Введите ваш телефон">
                         <button href="" class="more-btn" type="submit">
                             <span>Оставить заявку</span><svg width="11" height="11" viewBox="0 0 11 11" fill="none"
                                                              xmlns="http://www.w3.org/2000/svg">
