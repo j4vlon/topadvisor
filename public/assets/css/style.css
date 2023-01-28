@@ -35,6 +35,11 @@ body {
     margin: 0;
     overflow-x: hidden;
 }
+.alert{
+    margin-bottom: 0;
+    font-size: 14px;
+    text-align: center;
+}
 ul {
     list-style-type: none;
 }
@@ -53,7 +58,7 @@ a {
     );
     padding-bottom: 75px;
 }
-.nav-list-item {
+.nav-list-item, .call-back a {
     position: relative;
     font-style: normal;
     font-weight: 500;
@@ -125,7 +130,6 @@ a {
     transition: all 250ms ease-out;
     cursor: pointer;
 }
-
 .burger:before,
 .burger:after {
     content: "";
@@ -135,6 +139,10 @@ a {
     background: #fff;
     transition: all 250ms ease-out;
     will-change: transform;
+}
+.main-nav-header .burger:before, .main-nav-header
+.burger:after {
+    background: #000;
 }
 
 .burger:before {
@@ -154,10 +162,9 @@ a {
 .active.burger:after {
     transform: translateY(0) rotate(-45deg);
 }
-/* .top
-  {
-    height: 51px;
-  } */
+.hamburger{
+    display: none;
+}
 .header-navigation {
     display: flex;
     align-items: center;
@@ -170,6 +177,7 @@ a {
     margin-bottom: 0;
     padding: 0;
 }
+
 .hero {
     margin-top: 70px;
 }
@@ -563,7 +571,7 @@ a {
 .project-block {
     margin-bottom: 70px;
 }
-.project-link {
+.view-all {
     text-align: end;
     margin-bottom: 42px;
     margin-top: 60px;
@@ -631,7 +639,7 @@ a {
     margin-bottom: 62px;
 }
 
-.consulting-wrapepr {
+.consulting-wrapper {
     width: 100%;
     background: radial-gradient(
         56.06% 98.83% at 63.51% 50%,
@@ -879,7 +887,7 @@ a {
 .external-indentation {
     margin-bottom: 115px;
 }
-.articles-block .project-link {
+.articles-block .view-all {
     margin-bottom: 38px;
 }
 
@@ -929,7 +937,7 @@ a {
 .partners-wrapper .block-header h2 {
     margin-bottom: 50px;
 }
-.partners-wrapper .project-link {
+.partners-wrapper .view-all {
     margin-top: 11px;
     margin-bottom: 119px;
 }
@@ -1795,6 +1803,9 @@ a {
     }
 }
 @media (max-width: 1200px) {
+    .nav-list-item, .call-back a{
+        padding-left: 35px;
+    }
     .first-service,
     .second-service,
     .third-service,
@@ -1892,6 +1903,19 @@ a {
     }
 }
 @media (max-width: 992px) {
+    .header-navigation{
+        flex-wrap: wrap;
+    }
+    .un-active {
+        display: none;
+    }
+    .hamburger{
+        display: flex;
+    }
+    .navigation-list{
+        width: 100%;
+        flex-direction: column;
+    }
     .first-service,
     .second-service,
     .third-service,
@@ -1954,7 +1978,7 @@ a {
         align-items: center;
         justify-content: center;
     }
-    .consulting-wrapepr {
+    .consulting-wrapper {
         padding: 35px;
     }
     .consulting-header {

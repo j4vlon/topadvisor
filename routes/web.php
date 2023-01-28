@@ -1,12 +1,5 @@
 <?php
 
-use App\Http\Controllers\Admin\ArticlesController;
-use App\Http\Controllers\Admin\ContactsController;
-use App\Http\Controllers\Admin\MembersController;
-use App\Http\Controllers\Admin\PartnersController;
-use App\Http\Controllers\Admin\ProjectsController;
-use App\Http\Controllers\Admin\ServicesController;
-use App\Http\Controllers\Admin\SubservicesController;
 use App\Http\Controllers\Front\ArticleController;
 use App\Http\Controllers\Front\ContactController;
 use App\Http\Controllers\Front\FrontController;
@@ -40,14 +33,4 @@ Route::get('team', [TeamController::class, 'team'])->name('team');
 Route::get('team/{id}', [TeamController::class, 'member'])->name('member');
 Route::post('feedback', [ContactController::class, 'feedback'])->name('feedback');
 
-Route::prefix('admin')->group(function (){
-    Route::resource('services', ServicesController::class);
-    Route::resource('subservices', SubservicesController::class);
-    Route::resource('partners', PartnersController::class);
-    Route::resource('projects', ProjectsController::class);
-    Route::resource('members', MembersController::class);
-    Route::resource('articles', ArticlesController::class);
-    Route::resource('contacts', ContactsController::class);
-});
-
-
+require __DIR__.'/auth.php';

@@ -72,7 +72,7 @@
     <!-- Topbar header - style you can find in pages.scss -->
     <!-- ============================================================== -->
     <header class="topbar" data-navbarbg="skin5">
-        <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+        <nav class="navbar top-navbar navbar-dark" style="padding-right: 20px;">
             <div class="navbar-header" data-logobg="skin5">
                 <!-- ============================================================== -->
                 <!-- Logo -->
@@ -97,7 +97,19 @@
                 </a>
                 <!-- ============================================================== -->
                 <!-- End Logo -->
+
             </div>
+            @auth
+            <a class="login" href="{{ route('logout') }}"
+               onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                {{ __('Logout') }}
+            </a>
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+            </form>
+            @endauth
         </nav>
     </header>
     <!-- ============================================================== -->
@@ -106,6 +118,8 @@
     <!-- ============================================================== -->
     <!-- Left Sidebar - style you can find in sidebar.scss  -->
     <!-- ============================================================== -->
+
+        @auth
     <aside class="left-sidebar" data-sidebarbg="skin5">
         <!-- Sidebar scroll-->
         <div class="scroll-sidebar">
@@ -217,6 +231,8 @@
         </div>
         <!-- End Sidebar scroll-->
     </aside>
+    @else
+    @endauth
     <!-- ============================================================== -->
     <!-- End Left Sidebar - style you can find in sidebar.scss  -->
     <!-- ============================================================== -->
@@ -230,10 +246,10 @@
         <!-- ============================================================== -->
         <!-- footer -->
         <!-- ============================================================== -->
-        <footer class="footer text-center">
-            All Rights Reserved by Matrix-admin. Designed and Developed by
-            <a href="https://www.wrappixel.com">WrapPixel</a>.
-        </footer>
+{{--        <footer class="footer text-center">--}}
+{{--            All Rights Reserved by Matrix-admin. Designed and Developed by--}}
+{{--            <a href="https://www.wrappixel.com">WrapPixel</a>.--}}
+{{--        </footer>--}}
         <!-- ============================================================== -->
         <!-- End footer -->
         <!-- ============================================================== -->

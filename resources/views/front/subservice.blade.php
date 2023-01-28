@@ -179,7 +179,7 @@
     <x-front.project-accordion></x-front.project-accordion>
     <!-- FEEDBACK SECTION START -->
     <div class="container">
-        <div class="consulting-wrapepr">
+        <div class="consulting-wrapper">
             <div class="consulting-block">
                 <div class="consulting-header">
                     <h3>Заказать стратегическое<br />развитие компании</h3>
@@ -225,7 +225,7 @@
                     </div>
                 </div>
             </section>
-            <div class="project-link">
+            <div class="view-all">
                 <a href="" class="more">Посмотреть все
                     <span>
               <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">

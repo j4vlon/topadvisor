@@ -1,3 +1,9 @@
+<div class="alert alert-primary alert-dismissible fade show" role="alert">
+    <div class="container">
+        Сайт находится в стадии доработки и заполнения. Для консультации вы можете связаться с нашими специалистами по телефону +998 91 009 39 00
+    </div>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
 <header class="header header-wrapper">
     <nav class="container header-navigation">
         <a href="/" class="top">
@@ -14,7 +20,6 @@
             </svg>
         </a>
     <x-front.header-component></x-front.header-component>
-        <button class="burger" onclick="$('.burger').toggleClass('active un-active');"></button>
         </nav>
     <div class="container hero">
         <div class="hero-img">

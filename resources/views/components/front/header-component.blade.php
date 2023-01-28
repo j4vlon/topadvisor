@@ -1,3 +1,4 @@
+<button class="burger hamburger hamburger--collapse" onclick="$('.burger').toggleClass('active un-active');" id="nav-btn"></button>
 <ul class="navigation-list un-active">
             <li class="nav-list-item">
                 <a href="#">Услуги</a>
@@ -42,6 +43,11 @@
             </li>
             <li class="nav-list-item"><a href="{{ route('articles') }}">Статьи</a></li>
             <li class="nav-list-item"><a href="{{ route('contacts') }}">Контакты</a></li>
+            <li class="nav-list-item">
+                <div class="call-back">
+                    <a href="">+998 91 009 39 00</a>
+                </div>
+            </li>
         </ul>
 
 
