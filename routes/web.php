@@ -8,6 +8,7 @@ use App\Http\Controllers\Front\ProjectController;
 use App\Http\Controllers\Front\ServiceController;
 use App\Http\Controllers\Front\SubserviceController;
 use App\Http\Controllers\Front\TeamController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
