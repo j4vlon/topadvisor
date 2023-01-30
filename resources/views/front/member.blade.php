@@ -1,6 +1,6 @@
 @extends('layouts._layout')
 @section('content')
-    @include('layouts.header')
+    @include('front.header')
     <div class="container">
         <div class="team-member">
             <div class="row">
@@ -41,30 +41,31 @@
                             <div class="owl-stage"
                                  style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 3300px;">
                                 @foreach($member->articles as $articles)
-                                <div class="owl-item active" style="width: 306px; margin-right: 24px;">
-                                    <div class="single-box text-center">
-                                        <div class="author">
-                                            <div class="author-img">
-                                                <img alt="" class="img-fluid move-animation" src="{{ $member->file_url }}">
+                                    <div class="owl-item active" style="width: 306px; margin-right: 24px;">
+                                        <div class="single-box text-center">
+                                            <div class="author">
+                                                <div class="author-img">
+                                                    <img alt="" class="img-fluid move-animation"
+                                                         src="{{ $member->file_url }}">
+                                                </div>
+                                                <div class="author-dateails">
+                                                    <p class="">{{ $member->name }}</p>
+                                                    <span class="date">{{ $articles->created_at }}</span>
+                                                </div>
                                             </div>
-                                            <div class="author-dateails">
-                                                <p class="">{{ $member->name }}</p>
-                                                <span class="date">{{ $articles->created_at }}</span>
+                                            <div class="article-img">
+                                                <img src="{{ $articles->file_url }}" alt="">
                                             </div>
-                                        </div>
-                                        <div class="article-img">
-                                            <img src="{{ $articles->file_url }}" alt="">
-                                        </div>
-                                        <div class="article-info">
-                                            <div class="article-link">
-                                                <a href="">раздел статьи</a>
-                                            </div>
-                                            <div class="article-header">
-                                                <h2>{{ $articles->title }}</h2>
+                                            <div class="article-info">
+                                                <div class="article-link">
+                                                    <a href="">раздел статьи</a>
+                                                </div>
+                                                <div class="article-header">
+                                                    <h2>{{ $articles->title }}</h2>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
                                 @endforeach
                             </div>
                         </div>

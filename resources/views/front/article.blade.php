@@ -1,6 +1,6 @@
 @extends('layouts._layout')
 @section('content')
-    @include('layouts.header')
+    @include('front.header')
     <div class="container">
         <div class="wrapper-info-img page-info-img">
             <img src="{{ $article->file_url }}" alt=""/>

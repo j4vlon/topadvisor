@@ -5,14 +5,14 @@
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-12 d-flex no-block align-items-center">
-                <h4 class="page-title">Услуги</h4>
+                <h4 class="page-title">Разделы услуг</h4>
                 <div class="ms-auto text-end">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="">админка</a></li>
                             <li class="breadcrumb-item"><i class="fas fa-chevron-right"></i></li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                услуги
+                                разделы услуг
                             </li>
                         </ol>
                     </nav>

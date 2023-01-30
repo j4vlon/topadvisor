@@ -5,14 +5,14 @@
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-12 d-flex no-block align-items-center">
-                <h4 class="page-title">Категории услуг</h4>
+                <h4 class="page-title">Услуги</h4>
                 <div class="ms-auto text-end">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#">админка</a></li>
                             <li class="breadcrumb-item"><i class="fas fa-chevron-right"></i></li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                категория услуг
+                                услуги
                             </li>
                         </ol>
                     </nav>
@@ -34,7 +34,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Категория услуг</h5>
+                        <h5 class="card-title">Услуги</h5>
                         <div class="table-responsive">
                             <table
                                 id="zero_config"

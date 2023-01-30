@@ -4,9 +4,9 @@
         <form class="form-horizontal" method="POST" action="{{ route('services.store') }}">
             @csrf
             <div class="card-body">
-                <h4 class="card-title">Добавить услугу</h4>
+                <h4 class="card-title">Добавить раздел</h4>
                 <div class="form-group row">
-                    <label for="title" class="col-sm-3 text-end control-label col-form-label">Название услуги</label>
+                    <label for="title" class="col-sm-3 text-end control-label col-form-label">Название раздела</label>
                     <div class="col-sm-9" style="margin-bottom: 20px">
                         @error('title')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>

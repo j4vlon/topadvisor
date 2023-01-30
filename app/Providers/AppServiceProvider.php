@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Admin\Subservice;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,10 +20,12 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Bootstrap any application services.
      *
-     * @return void
+     * @return array
      */
     public function boot()
     {
-        //
+        view()->composer('front.header', function ($view){
+            $view->with('subservices', Subservice::with('projects', 'service')->get());
+        });
     }
 }

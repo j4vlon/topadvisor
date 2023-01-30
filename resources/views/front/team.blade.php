@@ -1,6 +1,6 @@
 @extends('layouts._layout')
 @section('content')
-    @include('layouts.header')
+    @include('front.header')
     <div class="container">
         <div class="block-header team-header">
             <h2>Команда</h2>
@@ -60,22 +60,22 @@
     <div class="container">
         <div class="member-list">
             @foreach($team as $member)
-            <div class="team-item">
-                <div class="team-item-img">
-                    <img src="{{ $member->file_url }}" alt="">
-                </div>
-                <div class="author-details">
-                    <h2>{{ $member->name }}</h2>
-                    <p>{{ $member->work_post }}</p>
-                    <a href="{{ route('member', $member->id) }}" class="more">Подробнее
-                        <span>
+                <div class="team-item">
+                    <div class="team-item-img">
+                        <img src="{{ $member->file_url }}" alt="">
+                    </div>
+                    <div class="author-details">
+                        <h2>{{ $member->name }}</h2>
+                        <p>{{ $member->work_post }}</p>
+                        <a href="{{ route('member', $member->id) }}" class="more">Подробнее
+                            <span>
                 <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M2 1H10M10 1V9M10 1L1 10" stroke="black" stroke-width="1.5"></path>
                 </svg>
               </span>
-                    </a>
+                        </a>
+                    </div>
                 </div>
-            </div>
             @endforeach
         </div>
     </div>

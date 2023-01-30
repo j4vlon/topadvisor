@@ -129,30 +129,30 @@
                     <li class="sidebar-item">
                         <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
                            aria-expanded="false"><span
-                                class="hide-menu">Услуги</span></a>
+                                class="hide-menu">Разделы услуг</span></a>
                         <ul aria-expanded="false" class="collapse first-level">
                             <li class="sidebar-item">
                                 <a href="{{ route('services.index') }}" class="sidebar-link"><i class="fas fa-list"></i><span
-                                        class="hide-menu"> Список услуг </span></a>
+                                        class="hide-menu"> Разделы услуг </span></a>
                             </li>
                             <li class="sidebar-item">
                                 <a href="{{ route('services.create') }}" class="sidebar-link"><i class="far fa-plus"></i><span
-                                        class="hide-menu"> Добавить услугу </span></a>
+                                        class="hide-menu"> Добавить раздел </span></a>
                             </li>
                         </ul>
                     </li>
                     <li class="sidebar-item">
                         <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
                            aria-expanded="false"><span
-                                class="hide-menu">Категории услуг</span></a>
+                                class="hide-menu">Услуги</span></a>
                         <ul aria-expanded="false" class="collapse first-level">
                             <li class="sidebar-item">
                                 <a href="{{ route('subservices.index') }}" class="sidebar-link"><i class="fas fa-list"></i><span
-                                        class="hide-menu"> Категория услуг </span></a>
+                                        class="hide-menu"> Список услуг </span></a>
                             </li>
                             <li class="sidebar-item">
                                 <a href="{{ route('subservices.create') }}" class="sidebar-link"><i class="far fa-plus"></i><span
-                                        class="hide-menu"> Добавить категорию </span></a>
+                                        class="hide-menu"> Добавить услугу </span></a>
                             </li>
                         </ul>
                     </li>

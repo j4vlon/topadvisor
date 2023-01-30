@@ -3,29 +3,30 @@
 {{--{{ $project->partner->title }}--}}
 @extends('layouts._layout')
 @section('content')
-    @include('layouts.header')
+    @include('front.header')
     <div class="container">
         <div class="bread-crumbs">
-        <span class="gray">проекты / {{ $subservice->service->title }} / {{ $project->subservice->title }}</span>
+            <span class="gray">проекты / {{ $subservice->service->title }} / {{ $project->subservice->title }}</span>
         </div>
         <div class="title-box">
             <h3 class="box-title">Создание и внедрение системы корпоративного бюджетирования группы</h3>
             <div class="img-box">
-                <img src="{{ $project->partner->file_url }}" alt="" />
+                <img src="{{ $project->partner->file_url }}" alt=""/>
             </div>
         </div>
         <div class="wrapper-info-img page-info-img">
-            <img src="{{ $project->project_img }}" alt="" />
+            <img src="{{ $project->project_img }}" alt=""/>
         </div>
         <div class="info-box">
             <div class="info-box-txt">
                 <h4>SMTH</h4>
                 <p>
-                     {!! nl2br(e($project->descr)) !!}
+                    {!! nl2br(e($project->descr)) !!}
                 </p>
                 <a href="">Оформление ссылок в статье
-                    <span><svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M2 1H10M10 1V9M10 1L1 10" stroke="#6B99C3" stroke-width="1.5" />
+                    <span><svg width="11" height="11" viewBox="0 0 11 11" fill="none"
+                               xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 1H10M10 1V9M10 1L1 10" stroke="#6B99C3" stroke-width="1.5"/>
               </svg> </span></a>
             </div>
             <div class="info-box-txt">
@@ -41,7 +42,7 @@
                     управление.
                 </p>
                 <div class="info-box-img">
-                    <img src="{{ $project->subservice->file_url }}" alt="" />
+                    <img src="{{ $project->subservice->file_url }}" alt=""/>
                     <div class="gray-txt">
                         <span>Фотограф: {{ $project->img_author }}</span>
                     </div>
@@ -73,8 +74,8 @@
                     <h3>Запишитесь <br>на консультацию</h3>
                     <svg width="31" height="38" viewBox="0 0 31 38" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
-                            d="M2.71673 0V6.21186H20.832C12.9073 10.1587 0 15.1484 0 26.1145C0 33.1785 5.58 38 13.3131 38C13.3469 38 24.9916 38 24.9916 38V32.1582H13.7527C7.89091 32.2254 6.448 28.7495 6.448 25.3408C6.448 17.2228 24.6985 10.5624 24.7549 10.54V25.4866H31V0H2.71673Z"
-                            fill="white"></path>
+                                d="M2.71673 0V6.21186H20.832C12.9073 10.1587 0 15.1484 0 26.1145C0 33.1785 5.58 38 13.3131 38C13.3469 38 24.9916 38 24.9916 38V32.1582H13.7527C7.89091 32.2254 6.448 28.7495 6.448 25.3408C6.448 17.2228 24.6985 10.5624 24.7549 10.54V25.4866H31V0H2.71673Z"
+                                fill="white"></path>
                     </svg>
                 </div>
                 <div class="feedback-wrapper">
@@ -84,8 +85,9 @@
                         <input type="text" class="form_input" name="company_name" placeholder="Введите вашу компанию">
                         <input type="text" class="form_input" name="phone" placeholder="Введите ваш телефон">
                         <button href="" class="more-btn" type="submit">
-                            <span>Оставить заявку</span><svg width="11" height="11" viewBox="0 0 11 11" fill="none"
-                                                             xmlns="http://www.w3.org/2000/svg">
+                            <span>Оставить заявку</span>
+                            <svg width="11" height="11" viewBox="0 0 11 11" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
                                 <path d="M2 1H10M10 1V9M10 1L1 10" stroke="white" stroke-width="1.5"></path>
                             </svg>
                         </button>
@@ -113,7 +115,7 @@
                                 <a href="">Стратегическое развитие компании</a>
                             </div>
                             <div class="article-img">
-                                <img src="images/logos/SevemlyTV.svg" alt="" />
+                                <img src="images/logos/SevemlyTV.svg" alt=""/>
                             </div>
                             <div class="article-info">
                                 <div class="article-header">
@@ -133,30 +135,7 @@
                                 <a href="">раздел статьи</a>
                             </div>
                             <div class="article-img">
-                                <img src="images/logos/accor.svg" alt="" />
-                            </div>
-                            <div class="article-info">
-                                <div class="article-link">
-                                    <a href="">раздел статьи</a>
-                                </div>
-                                <div class="article-header">
-                                    <h2>Автоматизация малого бизнеса</h2>
-                                </div>
-                                <!-- <div class="article-txt">
-                                    <p>
-                                      Стратегическое планирование позволит увидеть, каким будет
-                                      ваш бизнес через несколько лет.
-                                    </p>
-                                    <span>время чтения: 10 минут</span>
-                                  </div> -->
-                            </div>
-                        </div>
-                        <div class="single-box text-center">
-                            <div class="article-link">
-                                <a href="">раздел статьи</a>
-                            </div>
-                            <div class="article-img">
-                                <img src="images/logos/aloqabank.svg" alt="" />
+                                <img src="images/logos/accor.svg" alt=""/>
                             </div>
                             <div class="article-info">
                                 <div class="article-link">
@@ -179,7 +158,7 @@
                                 <a href="">раздел статьи</a>
                             </div>
                             <div class="article-img">
-                                <img src="images/logos/undp.svg" alt="" />
+                                <img src="images/logos/aloqabank.svg" alt=""/>
                             </div>
                             <div class="article-info">
                                 <div class="article-link">
@@ -202,7 +181,7 @@
                                 <a href="">раздел статьи</a>
                             </div>
                             <div class="article-img">
-                                <img src="images/logos/SevemlyTV.svg" alt="" />
+                                <img src="images/logos/undp.svg" alt=""/>
                             </div>
                             <div class="article-info">
                                 <div class="article-link">
@@ -225,7 +204,7 @@
                                 <a href="">раздел статьи</a>
                             </div>
                             <div class="article-img">
-                                <img src="images/logos/accor.svg" alt="" />
+                                <img src="images/logos/SevemlyTV.svg" alt=""/>
                             </div>
                             <div class="article-info">
                                 <div class="article-link">
@@ -248,7 +227,7 @@
                                 <a href="">раздел статьи</a>
                             </div>
                             <div class="article-img">
-                                <img src="images/logos/aloqabank.svg" alt="" />
+                                <img src="images/logos/accor.svg" alt=""/>
                             </div>
                             <div class="article-info">
                                 <div class="article-link">
@@ -271,7 +250,30 @@
                                 <a href="">раздел статьи</a>
                             </div>
                             <div class="article-img">
-                                <img src="images/logos/undp.svg" alt="" />
+                                <img src="images/logos/aloqabank.svg" alt=""/>
+                            </div>
+                            <div class="article-info">
+                                <div class="article-link">
+                                    <a href="">раздел статьи</a>
+                                </div>
+                                <div class="article-header">
+                                    <h2>Автоматизация малого бизнеса</h2>
+                                </div>
+                                <!-- <div class="article-txt">
+                                    <p>
+                                      Стратегическое планирование позволит увидеть, каким будет
+                                      ваш бизнес через несколько лет.
+                                    </p>
+                                    <span>время чтения: 10 минут</span>
+                                  </div> -->
+                            </div>
+                        </div>
+                        <div class="single-box text-center">
+                            <div class="article-link">
+                                <a href="">раздел статьи</a>
+                            </div>
+                            <div class="article-img">
+                                <img src="images/logos/undp.svg" alt=""/>
                             </div>
                             <div class="article-info">
                                 <div class="article-link">

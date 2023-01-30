@@ -1,6 +1,14 @@
 @extends('layouts._layout')
 @section('content')
-    @include('layouts.header')
+    <header class="header main-nav-header">
+        <nav class="container header-navigation">
+            <a href="/" class="top">
+                <img src="{{ asset('assets/images/logos/advisor-black.svg') }}" alt=""/>
+            </a>
+            @include('front.header')
+        </nav>
+    </header>
+
     <div class="container">
         <div class="block-header">
             <h2 style="margin-bottom: 67px">Партнеры</h2>

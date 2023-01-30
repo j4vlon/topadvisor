@@ -4,23 +4,23 @@
         <form class="form-horizontal" method="POST" action="{{ route('subservices.update', $subservice->id) }}" enctype="multipart/form-data">
             @csrf
             <div class="card-body">
-                <h4 class="card-title">Изменить категрию услуги</h4>
+                <h4 class="card-title">Изменить услугу</h4>
                 <div class="form-group row">
-                    <label for="title" class="col-sm-3 text-end control-label col-form-label">Название категории</label>
+                    <label for="title" class="col-sm-3 text-end control-label col-form-label">Название услуги</label>
                     <div class="col-sm-9" style="margin-bottom: 20px">
                         @error('title')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
                         <input type="text" class="form-control" name="title" placeholder="Введите название категории">
                     </div>
-                    <label for="file_url" class="col-sm-3 text-end control-label col-form-label">Фоновая картинка категории</label>
+                    <label for="file_url" class="col-sm-3 text-end control-label col-form-label">Фоновая картинка услуги</label>
                     <div class="col-sm-9" style="margin-bottom: 20px">
                         @error('file_url')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
                         <input type="file" name="file_url" class="form-control {{ $errors->has('file_url') ? 'is-invalid' : '' }}">
                     </div>
-                    <label for="specific" class="col-sm-3 text-end control-label col-form-label">Описание категории</label>
+                    <label for="specific" class="col-sm-3 text-end control-label col-form-label">Описание услуги</label>
                     <div class="col-sm-9" style="margin-bottom: 20px">
                         @error('descr')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -28,7 +28,7 @@
                         <textarea class="form-control {{ $errors->has('descr') ? 'is-invalid' : '' }}" name="descr"
                                   placeholder="Введите описание категории"></textarea>
                     </div>
-                    <label class="col-sm-3 text-end control-label col-form-label" for="car_id">Выберите услугу</label>
+                    <label class="col-sm-3 text-end control-label col-form-label" for="car_id">Выберите раздел</label>
                     <div class="col-md-9" style="margin-bottom: 20px">
                         @error('car_id')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
