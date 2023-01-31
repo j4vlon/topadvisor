@@ -26,8 +26,9 @@
                         @error('descr')
                         <div class=work_post>{{ $message }}</div>
                         @enderror
-                        <textarea class="form-control {{ $errors->has('descr') ? 'is-invalid' : '' }}" name="descr"
-                                  placeholder="Описание статьи"></textarea>
+                       <textarea class="form-control {{ $errors->has('descr') ? 'is-invalid' : '' }}" id="descr" name="descr"
+                                 ></textarea>
+
                     </div>
                     <label class="col-sm-3 text-end control-label col-form-label" for="car_id">Выберите автора статьи</label>
                     <div class="col-md-9" style="margin-bottom: 20px">
@@ -62,3 +63,26 @@
         </form>
     </div>
 @endsection
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('plugins/summernote/summernote-lite.css') }}">
+@endpush
+@push('scripts')
+    <script src="{{ asset('/plugins/summernote/summernote-lite.js') }}"></script>
+
+    <script>
+        $('#descr').summernote({
+            placeholder: 'Hello Bootstrap 5',
+            tabsize: 2,
+            height: 100,
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'underline', 'clear']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']]
+            ]
+        });
+    </script>
+@endpush

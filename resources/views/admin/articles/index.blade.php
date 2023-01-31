@@ -52,7 +52,7 @@
                                         <td>{{ $article->title }}</td>
                                         <td>{{ $article->member->name }}</td>
                                         <td>{{ $article->descr_title }}</td>
-                                        <td>{{ $article->descr }}</td>
+                                        <td>{!! nl2br(e($article->descr)) !!}</td>
                                         <td>
                                             <a href="{{ route('articles.edit', $article->id) }}" class="btn btn-primary" style="margin-bottom: 5px; width: 100%">Edit</a>
                                             <br>

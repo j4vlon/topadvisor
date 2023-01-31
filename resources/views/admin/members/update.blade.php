@@ -38,8 +38,8 @@
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
                         <input type="file" name="file_url" onchange="changeImg(event)"
-                               value="{{ $project->file_url }}" class="form-control {{ $errors->has('file_url') ? 'is-invalid' : '' }}">
-                        <img src="{{ $project->project_img }}" width="300px" class="change-img">
+                               value="{{ $member->file_url }}" class="form-control {{ $errors->has('file_url') ? 'is-invalid' : '' }}">
+                        <img src="{{ $member->file_url }}" width="300px" class="change-img">
                     </div>
                 </div>
             </div>
@@ -53,3 +53,4 @@
         </form>
     </div>
 @endsection
+
