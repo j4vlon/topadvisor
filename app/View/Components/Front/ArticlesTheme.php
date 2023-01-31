@@ -1,16 +1,14 @@
 <?php
 
-namespace App\View\Components\front;
+namespace App\View\Components\Front;
 
-use App\Models\Admin\Member;
-use Illuminate\Support\Collection;
+use App\Models\Admin\Article;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\View\Component;
 
-
-class TeamCarousel extends Component
+class ArticlesTheme extends Component
 {
-    public Collection $members;
-
+    public Collection $articles;
     /**
      * Create a new component instance.
      *
@@ -18,7 +16,7 @@ class TeamCarousel extends Component
      */
     public function __construct()
     {
-        $this->members = Member::all();
+        $this->articles = Article::with('member')->get();
     }
 
     /**
@@ -29,6 +27,6 @@ class TeamCarousel extends Component
     public function render()
     {
 
-        return view('components.front.team-carousel');
+        return view('components.front.articles-theme');
     }
 }

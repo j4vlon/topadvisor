@@ -80,6 +80,7 @@
             </div>
         </div>
         @endforeach
+
         <div class="view-all">
             <a href="{{ route('projects') }}" class="more">Посмотреть все
                 <span>

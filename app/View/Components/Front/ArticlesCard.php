@@ -1,14 +1,14 @@
 <?php
 
-namespace App\View\Components\front;
+namespace App\View\Components\Front;
 
-use App\Models\Admin\Project;
+use App\Models\Admin\Article;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\View\Component;
 
-class projectAccordion extends Component
+class ArticlesCard extends Component
 {
-    public Collection $projects;
+    public Collection $articles;
     /**
      * Create a new component instance.
      *
@@ -16,7 +16,7 @@ class projectAccordion extends Component
      */
     public function __construct()
     {
-        $this->projects = Project::with('subservice', 'partner')->orderByDesc('id')->limit(4)->get();
+        $this->articles = Article::with('member')->get();
     }
 
     /**
@@ -26,6 +26,6 @@ class projectAccordion extends Component
      */
     public function render()
     {
-        return view('components.front.project-accordion');
+        return view('components.front.articles-card');
     }
 }
