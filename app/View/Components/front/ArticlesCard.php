@@ -3,10 +3,12 @@
 namespace App\View\Components\front;
 
 use App\Models\Admin\Article;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\View\Component;
 
 class ArticlesCard extends Component
 {
+    public Collection $articles;
     /**
      * Create a new component instance.
      *
@@ -14,7 +16,7 @@ class ArticlesCard extends Component
      */
     public function __construct()
     {
-        //
+        $this->articles = Article::with('member')->get();
     }
 
     /**
@@ -24,7 +26,6 @@ class ArticlesCard extends Component
      */
     public function render()
     {
-        $articles = Article::with('member')->get();
-        return view('components.front.articles-card', compact('articles'));
+        return view('components.front.articles-card');
     }
 }

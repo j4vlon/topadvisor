@@ -3,10 +3,14 @@
 namespace App\View\Components\front;
 
 use App\Models\Admin\Member;
+use Illuminate\Support\Collection;
 use Illuminate\View\Component;
+
 
 class TeamCarousel extends Component
 {
+    public Collection $members;
+
     /**
      * Create a new component instance.
      *
@@ -14,7 +18,7 @@ class TeamCarousel extends Component
      */
     public function __construct()
     {
-        //
+        $this->members = Member::all();
     }
 
     /**
@@ -24,7 +28,7 @@ class TeamCarousel extends Component
      */
     public function render()
     {
-        $members = Member::all();
-        return view('components.front.team-carousel', compact('members'));
+
+        return view('components.front.team-carousel');
     }
 }

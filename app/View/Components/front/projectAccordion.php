@@ -3,10 +3,12 @@
 namespace App\View\Components\front;
 
 use App\Models\Admin\Project;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\View\Component;
 
 class projectAccordion extends Component
 {
+    public Collection $projects;
     /**
      * Create a new component instance.
      *
@@ -14,7 +16,7 @@ class projectAccordion extends Component
      */
     public function __construct()
     {
-        //
+        $this->projects = Project::with('subservice', 'partner')->orderByDesc('id')->limit(4)->get();
     }
 
     /**
@@ -24,7 +26,6 @@ class projectAccordion extends Component
      */
     public function render()
     {
-        $projects = Project::with('subservice', 'partner')->orderByDesc('id')->limit(4)->get();
-        return view('components.front.project-accordion', compact('projects'));
+        return view('components.front.project-accordion');
     }
 }
