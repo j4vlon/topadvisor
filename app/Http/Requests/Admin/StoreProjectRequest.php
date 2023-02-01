@@ -28,8 +28,10 @@ class StoreProjectRequest extends FormRequest
             'subservice_id' => 'required',
             'title' => 'required',
             'descr' => 'required',
+            'descr2' => 'required',
             'img_author' => 'required',
             'project_img' => ['mimes:jpg,png,jpeg,svg','required'],
+            'descr_img' => ['mimes:jpg,png,jpeg,svg','required'],
         ];
     }
 }

@@ -28,7 +28,9 @@ class StoreArticleRequest extends FormRequest
             'member_id' => 'required',
             'descr_title' => 'required',
             'descr' => 'required',
+            'descr2' => 'required',
             'file_url' => ['mimes:jpg,png,jpeg,svg','required'],
+            'descr_img' => ['mimes:jpg,png,jpeg,svg','required'],
         ];
     }
 }

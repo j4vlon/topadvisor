@@ -56,6 +56,7 @@ class ArticlesController extends Controller
             $path = $request->descr_img->store('uploads', 'public');
             $article->descr_img = '/storage/'.$path;
         }
+        $article->img_author = $request->img_author;
         $article->save();
         return redirect()->back();
     }
@@ -96,8 +97,9 @@ class ArticlesController extends Controller
         $article->descr_title = $request->descr_title;
         $article->descr2 = $request->descr2;
         $article->descr = $request->descr;
+        $article->img_author = $request->img_author;
         $article->default_txt = $request->default_txt;
-        $article->member_id = $request->member_id;
+
         if ($request->hasFile('file_url')){
             $path = $request->file_url->store('uploads', 'public');
             $article->file_url = '/storage/'.$path;
@@ -106,6 +108,7 @@ class ArticlesController extends Controller
             $path = $request->descr_img->store('uploads', 'public');
             $article->descr_img = '/storage/'.$path;
         }
+        $article->member_id = $request->member_id;
         $article->update();
         return redirect()->back();
     }
