@@ -42,7 +42,6 @@
                                     <th>Название</th>
                                     <th>Автор</th>
                                     <th>Заголовок</th>
-                                    <th>Описание</th>
                                     <th>Изменить</th>
                                 </tr>
                                 </thead>
@@ -52,7 +51,6 @@
                                         <td>{{ $article->title }}</td>
                                         <td>{{ $article->member->name }}</td>
                                         <td>{{ $article->descr_title }}</td>
-                                        <td>{!! $article->descr !!}</td>
                                         <td>
                                             <a href="{{ route('articles.edit', $article->id) }}" class="btn btn-primary" style="margin-bottom: 5px; width: 100%">Edit</a>
                                             <br>

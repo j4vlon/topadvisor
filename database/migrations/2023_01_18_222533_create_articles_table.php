@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('descr_title');
             $table->longText('descr');
             $table->longText('descr2');
+            $table->longText('default_txt');
             $table->string('file_url');
             $table->string('descr_img');
             $table->timestamps();
