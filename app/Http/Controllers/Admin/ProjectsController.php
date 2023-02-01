@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreProjectRequest;
 use App\Http\Requests\Admin\UpdatePartnerRequest;
 use App\Http\Requests\Admin\UpdateProjectRequest;
+use App\Models\Admin\Member;
 use App\Models\Admin\Partner;
 use App\Models\Admin\Project;
 use App\Models\Admin\Subservice;
@@ -20,7 +21,7 @@ class ProjectsController extends Controller
      */
     public function index()
     {
-        $projects = Project::with('subservice', 'partner')->get();
+        $projects = Project::with('subservice', 'partner', 'member')->get();
         return view('admin.projects.index', compact('projects'));
     }
 
@@ -32,8 +33,9 @@ class ProjectsController extends Controller
     public function create()
     {
         $partners = Partner::all();
+        $members = Member::all();
         $subservices = Subservice::with('service')->get();
-        return view('admin.projects.create', compact('partners', 'subservices'));
+        return view('admin.projects.create', compact('partners', 'subservices', 'members'));
     }
 
     /**
@@ -47,12 +49,19 @@ class ProjectsController extends Controller
         $project = new Project();
         $project->partner_id = $request->partner_id;
         $project->subservice_id = $request->subservice_id;
+        $project->member_id = $request->member_id;
         $project->title = $request->title;
         $project->descr = $request->descr;
+        $project->descr2 = $request->descr2;
+        $project->default_txt = $request->default_txt;
         $project->img_author = $request->img_author;
         if ($request->hasFile('project_img')){
             $path = $request->project_img->store('uploads', 'public');
             $project->project_img = '/storage/'.$path;
+        }
+        if ($request->hasFile('descr_img')){
+            $path = $request->descr_img->store('uploads', 'public');
+            $project->descr_img = '/storage/'.$path;
         }
         $project->save();
         return redirect()->back();
@@ -78,8 +87,9 @@ class ProjectsController extends Controller
     public function edit(Project $project)
     {
         $partners = Partner::all();
+        $members = Member::all();
         $subservices = Subservice::with('service')->get();
-        return view('admin.projects.update', compact('partners', 'subservices', 'project'));
+        return view('admin.projects.update', compact('partners', 'subservices', 'project', 'members'));
     }
 
     /**
@@ -87,18 +97,25 @@ class ProjectsController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
         $project->partner_id = $request->partner_id;
         $project->subservice_id = $request->subservice_id;
+        $project->member_id = $request->member_id;
         $project->title = $request->title;
         $project->descr = $request->descr;
+        $project->descr2 = $request->descr2;
+        $project->default_txt = $request->default_txt;
         $project->img_author = $request->img_author;
         if ($request->hasFile('project_img')){
             $path = $request->project_img->store('uploads', 'public');
             $project->project_img = '/storage/'.$path;
+        }
+        if ($request->hasFile('descr_img')){
+            $path = $request->descr_img->store('uploads', 'public');
+            $project->descr_img = '/storage/'.$path;
         }
         $project->update();
         return redirect()->back();

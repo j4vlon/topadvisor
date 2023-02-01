@@ -44,7 +44,7 @@
                                     <th>Название</th>
                                     <th>Услуги</th>
                                     <th>Партнеры</th>
-                                    <th>Описание проекта</th>
+                                    <th>Менеджер проекта</th>
                                     <th>Изменить</th>
                                 </tr>
                                 </thead>
@@ -54,7 +54,7 @@
                                         <td>{{ $project->title }}</td>
                                         <td>{{ $project->subservice->title }}</td>
                                         <td>{{ $project->partner->title }}</td>
-                                        <td>{{ $project->descr }}</td>
+                                        <td>{{ $project->member->name }}</td>
                                         <td>
                                             <a href="{{ route('projects.edit', $project->id) }}" class="btn btn-primary" style="margin-bottom: 5px; width: 100%">Редактировать</a>
                                             <br>

@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('slug');
             $table->longText('descr');
             $table->longText('descr2')->nullable();
+            $table->longText('default_txt')->nullable();
             $table->string('project_img');
             $table->string('descr_img');
             $table->string('img_author');

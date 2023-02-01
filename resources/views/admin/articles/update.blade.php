@@ -6,29 +6,56 @@
             @csrf
             @method('PUT')
             <div class="card-body">
-                <h4 class="card-title">Изменить статью</h4>
+                <h4 class="card-title">Добавить статью</h4>
                 <div class="form-group row">
                     <label for="title" class="col-sm-3 text-end control-label col-form-label">Название статьи</label>
                     <div class="col-sm-9" style="margin-bottom: 20px">
                         @error('title')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
-                        <input type="text" class="form-control" name="title" value="{{ $article->title }}" placeholder="Название статьи">
+                        <input type="text" class="form-control" name="title" placeholder="Название статьи" value="{{ $article->title }}">
+                    </div>
+                    <label for="file_url" class="col-sm-3 text-end control-label col-form-label">Загрузите
+                        баннер</label>
+                    <div class="col-sm-9" style="margin-bottom: 20px">
+                        @error('file_url')
+                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                        @enderror
+                        <input type="file" name="file_url" onchange="changeImg(event)"
+                               value="{{ $article->file_url }}" class="form-control {{ $errors->has('file_url') ? 'is-invalid' : '' }}">
+                        <img width="300px" class="change-img" src="{{ $article->file_url }}">
+                    </div>
+                    <label for="descr" class="col-sm-3 text-end control-label col-form-label">Описание статьи</label>
+                    <div class="col-sm-9" style="margin-bottom: 20px">
+                        @error('descr')
+                        <div class=work_post>{{ $message }}</div>
+                        @enderror
+                        <textarea class="form-control {{ $errors->has('descr') ? 'is-invalid' : '' }}" id="descr" name="descr"
+                        >{!! $article->descr !!}</textarea>
                     </div>
                     <label for="descr" class="col-sm-3 text-end control-label col-form-label">Заголовок статьи</label>
                     <div class="col-sm-9" style="margin-bottom: 20px">
                         @error('descr_title')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
-                        <input type="text" class="form-control" name="descr_title" value="{{ $article->descr_title }}" placeholder="Заголовок статьи">
+                        <input type="text" class="form-control" name="descr_title" placeholder="Заголовок статьи" value="{{ $article->descr_title }}">
                     </div>
-                    <label for="descr" class="col-sm-3 text-end control-label col-form-label">Описание статьи</label>
+                    <label for="descr2" class="col-sm-3 text-end control-label col-form-label">Описание статьи</label>
                     <div class="col-sm-9" style="margin-bottom: 20px">
-                        @error('descr')
+                        @error('descr2')
+                        <div class=work_post>{{ $message }}</div>
+                        @enderror
+                        <textarea class="form-control {{ $errors->has('descr2') ? 'is-invalid' : '' }}" id="descr2" name="descr2"
+                        >{!! $article->descr2 !!}</textarea>                    </div>
+                    <label for="file_url" class="col-sm-3 text-end control-label col-form-label">Загрузите
+                        картинку статьи</label>
+                    <div class="col-sm-9" style="margin-bottom: 20px">
+                        @error('descr_img')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
-                        <textarea class="form-control {{ $errors->has('descr') ? 'is-invalid' : '' }}" id="descr" name="descr"
-                        >{{ $article->descr }}</textarea>
+                        <input type="file" name="descr_img" onchange="changeImgDescr(event)"
+                               value="{{ $article->descr_img }}" class="form-control {{ $errors->has('descr_img') ? 'is-invalid' : '' }}">
+                        <img width="300px" class="change-img-descr" src="{{ $article->descr_img }}">
                     </div>
                     <label class="col-sm-3 text-end control-label col-form-label" for="car_id">Выберите автора статьи</label>
                     <div class="col-md-9" style="margin-bottom: 20px">
@@ -41,15 +68,13 @@
                             @endforeach
                         </select>
                     </div>
-                    <label for="file_url" class="col-sm-3 text-end control-label col-form-label">Загрузите
-                        картинку</label>
+                    <label for="default_txt" class="col-sm-3 text-end control-label col-form-label">Описание статьи</label>
                     <div class="col-sm-9" style="margin-bottom: 20px">
-                        @error('file_url')
-                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                        @error('default_txt')
+                        <div class=work_post>{{ $message }}</div>
                         @enderror
-                        <input type="file" name="file_url" onchange="changeImg(event)"
-                               value="{{ $article->file_url }}" class="form-control {{ $errors->has('file_url') ? 'is-invalid' : '' }}">
-                        <img width="300px" class="change-img" src="{{ $article->file_url }}">
+                        <textarea class="form-control {{ $errors->has('default_txt') ? 'is-invalid' : '' }}" id="default_txt" name="default_txt"
+                        >{!! $article->default_txt !!}</textarea>
                     </div>
                 </div>
             </div>
@@ -71,7 +96,21 @@
 
     <script>
         $('#descr').summernote({
-            placeholder: 'Hello Bootstrap 5',
+            placeholder: 'Введите описание',
+            tabsize: 2,
+            height: 100,
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['Inter','bold', 'underline', 'clear']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']]
+            ]
+        });
+        $('#descr2').summernote({
+            placeholder: 'Введите описание',
             tabsize: 2,
             height: 100,
             toolbar: [

@@ -94,11 +94,17 @@ class ArticlesController extends Controller
     {
         $article->title = $request->title;
         $article->descr_title = $request->descr_title;
+        $article->descr2 = $request->descr2;
         $article->descr = $request->descr;
+        $article->default_txt = $request->default_txt;
         $article->member_id = $request->member_id;
         if ($request->hasFile('file_url')){
             $path = $request->file_url->store('uploads', 'public');
             $article->file_url = '/storage/'.$path;
+        }
+        if ($request->hasFile('descr_img')){
+            $path = $request->descr_img->store('uploads', 'public');
+            $article->descr_img = '/storage/'.$path;
         }
         $article->update();
         return redirect()->back();

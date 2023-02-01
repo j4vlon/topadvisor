@@ -123,6 +123,5 @@
                 ['view', ['fullscreen', 'codeview', 'help']]
             ]
         });
-
     </script>
 @endpush

@@ -26,7 +26,9 @@ class StoreMembersRequest extends FormRequest
         return [
             'name' => 'required',
             'descr' => 'required',
+            'descr2' => 'required',
             'work_post' => 'required',
+            'member_id' => 'required',
             'file_url' => ['mimes:jpg,svg,png,jpeg', 'required']
         ];
     }

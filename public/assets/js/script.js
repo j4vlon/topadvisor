@@ -103,3 +103,36 @@ $(".owl-carousel").owlCarousel({
     },
   },
 });
+
+$(document).ready(function() {
+    let count = $('.results').length,
+        start = 6,
+        show = 6;
+
+    $('.results').addClass('d-none');
+    $('.results:lt(' + start + ')').removeClass('d-none');
+
+    $('.show-more').click(function(e) {
+        e.preventDefault();
+
+        let load = $(this).data('load'),
+            more = $(this).data('more');
+
+        start = (start + show <= count) ? start + show : count;
+
+        $(this).text(load);
+
+        setTimeout(() => {
+
+            $('.results:lt(' + start + ')').removeClass('d-none');
+
+            if ($('.results:not(.d-none)').length == count) {
+                $(this).parent().remove();
+            }
+
+            $(this).text(more);
+        }, 1000);
+
+    });
+
+});

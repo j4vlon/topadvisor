@@ -43,8 +43,6 @@
                                 <thead>
                                 <tr>
                                     <th>Название</th>
-                                    <th>Описание</th>
-{{--                                    <th>Картинка</th>--}}
                                     <th>Активность</th>
                                     <th>Дата добавления</th>
                                     <th>Изменить</th>
@@ -55,8 +53,7 @@
                                 @foreach($subservices as $subservice)
                                     <tr>
                                         <td>{{ $subservice->title }}</td>
-                                        <td>{{ $subservice->descr }}</td>
-{{--                                        <td><img src="{{ $subservice->file_url }}" alt=""></td>--}}
+
                                         @if($subservice->is_active)
                                             <td>Услуга активна</td>
                                         @else

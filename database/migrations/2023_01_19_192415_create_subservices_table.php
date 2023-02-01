@@ -17,9 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->longText('descr');
-            $table->string('step_count')->nullable();
-            $table->string('steps');
-            $table->string('default_txt');
+            $table->string('descr_title');
+            $table->text('default_txt');
             $table->string('slug')->unique();
             $table->string('file_url');
             $table->foreignIdFor(\App\Models\Admin\Service::class);

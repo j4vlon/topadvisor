@@ -95,6 +95,7 @@
                         </div>
                     </div>
                 </div>
+                @foreach($member->projects as $project)
                 <div class="testimonial-box single-box-area">
                     <div class="articles-slider owl-carousel owl-loaded owl-drag">
                         <div class="owl-stage-outer project-owl-area">
@@ -103,10 +104,10 @@
                                 <div class="owl-item">
                                     <div class="single-box text-center">
                                         <div class="article-link">
-                                            <a href="">Стратегическое развитие компании</a>
+                                            <a href="">{{ $project->title }}</a>
                                         </div>
                                         <div class="article-img">
-                                            <img src="images/logos/SevemlyTV.svg" alt="">
+                                            <img src="{{ $project->project_img }}" alt="">
                                         </div>
                                         <div class="article-info">
                                             <div class="article-header">
@@ -120,8 +121,18 @@
                         <div class="owl-dots disabled"></div>
                     </div>
                 </div>
+                @endforeach
             </section>
 
         </div>
+    </div>
+    <div class="view-all text-center">
+        <a href="{{ route('team') }}" class="more" style="color:#6B99C3">Другие члены команды
+            <span>
+              <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 1H10M10 1V9M10 1L1 10" stroke="#6B99C3" stroke-width="1.5"/>
+              </svg>
+            </span>
+        </a>
     </div>
 @endsection

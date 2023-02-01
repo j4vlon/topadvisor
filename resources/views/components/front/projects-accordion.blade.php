@@ -68,7 +68,7 @@
                     <div class="col-xl-4 col-lg-4 col-md-12 project-info-list">
                         <div class="info-list-txt">
                             <p>
-                                {{ $truncated = Str::of($project->descr)->limit(100) }}
+                                {{ $truncated = Str::of($project->default_txt)->limit(100) }}
                             </p>
                         </div>
                     </div>

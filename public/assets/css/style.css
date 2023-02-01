@@ -634,9 +634,13 @@ a {
 .project-info-list {
     display: flex;
     align-items: flex-end;
+    justify-content: end;
 }
 .info-list-img {
-    padding-left: 128px;
+    width: 245px;
+}
+.info-list-img img{
+    width: 100%;
 }
 .team-section {
     margin-bottom: 62px;
@@ -729,6 +733,11 @@ a {
 }
 .img-area {
     margin-bottom: 23px;
+    width: 240px;
+    height: 240px;
+}
+.owl-carousel .owl-item img{
+    height: 100%;
 }
 .owl-nav {
     position: absolute;
@@ -1608,6 +1617,7 @@ a {
 .team-item:nth-child(1){
     border-top: 1.5px solid black;
 }
+
 .member-list{
     margin-bottom: 128px;
 }
@@ -1618,6 +1628,26 @@ a {
     padding: 26px 17px 26px 20px;
     border-bottom: 1.5px solid black;
 }
+.team-item-img{
+    width: 240px;
+    height: 240px;
+}
+.team-item-img img{
+    width: 100%;
+    border-radius: 100%;
+    height: 100%;
+}
+.img-flex{
+    width: 224px;
+    height: 175px;
+}
+.img-flex img{
+    width: 100%;
+    border-radius: 100%;
+    height: 100%;
+    display: block;
+}
+
 .member-list .author-details{
     display: flex;
     flex-direction: row;
@@ -1686,6 +1716,9 @@ a {
     width: 230px;
     justify-content: space-between;
     align-items: flex-start;
+}
+.logo-img-area img{
+    width: 100%;
 }
 .info-list-img-area{
     width: 196px;

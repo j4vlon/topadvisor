@@ -14,7 +14,7 @@ class TeamController extends Controller
     }
 
     public function member($id){
-        $member = Member::with('articles')->where('id', $id)->first();
+        $member = Member::with('articles', 'projects')->where('id', $id)->first();
         return view('front.member', compact('member'));
     }
 }

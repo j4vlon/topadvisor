@@ -11,9 +11,16 @@
                         @error('title')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
-                        <input type="text" class="form-control" name="title" placeholder="Введите название услуги">
+                        <input type="text" class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}" name="title" placeholder="Введите название услуги">
                     </div>
-                    <label for="file_url" class="col-sm-3 text-end control-label col-form-label">Фоновая картинка услуги</label>
+                    <label for="title" class="col-sm-3 text-end control-label col-form-label">Заголовок описания</label>
+                    <div class="col-sm-9" style="margin-bottom: 20px">
+                        @error('descr_title')
+                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                        @enderror
+                        <input type="text" class="form-control {{ $errors->has('descr_title') ? 'is-invalid' : '' }}" name="descr_title" placeholder="Введите название услуги">
+                    </div>
+                    <label for="file_url" class="col-sm-3 text-end control-label col-form-label">Баннер услуги</label>
                     <div class="col-sm-9" style="margin-bottom: 20px">
                         @error('file_url')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -25,8 +32,16 @@
                         @error('descr')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
-                        <textarea class="form-control {{ $errors->has('descr') ? 'is-invalid' : '' }}" name="descr"
+                        <textarea class="form-control {{ $errors->has('descr') ? 'is-invalid' : '' }}" id="descr" name="descr"
                                   placeholder="Введите описание категории услуги"></textarea>
+                    </div>
+                    <label for="specific" class="col-sm-3 text-end control-label col-form-label">Описание услуги</label>
+                    <div class="col-sm-9" style="margin-bottom: 20px">
+                        @error('descr')
+                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                        @enderror
+                        <textarea class="form-control {{ $errors->has('default_txt') ? 'is-invalid' : '' }}" name="default_txt"
+                                  placeholder=""></textarea>
                     </div>
                     <label class="col-sm-3 text-end control-label col-form-label" for="car_id">Выберите раздел</label>
                     <div class="col-md-9" style="margin-bottom: 20px">
@@ -52,7 +67,7 @@
                     </div>
                 </div>
                 </div>
-            </div>
+
             <div class="border-top">
                 <div class="card-body">
                     <button type="submit" class="btn btn-primary">
@@ -63,3 +78,40 @@
         </form>
     </div>
 @endsection
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('plugins/summernote/summernote-lite.css') }}">
+@endpush
+@push('scripts')
+    <script src="{{ asset('/plugins/summernote/summernote-lite.js') }}"></script>
+
+    <script>
+        $('#descr').summernote({
+            placeholder: 'Введите описание',
+            tabsize: 2,
+            height: 100,
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['Inter','bold', 'underline', 'clear']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']]
+            ]
+        });
+        $('#descr2').summernote({
+            placeholder: 'Введите описание',
+            tabsize: 2,
+            height: 100,
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['Inter','bold', 'underline', 'clear']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']]
+            ]
+        });
+    </script>
+@endpush

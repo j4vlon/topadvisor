@@ -62,7 +62,7 @@
                 </div>
             </div>
             @foreach($projects as $project)
-                <div class="info-list-wrapper">
+                <div class="info-list-wrapper results">
                     <div class="info-list-item">
                         <div class="logo-img-area">
                             <img src="{{ $project->partner->file_url }}">
@@ -74,7 +74,7 @@
                         <div class="info-list-details">
                             <span>{{ $project->subservice->title }}</span>
                             <h4>{{ $project->title }}</h4>
-                            <p>{{ $truncated = Str::of($project->descr)->limit(100) }}</p>
+                            <p>{{   $truncated = Str::of($project->default_txt)->limit(100) }}</p>
                         </div>
                         <div class="info-list-links">
                             <svg width="31" height="38" viewBox="0 0 31 38" fill="none"
@@ -97,7 +97,7 @@
             @endforeach
         </div>
         <div class="load-more">
-            <a href="">Загрузить еще
+            <a href="" class="show-more">Загрузить еще
                 <span><svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M2 1H10M10 1V9M10 1L1 10" stroke="#6B99C3" stroke-width="1.5"/>
             </svg> </span></a>

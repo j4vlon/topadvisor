@@ -36,13 +36,15 @@ class SubservicesController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(StoreSubserviceRequest $request)
     {
         $subservice = new Subservice();
         $subservice->title = $request->title;
+        $subservice->descr_title = $request->descr_title;
         $subservice->descr = $request->descr;
+        $subservice->default_txt = $request->default_txt;
         if ($request->hasfile('file_url')){
             $path = $request->file_url->store('uploads', 'public');
             $subservice->file_url = '/storage/'.$path;
@@ -50,6 +52,7 @@ class SubservicesController extends Controller
         $subservice->service_id = $request->service_id;
         $subservice->is_active = $request->is_active;
         $subservice->save();
+
         return redirect()->back();
     }
 
@@ -81,12 +84,14 @@ class SubservicesController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request, Subservice $subservice)
     {
         $subservice->title = $request->title;
+        $subservice->descr_title = $request->descr_title;
         $subservice->descr = $request->descr;
+        $subservice->default_txt = $request->default_txt;
         if ($request->hasfile('file_url')){
             $path = $request->file_url->store('uploads', 'public');
             $subservice->file_url = '/storage/'.$path;

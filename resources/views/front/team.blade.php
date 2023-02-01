@@ -69,7 +69,7 @@
         <div class="member-list">
             @foreach($team as $member)
                 <div class="team-item">
-                    <div class="team-item-img">
+                    <div class="team-item-img img-flex">
                         <img src="{{ $member->file_url }}" alt="">
                     </div>
                     <div class="author-details">
