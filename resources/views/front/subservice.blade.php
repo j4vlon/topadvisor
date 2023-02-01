@@ -1,6 +1,14 @@
 @extends('layouts._layout')
+@section('title', 'Услуги')
 @section('content')
-    @include('front.header')
+    <header class="header main-nav-header">
+        <nav class="container header-navigation">
+            <a href="/" class="top">
+                <img src="{{ asset('assets/images/logos/advisor-black.svg') }}" alt=""/>
+            </a>
+            @include('front.header')
+        </nav>
+    </header>
     <!-- HERO BLOCK START -->
     <div class="container">
         <div class="business-info-wrapper business-info">

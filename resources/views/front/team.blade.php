@@ -1,6 +1,14 @@
 @extends('layouts._layout')
+@section('title', 'Команда')
 @section('content')
-    @include('front.header')
+    <header class="header main-nav-header">
+        <nav class="container header-navigation">
+            <a href="/" class="top">
+                <img src="{{ asset('assets/images/logos/advisor-black.svg') }}" alt=""/>
+            </a>
+            @include('front.header')
+        </nav>
+    </header>
     <div class="container">
         <div class="block-header team-header">
             <h2>Команда</h2>

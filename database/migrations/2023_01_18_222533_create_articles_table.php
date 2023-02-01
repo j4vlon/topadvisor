@@ -15,12 +15,14 @@ return new class extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(\App\Models\Admin\Member::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignIdFor(\App\Models\Admin\Member::class);
             $table->string('title');
             $table->string('slug');
             $table->string('descr_title');
-            $table->text('descr');
+            $table->longText('descr');
+            $table->longText('descr2');
             $table->string('file_url');
+            $table->string('descr_img');
             $table->timestamps();
         });
     }

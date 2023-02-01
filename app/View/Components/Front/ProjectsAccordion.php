@@ -3,10 +3,10 @@
 namespace App\View\Components\Front;
 
 use App\Models\Admin\Project;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\View\Component;
+use Illuminate\Database\Eloquent\Collection;
 
-class ProjectAccordion extends Component
+class ProjectsAccordion extends Component
 {
     public Collection $projects;
     /**
@@ -26,6 +26,6 @@ class ProjectAccordion extends Component
      */
     public function render()
     {
-        return view('components.front.project-accordion');
+        return view('components.front.projects-accordion');
     }
 }

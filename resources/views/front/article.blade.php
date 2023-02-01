@@ -1,6 +1,14 @@
 @extends('layouts._layout')
+@section('title', $article->title)
 @section('content')
-    @include('front.header')
+    <header class="header main-nav-header">
+        <nav class="container header-navigation">
+            <a href="/" class="top">
+                <img src="{{ asset('assets/images/logos/advisor-black.svg') }}" alt=""/>
+            </a>
+            @include('front.header')
+        </nav>
+    </header>
     <div class="container">
         <div class="wrapper-info-img page-info-img">
             <img src="{{ $article->file_url }}" alt=""/>
@@ -25,27 +33,7 @@
                 <div class="gray-txt"><span>время чтения: 10 минут</span></div>
             </div>
             <h4>{{ $article->descr_title }}</h4>
-            <p>{!! nl2br(e($article->descr)) !!}</p>
-            <a href="">Оформление ссылок в статье
-                <span>
-                                            <svg width="11" height="11" viewBox="0 0 11 11" fill="none"
-                                                 xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M2 1H10M10 1V9M10 1L1 10" stroke="#6B99C3" stroke-width="1.5"/>
-                                  </svg>
-                                        </span>
-            </a>
-            <p>
-                Стратегия развития — это ваша «дорожная карта» с конкретными,
-                измеримыми и достижимыми целями и задачами, следуя которой можно
-                развить свой бизнес, сделать его прибыльнее и сократить затраты.
-            </p>
-            <p>
-                Интернет-маркетинг включает в себя стратегию онлайн-продвижения,
-                привлечения и удержания клиентов, создание воронки
-                Digital-маркетинга, SEO-оптимизацию и построение сквозной аналитики.
-                Эти услуги помогут увеличить лояльную аудиторию и превратить ее в
-                клиентов, а система аналитики определит, какие инструменты
-            </p>
+            <p>{!! $article->descr !!}</p>
             <div class="info-box-txt">
                 <div class="business-info-title">
                     <h3>Сделаем ваш бизнес прибыльнее</h3>

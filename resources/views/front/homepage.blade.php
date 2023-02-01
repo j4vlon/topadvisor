@@ -159,7 +159,7 @@
         </div>
     </div>
 
-    <x-front.project-accordion></x-front.project-accordion>
+    <x-front.projects-accordion></x-front.projects-accordion>
 
     <x-front.team-carousel></x-front.team-carousel>
     <!-- FEEDBACK SECTION START -->

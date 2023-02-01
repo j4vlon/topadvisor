@@ -16,10 +16,13 @@ return new class extends Migration
         Schema::create('subservices', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->text('descr');
+            $table->longText('descr');
+            $table->string('step_count')->nullable();
+            $table->string('steps');
+            $table->string('default_txt');
             $table->string('slug')->unique();
             $table->string('file_url');
-            $table->foreignIdFor(\App\Models\Admin\Service::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignIdFor(\App\Models\Admin\Service::class);
             $table->boolean('is_active')->nullable();
             $table->timestamps();
         });

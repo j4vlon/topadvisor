@@ -53,32 +53,32 @@
         </div>
 
         @foreach($projects as $project)
-        <div class="info-list-wrapper">
-            <div class="row">
-                <div class="col-xl-4 col-lg-4 col-md-12 project-info-list">
-                    <div class="info-list-title">
-                        <div class="date">
-                            <span>{{ date('d F, Y', strtotime($project->created_at)) }}</span>
+            <div class="info-list-wrapper">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 col-md-12 project-info-list">
+                        <div class="info-list-title">
+                            <div class="date">
+                                <span>{{ date('d F, Y', strtotime($project->created_at)) }}</span>
+                            </div>
+                            <h4>
+                                {{ $project->title }}
+                            </h4>
                         </div>
-                        <h4>
-                            {{ $project->title }}
-                        </h4>
                     </div>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-12 project-info-list">
-                    <div class="info-list-txt">
-                        <p>
-                            {{ $truncated = Str::of($project->descr)->limit(100) }}
-                        </p>
+                    <div class="col-xl-4 col-lg-4 col-md-12 project-info-list">
+                        <div class="info-list-txt">
+                            <p>
+                                {{ $truncated = Str::of($project->descr)->limit(100) }}
+                            </p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-12 project-info-list">
-                    <div class="info-list-img">
-                        <img src="{{ $project->partner->file_url }}" alt="">
+                    <div class="col-xl-4 col-lg-4 col-md-12 project-info-list">
+                        <div class="info-list-img">
+                            <img src="{{ $project->partner->file_url }}" alt="">
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         @endforeach
 
         <div class="view-all">

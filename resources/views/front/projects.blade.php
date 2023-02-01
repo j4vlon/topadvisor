@@ -1,6 +1,14 @@
 @extends('layouts._layout')
+@section('title', 'Проекты')
 @section('content')
-    @include('front.header')
+    <header class="header main-nav-header">
+        <nav class="container header-navigation">
+            <a href="/" class="top">
+                <img src="{{ asset('assets/images/logos/advisor-black.svg') }}" alt=""/>
+            </a>
+            @include('front.header')
+        </nav>
+    </header>
     <div class="project-block">
         <div class="container">
             <div class="row projects-box">

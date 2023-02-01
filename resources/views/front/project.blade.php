@@ -2,8 +2,16 @@
 {{--{{ $project->subservice->title }}--}}
 {{--{{ $project->partner->title }}--}}
 @extends('layouts._layout')
+@section('title', $project->title)
 @section('content')
-    @include('front.header')
+    <header class="header main-nav-header">
+        <nav class="container header-navigation">
+            <a href="/" class="top">
+                <img src="{{ asset('assets/images/logos/advisor-black.svg') }}" alt=""/>
+            </a>
+            @include('front.header')
+        </nav>
+    </header>
     <div class="container">
         <div class="bread-crumbs">
             <span class="gray">проекты / {{ $subservice->service->title }} / {{ $project->subservice->title }}</span>

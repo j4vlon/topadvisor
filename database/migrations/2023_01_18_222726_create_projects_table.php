@@ -15,13 +15,15 @@ return new class extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(\App\Models\Admin\Partner::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreignIdFor(\App\Models\Admin\Subservice::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreignIdFor(\App\Models\Admin\Member::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignIdFor(\App\Models\Admin\Partner::class);
+            $table->foreignIdFor(\App\Models\Admin\Subservice::class);
+            $table->foreignIdFor(\App\Models\Admin\Member::class);
             $table->string('title');
             $table->string('slug');
-            $table->text('descr');
+            $table->longText('descr');
+            $table->longText('descr2')->nullable();
             $table->string('project_img');
+            $table->string('descr_img');
             $table->string('img_author');
             $table->timestamps();
         });
