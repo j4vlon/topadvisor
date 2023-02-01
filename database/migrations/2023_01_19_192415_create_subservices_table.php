@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text('descr');
             $table->string('slug')->unique();
             $table->string('file_url');
-            $table->foreignIdFor(\App\Models\Admin\Service::class);
+            $table->foreignIdFor(\App\Models\Admin\Service::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->boolean('is_active')->nullable();
             $table->timestamps();
         });

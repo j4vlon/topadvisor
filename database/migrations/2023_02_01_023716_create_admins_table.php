@@ -13,14 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('articles', function (Blueprint $table) {
+        Schema::create('admins', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(\App\Models\Admin\Member::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->string('title');
-            $table->string('slug');
-            $table->string('descr_title');
-            $table->text('descr');
-            $table->string('file_url');
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->string('password');
             $table->timestamps();
         });
     }
@@ -32,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('articles');
+        Schema::dropIfExists('admins');
     }
 };

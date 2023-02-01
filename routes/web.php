@@ -1,5 +1,6 @@
 <?php
 
+
 use App\Http\Controllers\Front\ArticleController;
 use App\Http\Controllers\Front\ContactController;
 use App\Http\Controllers\Front\FrontController;
@@ -8,7 +9,7 @@ use App\Http\Controllers\Front\ProjectController;
 use App\Http\Controllers\Front\ServiceController;
 use App\Http\Controllers\Front\SubserviceController;
 use App\Http\Controllers\Front\TeamController;
-use App\Http\Controllers\ProfileController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,4 +36,6 @@ Route::get('team', [TeamController::class, 'team'])->name('team');
 Route::get('team/{id}', [TeamController::class, 'member'])->name('member');
 Route::post('feedback', [ContactController::class, 'feedback'])->name('feedback');
 
-require __DIR__.'/auth.php';
+
+
+
