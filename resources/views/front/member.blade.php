@@ -95,7 +95,7 @@
                         </div>
                     </div>
                 </div>
-                @foreach($member->projects as $project)
+                @foreach($projects as $project)
                 <div class="testimonial-box single-box-area">
                     <div class="articles-slider owl-carousel owl-loaded owl-drag">
                         <div class="owl-stage-outer project-owl-area">
@@ -104,14 +104,14 @@
                                 <div class="owl-item">
                                     <div class="single-box text-center">
                                         <div class="article-link">
-                                            <a href="">{{ $project->title }}</a>
+                                            <a href="">{{ $project->subservice->title }}</a>
                                         </div>
                                         <div class="article-img">
                                             <img src="{{ $project->project_img }}" alt="">
                                         </div>
                                         <div class="article-info">
                                             <div class="article-header">
-                                                <h2>Аудит информационной системы для производителя бытовой химии</h2>
+                                                <h2>{{ $project->title }}</h2>
                                             </div>
                                         </div>
                                     </div>

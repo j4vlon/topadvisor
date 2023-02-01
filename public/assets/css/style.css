@@ -1472,10 +1472,13 @@ a {
 }
 .team-member-img-block{
     width: 230px;
+    height: 230px;
 }
 .team-member-img-block img{
     display: block;
     width: 100%;
+    height: 100%;
+    border-radius: 100%;
 }
 .team-member-info{
     padding: 15px 130px 0 20px;

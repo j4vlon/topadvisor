@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Member;
+use App\Models\Admin\Project;
 use Illuminate\Http\Request;
 
 class TeamController extends Controller
@@ -14,7 +15,8 @@ class TeamController extends Controller
     }
 
     public function member($id){
-        $member = Member::with('articles', 'projects')->where('id', $id)->first();
-        return view('front.member', compact('member'));
+        $member = Member::with('articles')->where('id', $id)->first();
+        $projects = Project::with('member', 'subservice')->where('member_id', $id)->get();
+        return view('front.member', compact('member', 'projects'));
     }
 }
