@@ -18,7 +18,7 @@
             @foreach($partners as $partner)
                 <div class="grid-item">
                     <div class="partner-image-area">
-                        <img src="{{ $partner->file_url }}" alt="">
+                        <img src="{{ asset($partner->file_url) }}" alt="">
                     </div>
                     <div class="company-title">
                         <h4>{{ $partner->title }}</h4>
