@@ -13,6 +13,12 @@
     <title>Topadvisor - @yield('title')</title>
 </head>
 <body>
+<div class="alert alert-primary alert-dismissible fade show" role="alert">
+    <div class="container">
+        Сайт находится в стадии доработки и заполнения. Для консультации вы можете связаться с нашими специалистами по телефону +998 91 009 39 00
+    </div>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
 @yield('content')
 
 @include('layouts.footer')
