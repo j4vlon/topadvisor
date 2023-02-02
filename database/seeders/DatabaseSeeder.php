@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\Admin::factory(1)->create(
             [
                  'name' => 'User Admin',
-                 'email' => 'topadvisor@topadvisor.com',
+                 'email' => 'topadvisoruz@gmail.com',
                  'password' => bcrypt('TOPadvisor2022'),
             ]
         );
