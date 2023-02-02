@@ -23,13 +23,13 @@
                         <textarea class="form-control {{ $errors->has('descr') ? 'is-invalid' : '' }}" name="descr"
                                   placeholder="Об участнике команды">{{ $member->descr }}</textarea>
                     </div>
-                    <label for="descr" class="col-sm-3 text-end control-label col-form-label">Описание проекта</label>
+                    <label for="descr" class="col-sm-3 text-end control-label col-form-label">Описание обязанностей</label>
                     <div class="col-sm-9" style="margin-bottom: 20px">
                         @error('descr')
                         <div class=work_post>{{ $message }}</div>
                         @enderror
                         <textarea class="form-control {{ $errors->has('work_post') ? 'is-invalid' : '' }}" name="work_post"
-                                  placeholder="Опишите обязанности участника">{{ $member->descr }}</textarea>
+                                  placeholder="Опишите обязанности участника">{{ $member->work_post }}</textarea>
                     </div>
                     <label for="file_url" class="col-sm-3 text-end control-label col-form-label">Загрузите
                         фото</label>
