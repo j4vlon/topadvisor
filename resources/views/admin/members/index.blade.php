@@ -60,7 +60,7 @@
                                         <td>
                                             <a href="{{ route('members.edit', $member->id) }}" class="btn btn-primary" style="margin-bottom: 5px; width: 100%">Edit</a>
                                             <br>
-                                            <form action="{{ route('projects.destroy', $member->id) }}" method="post">
+                                            <form action="{{ route('members.destroy', $member->id) }}" method="post">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger" style="width: 100%">
