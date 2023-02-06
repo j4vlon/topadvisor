@@ -52,13 +52,13 @@
                                         <td>{{ $article->member->name }}</td>
                                         <td>{{ $article->descr_title }}</td>
                                         <td>
-                                            <a href="{{ route('articles.edit', $article->id) }}" class="btn btn-primary" style="margin-bottom: 5px; width: 100%">Edit</a>
+                                            <a href="{{ route('articles.edit', $article->id) }}" class="btn btn-primary" style="margin-bottom: 5px; width: 100%">Редактировать</a>
                                             <br>
                                             <form action="{{ route('articles.destroy', $article->id) }}" method="post">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger" style="width: 100%">
-                                                    Delete
+                                                    Удалить
                                                 </button>
                                             </form>
                                         </td>

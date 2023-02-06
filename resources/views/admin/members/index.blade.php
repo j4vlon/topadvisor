@@ -60,7 +60,7 @@
                                             @endforelse
                                         </td>
                                         <td>
-                                            <a href="{{ route('members.edit', $member->id) }}" class="btn btn-primary" style="margin-bottom: 5px; width: 100%">Edit</a>
+                                            <a href="{{ route('members.edit', $member->id) }}" class="btn btn-primary" style="margin-bottom: 5px; width: 100%">Изменить</a>
                                             <br>
                                             @forelse($member->projects as $projects)
                                                 <p>{{ $member->name }} является участников проекта, чтобы удалить участника, удалите проект в котором он состоит!</p>
@@ -69,7 +69,7 @@
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger" style="width: 100%">
-                                                        Delete
+                                                        Удалить
                                                     </button>
                                                 </form>
                                             @endforelse

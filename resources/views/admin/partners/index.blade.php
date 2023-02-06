@@ -44,20 +44,19 @@
                                         <td>{{ $partner->title }}</td>
                                         <td><img src="{{ $partner->file_url }}" alt=""></td>
                                         <td>
-                                            <a href="{{ route('partners.edit', $partner->id) }}" class="btn btn-primary" style="margin-bottom: 5px; width: 100%">Edit</a>
+                                            <a href="{{ route('partners.edit', $partner->id) }}" class="btn btn-primary" style="margin-bottom: 5px; width: 100%">Редактировать</a>
                                             <br>
                                             @forelse($partner->projects as $project)
-                                                <p>{{ $partner->title }} состоит в {{ $project->title }}, чтобы удалить партнера, удалите проект</p>
+                                                <p>{{ $partner->title }} состоит в {{ $project->title }}, чтобы удалить партнера, удалите проект!</p>
                                             @empty
                                                 <form action="{{ route('partners.destroy', $partner->id) }}" method="post">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger" style="width: 100%">
-                                                        Delete
+                                                        Удалить
                                                     </button>
                                                 </form>
                                             @endforelse
-
                                         </td>
                                     </tr>
                                 @endforeach

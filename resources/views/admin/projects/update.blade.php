@@ -6,7 +6,7 @@
             @csrf
             @method('PUT')
             <div class="card-body">
-                <h4 class="card-title">Изменить проект</h4>
+                <h4 class="card-title">Редактировать проект</h4>
                 <div class="form-group row">
                     <label for="title" class="col-sm-3 text-end control-label col-form-label">Название проекта</label>
                     <div class="col-sm-9" style="margin-bottom: 20px">
