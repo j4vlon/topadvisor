@@ -16,7 +16,7 @@ class PartnersController extends Controller
      */
     public function index()
     {
-        $partners = Partner::all();
+        $partners = Partner::with('projects')->get();
         return view('admin.partners.index', compact('partners'));
     }
 

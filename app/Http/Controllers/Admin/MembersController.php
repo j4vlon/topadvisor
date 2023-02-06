@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\UpdateMembersRequest;
 use App\Models\Admin\Article;
 use App\Models\Admin\Member;
+use GuzzleHttp\Exception\ServerException;
 use Illuminate\Http\Request;
 
 class MembersController extends Controller
@@ -17,7 +18,7 @@ class MembersController extends Controller
      */
     public function index()
     {
-        $members = Member::with('articles')->get();
+        $members = Member::with('articles', 'projects')->get();
         return view('admin.members.index', compact('members'));
     }
 

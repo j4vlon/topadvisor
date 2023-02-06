@@ -5,7 +5,7 @@
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-12 d-flex no-block align-items-center">
-                <h4 class="page-title">Products</h4>
+                <h4 class="page-title">Участники</h4>
                 <div class="ms-auto text-end">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
@@ -31,7 +31,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Усатсники команды</h5>
+                        <h5 class="card-title">Участники команды</h5>
                         <div class="table-responsive">
                             <table
                                 id="zero_config"
@@ -39,7 +39,7 @@
                             >
                                 <thead>
                                 <tr>
-                                    <th>Фамилия и мя</th>
+                                    <th>Фамилия и имя</th>
                                     <th>Об участнике</th>
                                     <th>Обязанности</th>
                                     <th>Статьи</th>
@@ -53,20 +53,26 @@
                                         <td>{{ $member->descr }}</td>
                                         <td>{{ $member->work_post }}</td>
                                         <td>
-                                        @foreach($member->articles as $article)
-                                        {{ $article->title }}<br>
-                                        @endforeach
+                                            @forelse($member->articles as $articles)
+                                                {{ $articles->title }}
+                                             @empty
+                                                <p>У {{ $member->name }} нет статей</p>
+                                            @endforelse
                                         </td>
                                         <td>
                                             <a href="{{ route('members.edit', $member->id) }}" class="btn btn-primary" style="margin-bottom: 5px; width: 100%">Edit</a>
                                             <br>
-                                            <form action="{{ route('members.destroy', $member->id) }}" method="post">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger" style="width: 100%">
-                                                    Delete
-                                                </button>
-                                            </form>
+                                            @forelse($member->projects as $projects)
+                                                <p>{{ $member->name }} является участников проекта, чтобы удалить участника, удалите проект в котором он состоит!</p>
+                                            @empty
+                                                <form action="{{ route('members.destroy', $member->id) }}" method="post">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger" style="width: 100%">
+                                                        Delete
+                                                    </button>
+                                                </form>
+                                            @endforelse
                                         </td>
                                     </tr>
                                 @endforeach
