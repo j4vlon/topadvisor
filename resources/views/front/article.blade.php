@@ -1,5 +1,6 @@
 @extends('layouts._layout')
 @section('title', $article->title)
+@section('descr', $article->descr)
 @section('content')
     <header class="header main-nav-header">
         <nav class="container header-navigation">
@@ -35,20 +36,6 @@
             </div>
 
             <p>{!! $article->descr !!}</p>
-            <div class="info-box-txt">
-                <div class="business-info-title">
-                    <h3>{{ $article->descr_title }}</h3>
-                </div>
-
-                {!! $article->descr2 !!}
-                <div class="info-box-img">
-                    <img src="{{ $article->descr_img }}" alt=""/>
-                    <div class="gray-txt">
-                        <span>Фотограф: Анвар Абдурахимов</span>
-                    </div>
-                </div>
-               {!! nl2br(e($article->default_txt)) !!}
-            </div>
         </div>
     </div>
 
