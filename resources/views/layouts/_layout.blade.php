@@ -5,12 +5,16 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta itemprop="name" content="@yield('title')">
+    <meta itemprop="description" content="This is the website description. Nice eh?">
+    <meta itemprop="image" content="https://lorempixel.com/400/200/">
+    <title>Topadvisor - @yield('title')</title>
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-table.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
-    <title>Topadvisor - @yield('title')</title>
+
 </head>
 <body>
 <div class="alert alert-primary alert-dismissible fade show" role="alert">

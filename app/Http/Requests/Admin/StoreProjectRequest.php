@@ -25,13 +25,11 @@ class StoreProjectRequest extends FormRequest
     {
         return [
             'partner_id' => 'required',
+            'member_id' => 'required',
             'subservice_id' => 'required',
             'title' => 'required',
             'descr' => 'required',
-            'descr2' => 'required',
-            'img_author' => 'required',
             'project_img' => ['mimes:jpg,png,jpeg,svg','required'],
-            'descr_img' => ['mimes:jpg,png,jpeg,svg','required'],
         ];
     }
 }

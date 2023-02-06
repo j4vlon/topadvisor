@@ -57,6 +57,13 @@
                                value="{{ $article->descr_img }}" class="form-control {{ $errors->has('descr_img') ? 'is-invalid' : '' }}">
                         <img width="300px" class="change-img-descr" src="{{ $article->descr_img }}">
                     </div>
+                    <label for="img_author" class="col-sm-3 text-end control-label col-form-label">Автор фотографии</label>
+                    <div class="col-sm-9" style="margin-bottom: 20px">
+                        @error('img_author')
+                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                        @enderror
+                        <input type="text" class="form-control" name="img_author" placeholder="Заголовок статьи" value="{{ $article->img_author }}">
+                    </div>
                     <label class="col-sm-3 text-end control-label col-form-label" for="car_id">Выберите автора статьи</label>
                     <div class="col-md-9" style="margin-bottom: 20px">
                         @error('member_id')

@@ -58,7 +58,7 @@
                     <div class="col-xl-4 col-lg-4 col-md-12 project-info-list">
                         <div class="info-list-title">
                             <div class="date">
-                                <span>{{ date('d F, Y', strtotime($project->created_at)) }}</span>
+                                <span>{{ \Jenssegers\Date\Date::parse($project->created_at)->format('j F Y') }}</span>
                             </div>
                             <h4>
                                 {{ $project->title }}
@@ -68,7 +68,7 @@
                     <div class="col-xl-4 col-lg-4 col-md-12 project-info-list">
                         <div class="info-list-txt">
                             <p>
-                                {{ $truncated = Str::of($project->default_txt)->limit(100) }}
+                                {{ $project->short_descr }}
                             </p>
                         </div>
                     </div>

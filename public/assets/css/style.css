@@ -1802,6 +1802,15 @@ a {
 .map{
     padding-left: 20px;
 }
+/*.progress-step-success {*/
+/*    min-width: 50px;*/
+/*    min-height: 50px;*/
+/*    color: #666;*/
+/*    padding: 30px;*/
+/*    background-color:#e1f1cf;*/
+/*    -webkit-box-shadow:inset 3px 0 0 #bcdf94;*/
+/*    box-shadow:inset 3px 0 0 #bcdf94*/
+/*}*/
 /* MEDIA QUERIES START */
 @media (max-width: 1400px) {
     .first-service,

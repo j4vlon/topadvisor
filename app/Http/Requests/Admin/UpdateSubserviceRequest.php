@@ -26,7 +26,7 @@ class UpdateSubserviceRequest extends FormRequest
         return [
             'title' => 'required',
             'descr' => 'required',
-            'file_url' => ['mimes:png,jpg,jpeg,svg', 'required'],
+            'file_url' => ['mimes:png,jpg,jpeg,svg'],
             'is_active' => 'nullable'
         ];
     }

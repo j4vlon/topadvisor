@@ -3,12 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\UpdateMembersRequest;
-use App\Models\Admin\Article;
-use App\Models\Admin\Member;
+use App\Models\Admin\Step;
+use App\Models\Admin\Subservice;
 use Illuminate\Http\Request;
 
-class MembersController extends Controller
+class StepController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +16,8 @@ class MembersController extends Controller
      */
     public function index()
     {
-        $members = Member::with('articles')->get();
-        return view('admin.members.index', compact('members'));
+        $steps = Step::with('subservice')->get();
+        return view('admin.steps.index', compact('steps'));
     }
 
     /**
@@ -28,7 +27,8 @@ class MembersController extends Controller
      */
     public function create()
     {
-        return view('admin.members.create');
+        $subservices = Subservice::all();
+        return view('admin.steps.create', compact('subservices'));
     }
 
     /**
@@ -39,17 +39,23 @@ class MembersController extends Controller
      */
     public function store(Request $request)
     {
-        $members = new Member();
-        $members->name = $request->name;
-        $members->descr = $request->descr;
-        $members->work_post = $request->work_post;
-        if ($request->hasFile('file_url')){
-            $path = $request->file_url->store('uploads', 'public');
-            $members->file_url = '/storage/'.$path;
+
+        $request->validate([
+            'subservice_id' => 'required',
+            'addmore.*.index' => 'required',
+            'addmore.*.descr' => 'required',
+        ]);
+
+        foreach ($request->addmore as $key => $value) {
+            $steps = new Step();
+            $steps->index = $value['index'];
+            $steps->descr = $value['descr'];
+            $steps->subservice_id = $request->subservice_id;
+            $steps->save();
         }
-        $members->save();
-        return redirect()->back();
+        return back()->with('success', 'Record Created Successfully.');
     }
+
 
     /**
      * Display the specified resource.
@@ -68,9 +74,10 @@ class MembersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function edit(Member $member)
+    public function edit(Step $step)
     {
-        return view('admin.members.update', compact('member'));
+        $subservices = Subservice::all();
+        return view('admin.steps.update', compact('subservices', 'step'));
     }
 
     /**
@@ -80,17 +87,14 @@ class MembersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(UpdateMembersRequest $request, Member $member)
+    public function update(Request $request, Step $step)
     {
-        $member->name = $request->name;
-        $member->descr = $request->descr;
-        $member->work_post = $request->work_post;
-        if ($request->hasFile('file_url')){
-            $path = $request->file_url->store('uploads', 'public');
-            $member->file_url = '/storage/'.$path;
-        }
-        $member->update();
-        return redirect()->back();
+        $step->index = $request->index;
+        $step->descr = $request->descr;
+        $step->subservice_id = $request->subservice_id;
+        $step->update();
+
+        return back()->with('success', 'Record Created Successfully.');
     }
 
     /**
@@ -99,9 +103,9 @@ class MembersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy(Member $member)
+    public function destroy(Step $step)
     {
-        $member->delete();
+        $step->delete();
         return redirect()->back();
     }
 }

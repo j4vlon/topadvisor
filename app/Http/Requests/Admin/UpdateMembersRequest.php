@@ -27,7 +27,7 @@ class UpdateMembersRequest extends FormRequest
             'name' => 'required',
             'descr' => 'required',
             'work_post' => 'required',
-            'file_url' => ['mimes:jpg,svg,png,jpeg', 'required']
+            'file_url' => ['mimes:jpg,svg,png,jpeg']
         ];
     }
 }

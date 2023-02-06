@@ -40,4 +40,8 @@ class Subservice extends Model
     public function projects(){
         return $this->hasMany(Project::class);
     }
+
+    public function steps(){
+        return $this->hasMany(Step::class);
+    }
 }

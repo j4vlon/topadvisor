@@ -52,16 +52,10 @@ class ProjectsController extends Controller
         $project->member_id = $request->member_id;
         $project->title = $request->title;
         $project->descr = $request->descr;
-        $project->descr2 = $request->descr2;
-        $project->default_txt = $request->default_txt;
-        $project->img_author = $request->img_author;
+        $project->short_descr = $request->short_descr;
         if ($request->hasFile('project_img')){
             $path = $request->project_img->store('uploads', 'public');
             $project->project_img = '/storage/'.$path;
-        }
-        if ($request->hasFile('descr_img')){
-            $path = $request->descr_img->store('uploads', 'public');
-            $project->descr_img = '/storage/'.$path;
         }
         $project->save();
         return redirect()->back();
@@ -106,16 +100,10 @@ class ProjectsController extends Controller
         $project->member_id = $request->member_id;
         $project->title = $request->title;
         $project->descr = $request->descr;
-        $project->descr2 = $request->descr2;
-        $project->default_txt = $request->default_txt;
-        $project->img_author = $request->img_author;
+        $project->short_descr = $request->short_descr;
         if ($request->hasFile('project_img')){
             $path = $request->project_img->store('uploads', 'public');
             $project->project_img = '/storage/'.$path;
-        }
-        if ($request->hasFile('descr_img')){
-            $path = $request->descr_img->store('uploads', 'public');
-            $project->descr_img = '/storage/'.$path;
         }
         $project->update();
         return redirect()->back();
@@ -125,7 +113,7 @@ class ProjectsController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Project $project)
     {

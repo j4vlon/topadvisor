@@ -6,7 +6,8 @@
             <a href="/" class="top">
                 <img src="{{ asset('assets/images/logos/advisor-black.svg') }}" alt=""/>
             </a>
-            @include('front.header')
+            <button class="burger hamburger hamburger--collapse" onclick="$('.burger').toggleClass('active un-active');" id="nav-btn"></button>
+            <x-front.header-component></x-front.header-component>
         </nav>
     </header>
     <div class="container">
@@ -84,7 +85,7 @@
                                 </div>
                                 <div class="author-dateails">
                                     <p class="">{{ $article->member->name }}</p>
-                                    <span class="date">12 сентября, 2023</span>
+                                    <span class="date">{{ \Jenssegers\Date\Date::parse($article->created_at)->format('j F, Y') }}</span>
                                 </div>
                             </div>
                             <div class="article-img">

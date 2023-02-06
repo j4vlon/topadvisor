@@ -6,7 +6,8 @@
             <a href="/" class="top">
                 <img src="{{ asset('assets/images/logos/advisor-black.svg') }}" alt=""/>
             </a>
-            @include('front.header')
+            <button class="burger hamburger hamburger--collapse" onclick="$('.burger').toggleClass('active un-active');" id="nav-btn"></button>
+            <x-front.header-component></x-front.header-component>
         </nav>
     </header>
     <div class="container">
@@ -27,7 +28,7 @@
                     </div>
                     <div class="author-dateails">
                         <p class="">{{ $article->member->name }}</p>
-                        <span class="date">{{ date('d F, Y', strtotime($article->created_at)) }}</span>
+                        <span class="date">{{ \Jenssegers\Date\Date::parse($article->created_at)->format('j F Y') }}</span>
                     </div>
                 </div>
                 <div class="gray-txt"><span>время чтения: 10 минут</span></div>

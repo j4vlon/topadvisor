@@ -17,5 +17,9 @@ class ContactController extends Controller
         $feedback->is_active = 1;
         $feedback->save();
         return redirect()->back();
+//        return redirect()->route('success');
+    }
+    public function success() {
+        return view('front.success');
     }
 }

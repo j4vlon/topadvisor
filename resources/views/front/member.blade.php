@@ -6,7 +6,8 @@
             <a href="/" class="top">
                 <img src="{{ asset('assets/images/logos/advisor-black.svg') }}" alt=""/>
             </a>
-            @include('front.header')
+            <button class="burger hamburger hamburger--collapse" onclick="$('.burger').toggleClass('active un-active');" id="nav-btn"></button>
+            <x-front.header-component></x-front.header-component>
         </nav>
     </header>
     <div class="container">
@@ -50,7 +51,7 @@
                                  style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 3300px;">
                                 @foreach($member->articles as $articles)
                                     <div class="owl-item active" style="width: 306px; margin-right: 24px;">
-                                        <div class="single-box text-center">
+                                        <div class="single-box">
                                             <div class="author">
                                                 <div class="author-img">
                                                     <img alt="" class="img-fluid move-animation"
@@ -58,7 +59,7 @@
                                                 </div>
                                                 <div class="author-dateails">
                                                     <p class="">{{ $member->name }}</p>
-                                                    <span class="date">{{ $articles->created_at }}</span>
+                                                    <span class="date">{{ \Jenssegers\Date\Date::parse($articles->created_at)->format('j F Y') }}</span>
                                                 </div>
                                             </div>
                                             <div class="article-img">
@@ -95,19 +96,20 @@
                         </div>
                     </div>
                 </div>
-                @foreach($projects as $project)
+
                 <div class="testimonial-box single-box-area">
                     <div class="articles-slider owl-carousel owl-loaded owl-drag">
                         <div class="owl-stage-outer project-owl-area">
                             <div class="owl-stage"
                                  style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 2640px;">
+                                @foreach($projects as $project)
                                 <div class="owl-item">
                                     <div class="single-box text-center">
                                         <div class="article-link">
-                                            <a href="">{{ $project->subservice->title }}</a>
+                                            <a href="{{ route('category', $project->subservice->slug) }}">{{ $project->subservice->title }}</a>
                                         </div>
                                         <div class="article-img">
-                                            <img src="{{ $project->project_img }}" alt="">
+                                            <img src="{{ $project->partner->file_url }}" alt="">
                                         </div>
                                         <div class="article-info">
                                             <div class="article-header">
@@ -116,12 +118,13 @@
                                         </div>
                                     </div>
                                 </div>
+                                @endforeach
                             </div>
                         </div>
                         <div class="owl-dots disabled"></div>
                     </div>
                 </div>
-                @endforeach
+
             </section>
 
         </div>

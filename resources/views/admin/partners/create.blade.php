@@ -4,7 +4,7 @@
         <form class="form-horizontal" method="POST" action="{{ route('partners.store') }}" enctype="multipart/form-data">
             @csrf
             <div class="card-body">
-                <h4 class="card-title">Добавить услугу</h4>
+                <h4 class="card-title">Добавить партнера</h4>
                 <div class="form-group row">
                     <label for="title" class="col-sm-3 text-end control-label col-form-label">Название компании</label>
                     <div class="col-sm-9" style="margin-bottom: 20px">

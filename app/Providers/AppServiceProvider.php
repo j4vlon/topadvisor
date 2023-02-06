@@ -2,8 +2,11 @@
 
 namespace App\Providers;
 
+use App\Models\Admin\Service;
 use App\Models\Admin\Subservice;
+
 use Illuminate\Support\ServiceProvider;
+use Jenssegers\Date\Date;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -14,9 +17,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('path.public', function() {
-            return base_path('../public_html');
-        });
+//        $this->app->bind('path.public', function() {
+//            return base_path('../public_html');
+//        });
     }
 
     /**
@@ -26,8 +29,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        view()->composer('front.header', function ($view){
-            $view->with('subservices', Subservice::with('projects', 'service')->get());
+        Date::setLocale(config('app.locale'));
+
+        view()->composer('layouts.footer', function ($view){
+            $view->with('services', Service::with('subservices')->get());
         });
     }
 }

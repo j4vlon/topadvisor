@@ -15,8 +15,8 @@ class ProjectController extends Controller
     }
 
     public function project($slug){
-        $project = Project::with('subservice', 'partner')->where('slug', $slug)->first();
-        $subservice = Subservice::with('service')->first();
-        return view('front.project', compact('project', 'subservice'));
+        $project = Project::with('subservice')->where('slug', $slug)->first();
+        $projects = Project::with('subservice', 'partner')->where('subservice_id', $project->subservice->id)->get();
+        return view('front.project', compact('project', 'projects'));
     }
 }

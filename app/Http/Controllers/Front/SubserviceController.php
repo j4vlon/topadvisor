@@ -9,7 +9,8 @@ use Illuminate\Http\Request;
 class SubserviceController extends Controller
 {
     public function subserviceView($slug){
-        $subservice = Subservice::where('slug', $slug)->first();
+        $subservice = Subservice::with('steps')->where('slug', $slug)->first();
+
         return view('front.subservice', compact('subservice'));
     }
 }

@@ -18,13 +18,13 @@ return new class extends Migration
             $table->foreignIdFor(\App\Models\Admin\Member::class);
             $table->string('title');
             $table->string('slug');
-            $table->string('descr_title');
+//            $table->string('descr_title');
             $table->longText('descr');
-            $table->longText('descr2');
-            $table->string('img_author');
-            $table->longText('default_txt');
+//            $table->longText('descr2');
+//            $table->string('img_author');
+//            $table->longText('default_txt');
             $table->string('file_url');
-            $table->string('descr_img');
+//            $table->string('descr_img');
             $table->timestamps();
         });
     }

@@ -1,11 +1,11 @@
 @extends('admin.layouts._layout')
 @section('content')
     <div class="card">
-        <form class="form-horizontal" method="POST" action="{{ route('partners.update') }}" enctype="multipart/form-data">
+        <form class="form-horizontal" method="POST" action="{{ route('partners.update', $partner->id) }}" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="card-body">
-                <h4 class="card-title">Добавить услугу</h4>
+                <h4 class="card-title">Изменить партнера</h4>
                 <div class="form-group row">
                     <label for="title" class="col-sm-3 text-end control-label col-form-label">Название компании</label>
                     <div class="col-sm-9" style="margin-bottom: 20px">

@@ -9,15 +9,16 @@
             <a href="/" class="top">
                 <img src="{{ asset('assets/images/logos/advisor-black.svg') }}" alt=""/>
             </a>
-            @include('front.header')
+            <button class="burger hamburger hamburger--collapse" onclick="$('.burger').toggleClass('active un-active');" id="nav-btn"></button>
+            <x-front.header-component></x-front.header-component>
         </nav>
     </header>
     <div class="container">
         <div class="bread-crumbs">
-            <span class="gray">проекты / {{ $subservice->service->title }} / {{ $project->subservice->title }}</span>
+            <span class="gray">проекты / {{ $project->subservice->title }} / {{ $project->title }}</span>
         </div>
         <div class="title-box">
-            <h3 class="box-title">Создание и внедрение системы корпоративного бюджетирования группы</h3>
+            <h3 class="box-title">{{ $project->title }}</h3>
             <div class="img-box">
                 <img src="{{ $project->partner->file_url }}" alt=""/>
             </div>
@@ -32,16 +33,6 @@
                     {!! $project->descr !!}
                 </p>
 
-            </div>
-            <div class="info-box-txt">
-               {!! $project->descr2 !!}
-                <div class="info-box-img">
-                    <img src="{{ $project->subservice->file_url }}" alt=""/>
-                    <div class="gray-txt">
-                        <span>Фотограф: {{ $project->img_author }}</span>
-                    </div>
-                </div>
-                {!! nl2br(e($project->default_txt)) !!}
             </div>
         </div>
     </div>
@@ -88,16 +79,17 @@
                 </div>
                 <div class="testimonial-box single-box-area">
                     <div class="articles-slider owl-carousel">
+                        @foreach($projects as $project)
                         <div class="single-box text-center">
                             <div class="article-link">
-                                <a href="">Стратегическое развитие компании</a>
+                                <a href="">{{ $project->subservice->title }}</a>
                             </div>
                             <div class="article-img">
-                                <img src="images/logos/SevemlyTV.svg" alt=""/>
+                                <img src="{{ $project->partner->file_url }}" alt=""/>
                             </div>
                             <div class="article-info">
                                 <div class="article-header">
-                                    <h2>Автоматизация малого бизнеса</h2>
+                                    <h2>{{ $project->title }}</h2>
                                 </div>
                                 <!-- <div class="article-txt">
                                     <p>
@@ -108,167 +100,7 @@
                                   </div> -->
                             </div>
                         </div>
-                        <div class="single-box text-center">
-                            <div class="article-link">
-                                <a href="">раздел статьи</a>
-                            </div>
-                            <div class="article-img">
-                                <img src="images/logos/accor.svg" alt=""/>
-                            </div>
-                            <div class="article-info">
-                                <div class="article-link">
-                                    <a href="">раздел статьи</a>
-                                </div>
-                                <div class="article-header">
-                                    <h2>Автоматизация малого бизнеса</h2>
-                                </div>
-                                <!-- <div class="article-txt">
-                                    <p>
-                                      Стратегическое планирование позволит увидеть, каким будет
-                                      ваш бизнес через несколько лет.
-                                    </p>
-                                    <span>время чтения: 10 минут</span>
-                                  </div> -->
-                            </div>
-                        </div>
-                        <div class="single-box text-center">
-                            <div class="article-link">
-                                <a href="">раздел статьи</a>
-                            </div>
-                            <div class="article-img">
-                                <img src="images/logos/aloqabank.svg" alt=""/>
-                            </div>
-                            <div class="article-info">
-                                <div class="article-link">
-                                    <a href="">раздел статьи</a>
-                                </div>
-                                <div class="article-header">
-                                    <h2>Автоматизация малого бизнеса</h2>
-                                </div>
-                                <!-- <div class="article-txt">
-                                    <p>
-                                      Стратегическое планирование позволит увидеть, каким будет
-                                      ваш бизнес через несколько лет.
-                                    </p>
-                                    <span>время чтения: 10 минут</span>
-                                  </div> -->
-                            </div>
-                        </div>
-                        <div class="single-box text-center">
-                            <div class="article-link">
-                                <a href="">раздел статьи</a>
-                            </div>
-                            <div class="article-img">
-                                <img src="images/logos/undp.svg" alt=""/>
-                            </div>
-                            <div class="article-info">
-                                <div class="article-link">
-                                    <a href="">раздел статьи</a>
-                                </div>
-                                <div class="article-header">
-                                    <h2>Автоматизация малого бизнеса</h2>
-                                </div>
-                                <!-- <div class="article-txt">
-                                    <p>
-                                      Стратегическое планирование позволит увидеть, каким будет
-                                      ваш бизнес через несколько лет.
-                                    </p>
-                                    <span>время чтения: 10 минут</span>
-                                  </div> -->
-                            </div>
-                        </div>
-                        <div class="single-box text-center">
-                            <div class="article-link">
-                                <a href="">раздел статьи</a>
-                            </div>
-                            <div class="article-img">
-                                <img src="images/logos/SevemlyTV.svg" alt=""/>
-                            </div>
-                            <div class="article-info">
-                                <div class="article-link">
-                                    <a href="">раздел статьи</a>
-                                </div>
-                                <div class="article-header">
-                                    <h2>Автоматизация малого бизнеса</h2>
-                                </div>
-                                <!-- <div class="article-txt">
-                                    <p>
-                                      Стратегическое планирование позволит увидеть, каким будет
-                                      ваш бизнес через несколько лет.
-                                    </p>
-                                    <span>время чтения: 10 минут</span>
-                                  </div> -->
-                            </div>
-                        </div>
-                        <div class="single-box text-center">
-                            <div class="article-link">
-                                <a href="">раздел статьи</a>
-                            </div>
-                            <div class="article-img">
-                                <img src="images/logos/accor.svg" alt=""/>
-                            </div>
-                            <div class="article-info">
-                                <div class="article-link">
-                                    <a href="">раздел статьи</a>
-                                </div>
-                                <div class="article-header">
-                                    <h2>Автоматизация малого бизнеса</h2>
-                                </div>
-                                <!-- <div class="article-txt">
-                                    <p>
-                                      Стратегическое планирование позволит увидеть, каким будет
-                                      ваш бизнес через несколько лет.
-                                    </p>
-                                    <span>время чтения: 10 минут</span>
-                                  </div> -->
-                            </div>
-                        </div>
-                        <div class="single-box text-center">
-                            <div class="article-link">
-                                <a href="">раздел статьи</a>
-                            </div>
-                            <div class="article-img">
-                                <img src="images/logos/aloqabank.svg" alt=""/>
-                            </div>
-                            <div class="article-info">
-                                <div class="article-link">
-                                    <a href="">раздел статьи</a>
-                                </div>
-                                <div class="article-header">
-                                    <h2>Автоматизация малого бизнеса</h2>
-                                </div>
-                                <!-- <div class="article-txt">
-                                    <p>
-                                      Стратегическое планирование позволит увидеть, каким будет
-                                      ваш бизнес через несколько лет.
-                                    </p>
-                                    <span>время чтения: 10 минут</span>
-                                  </div> -->
-                            </div>
-                        </div>
-                        <div class="single-box text-center">
-                            <div class="article-link">
-                                <a href="">раздел статьи</a>
-                            </div>
-                            <div class="article-img">
-                                <img src="images/logos/undp.svg" alt=""/>
-                            </div>
-                            <div class="article-info">
-                                <div class="article-link">
-                                    <a href="">раздел статьи</a>
-                                </div>
-                                <div class="article-header">
-                                    <h2>Автоматизация малого бизнеса</h2>
-                                </div>
-                                <!-- <div class="article-txt">
-                                    <p>
-                                      Стратегическое планирование позволит увидеть, каким будет
-                                      ваш бизнес через несколько лет.
-                                    </p>
-                                    <span>время чтения: 10 минут</span>
-                                  </div> -->
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </section>

@@ -6,7 +6,7 @@
             </div>
             <div class="author-dateails">
                 <p class="">{{ $article->member->name }}</p>
-                <span class="date">{{ date('d F, Y', strtotime($article->created_at)) }}</span>
+                <span class="date">{{ \Jenssegers\Date\Date::parse($article->created_at)->format('j F Y') }}</span>
             </div>
         </div>
         <div class="article-img">
@@ -14,7 +14,7 @@
         </div>
         <div class="article-info">
             <div class="article-link">
-                <a href="{{ $article->slug }}">раздел статьи</a>
+                <a href="{{ route('article', $article->slug) }}">раздел статьи</a>
             </div>
             <div class="article-header">
                 <h2>{{ $article->title }}</h2>

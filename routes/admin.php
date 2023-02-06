@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\MembersController;
 use App\Http\Controllers\Admin\PartnersController;
 use App\Http\Controllers\Admin\ProjectsController;
 use App\Http\Controllers\Admin\ServicesController;
+use App\Http\Controllers\Admin\StepController;
 use App\Http\Controllers\Admin\SubservicesController;
 
 use Illuminate\Support\Facades\Route;
@@ -21,5 +22,6 @@ Route::middleware('auth:admin')->group(function () {
     Route::resource('members', MembersController::class);
     Route::resource('articles', ArticlesController::class);
     Route::resource('contacts', ContactsController::class);
+    Route::resource('steps', StepController::class);
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });

@@ -14,7 +14,7 @@
                         @enderror
                         <input type="text" class="form-control" name="name" placeholder="Имя и фамилия">
                     </div>
-                    <label for="descr" class="col-sm-3 text-end control-label col-form-label">Описание участника</label>
+                    <label for="descr" class="col-sm-3 text-end control-label col-form-label">Об участнике</label>
                     <div class="col-sm-9" style="margin-bottom: 20px">
                         @error('descr')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -22,7 +22,7 @@
                         <textarea class="form-control {{ $errors->has('descr') ? 'is-invalid' : '' }}" name="descr"
                                   placeholder="Об участнике команды"></textarea>
                     </div>
-                    <label for="descr" class="col-sm-3 text-end control-label col-form-label">Описание проекта</label>
+                    <label for="descr" class="col-sm-3 text-end control-label col-form-label">Обязанности участника</label>
                     <div class="col-sm-9" style="margin-bottom: 20px">
                         @error('descr')
                         <div class=work_post>{{ $message }}</div>

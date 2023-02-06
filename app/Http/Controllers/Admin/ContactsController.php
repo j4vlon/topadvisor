@@ -43,7 +43,7 @@ class ContactsController extends Controller
         $feedback->phone = $request->phone;
         $feedback->is_active = 1;
         $feedback->save();
-        return redirect()->back();
+
     }
 
     /**
@@ -89,5 +89,6 @@ class ContactsController extends Controller
     public function destroy(Contact $contact)
     {
         $contact->delete();
+        return redirect()->back();
     }
 }

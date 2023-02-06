@@ -6,7 +6,8 @@
             <a href="/" class="top">
                 <img src="{{ asset('assets/images/logos/advisor-black.svg') }}" alt=""/>
             </a>
-            @include('front.header')
+            <button class="burger hamburger hamburger--collapse" onclick="$('.burger').toggleClass('active un-active');" id="nav-btn"></button>
+            <x-front.header-component></x-front.header-component>
         </nav>
     </header>
     <div class="project-block">
@@ -66,7 +67,7 @@
                     <div class="info-list-item">
                         <div class="logo-img-area">
                             <img src="{{ $project->partner->file_url }}">
-                            <span>{{ date('d F, Y', strtotime($project->updated_at)) }}</span>
+                            <span>{{ \Jenssegers\Date\Date::parse($project->created_at)->format('j F Y') }}</span>
                         </div>
                         <div class="info-list-img-area">
                             <img src="{{ $project->project_img }}">
@@ -74,7 +75,7 @@
                         <div class="info-list-details">
                             <span>{{ $project->subservice->title }}</span>
                             <h4>{{ $project->title }}</h4>
-                            <p>{{   $truncated = Str::of($project->default_txt)->limit(100) }}</p>
+                            <p>{{   $project->short_descr }}</p>
                         </div>
                         <div class="info-list-links">
                             <svg width="31" height="38" viewBox="0 0 31 38" fill="none"

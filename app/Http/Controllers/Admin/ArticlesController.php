@@ -43,20 +43,12 @@ class ArticlesController extends Controller
     {
         $article = new Article();
         $article->title = $request->title;
-        $article->descr_title = $request->descr_title;
-        $article->descr2 = $request->descr2;
         $article->descr = $request->descr;
-        $article->default_txt = $request->default_txt;
         $article->member_id = $request->member_id;
         if ($request->hasFile('file_url')){
             $path = $request->file_url->store('uploads', 'public');
             $article->file_url = '/storage/'.$path;
         }
-        if ($request->hasFile('descr_img')){
-            $path = $request->descr_img->store('uploads', 'public');
-            $article->descr_img = '/storage/'.$path;
-        }
-        $article->img_author = $request->img_author;
         $article->save();
         return redirect()->back();
     }
@@ -94,19 +86,10 @@ class ArticlesController extends Controller
     public function update(UpdateArticleRequest $request, Article $article)
     {
         $article->title = $request->title;
-        $article->descr_title = $request->descr_title;
-        $article->descr2 = $request->descr2;
         $article->descr = $request->descr;
-        $article->img_author = $request->img_author;
-        $article->default_txt = $request->default_txt;
-
         if ($request->hasFile('file_url')){
             $path = $request->file_url->store('uploads', 'public');
             $article->file_url = '/storage/'.$path;
-        }
-        if ($request->hasFile('descr_img')){
-            $path = $request->descr_img->store('uploads', 'public');
-            $article->descr_img = '/storage/'.$path;
         }
         $article->member_id = $request->member_id;
         $article->update();
@@ -117,10 +100,11 @@ class ArticlesController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Article $article)
     {
         $article->delete();
+        return redirect()->back();
     }
 }

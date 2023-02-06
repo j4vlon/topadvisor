@@ -3,14 +3,16 @@
         <a href="#">Услуги</a>
         <div class="dropdown-content-wrapper">
             <div class="dropdown-content">
-                @foreach($subservices as $subservice)
+                @foreach($services as $service)
                     <ul class="dropdown-list">
                         <li class="dropdown-list-item dropdown-head">
-                            <a href="{{ route('services', $subservice->service->slug) }}" class="dropdown-link">{{ $subservice->service->title }}</a>
+                            <a href="{{ route('services', $service->slug) }}" class="dropdown-link">{{ $service->title }}</a>
                         </li>
+                        @foreach($service->subservices as $subservice)
                         <li class="dropdown-list-item">
-                             <a href="{{ route('category', $subservice->slug) }}" class="dropdown-link">{{ $subservice->title }}</a>
-                         </li>
+                            <a href="{{ route('category', $subservice->slug) }}" class="dropdown-link">{{ $subservice->title }}</a>
+                        </li>
+                        @endforeach
                     </ul>
                 @endforeach
             </div>

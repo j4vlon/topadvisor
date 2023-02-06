@@ -5,14 +5,14 @@
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-12 d-flex no-block align-items-center">
-                <h4 class="page-title">Проекты</h4>
+                <h4 class="page-title">Этапы работы</h4>
                 <div class="ms-auto text-end">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">админка</a></li>
+                            <li class="breadcrumb-item"><a href="">админка</a></li>
                             <li class="breadcrumb-item"><i class="fas fa-chevron-right"></i></li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                проекты
+                                разделы услуг
                             </li>
                         </ol>
                     </nav>
@@ -20,18 +20,12 @@
             </div>
         </div>
     </div>
-    <!-- ============================================================== -->
-    <!-- End Bread crumb and right sidebar toggle -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- Container fluid  -->
-    <!-- ============================================================== -->
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Список проектов</h5>
+                        <h5 class="card-title">Список услуг</h5>
                         <div class="table-responsive">
                             <table
                                 id="zero_config"
@@ -39,24 +33,21 @@
                             >
                                 <thead>
                                 <tr>
-                                    <th>Название</th>
-                                    <th>Услуги</th>
-                                    <th>Партнеры</th>
-                                    <th>Менеджер проекта</th>
-                                    <th>Изменить</th>
+                                    <th>Номер</th>
+                                    <th>Услуга</th>
+                                    <th>Описание</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($projects as $project)
+                                @foreach($steps as $step)
                                     <tr>
-                                        <td>{{ $project->title }}</td>
-                                        <td>{{ $project->subservice->title }}</td>
-                                        <td>{{ $project->partner->title }}</td>
-                                        <td>{{ $project->member->name }}</td>
+                                        <td>{{ $step->index }}</td>
+                                        <td>{{ $step->subservice->title }}</td>
+                                        <td>{{ $step->descr }}</td>
                                         <td>
-                                            <a href="{{ route('projects.edit', $project->id) }}" class="btn btn-primary" style="margin-bottom: 5px; width: 100%">Редактировать</a>
+                                            <a href="{{ route('steps.edit', $step->id) }}" class="btn btn-primary" style="margin-bottom: 5px; width: 100%">Редактировать</a>
                                             <br>
-                                            <form action="{{ route('projects.destroy', $project->id) }}" method="post">
+                                            <form action="{{ route('steps.destroy', $step->id) }}" method="post">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger" style="width: 100%">
@@ -66,11 +57,24 @@
                                         </td>
                                     </tr>
                                 @endforeach
+                                </tfoot>
                             </table>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <!-- ============================================================== -->
+        <!-- End PAge Content -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Right sidebar -->
+        <!-- ============================================================== -->
+        <!-- .right-sidebar -->
+        <!-- ============================================================== -->
+        <!-- End Right sidebar -->
+        <!-- ============================================================== -->
     </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
 @endsection

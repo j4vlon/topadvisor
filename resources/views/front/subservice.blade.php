@@ -6,7 +6,8 @@
             <a href="/" class="top">
                 <img src="{{ asset('assets/images/logos/advisor-black.svg') }}" alt=""/>
             </a>
-            @include('front.header')
+            <button class="burger hamburger hamburger--collapse" onclick="$('.burger').toggleClass('active un-active');" id="nav-btn"></button>
+            <x-front.header-component></x-front.header-component>
         </nav>
     </header>
     <!-- HERO BLOCK START -->
@@ -32,15 +33,14 @@
         <!-- HERO BLOCK END -->
         <div class="business-info-body">
             <div class="business-info-title">
-                <h3>Сделаем ваш бизнес прибыльнее</h3>
+                <h3>{{ $subservice->descr_title }}</h3>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                    eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                   {{ $subservice->default_txt }}
                 </p>
             </div>
             <div class="business-info-txt">
                 <p>
-                    {!! nl2br(e($subservice->descr)) !!}
+                    {!! $subservice->descr !!}
                 </p>
             </div>
         </div>
@@ -53,48 +53,15 @@
             </div>
 
             <div class="work-info-body">
+                @foreach($subservice->steps as $step)
                 <div class="work-info-item">
-                    <h3>01</h3>
+                    <h3>{{ $step->index }}</h3>
                     <img src="{{ asset('assets/images/ellipse.svg') }}" alt=""/>
                     <p>
-                        Поможем оптимизировать бизнес-процессы, построить алгоритм
-                        управления компанией. Эти услуги повысят эффективность работы
-                        организации или ее подразделений. Каждый процесс будет описан, что
-                        сократит их избыточность, повысит стабильность и упростит
-                        управление.
+                       {{ $step->descr }}
                     </p>
                 </div>
-                <div class="work-info-item">
-                    <h3>02</h3>
-                    <img src="{{ asset('assets/images/ellipse.svg') }}" alt=""/>
-                    <p>
-                        Стратегическое планирование позволит увидеть, каким будет ваш
-                        бизнес через несколько лет, определит точки роста и конкурентные
-                        преимущества.
-                    </p>
-                </div>
-                <!-- <hr style="background: #6b99c3; transform: rotate(90deg)" /> -->
-                <div class="work-info-item">
-                    <h3>03</h3>
-                    <img src="{{ asset('assets/images/ellipse.svg') }}" alt=""/>
-                    <p>
-                        Стратегия развития — это ваша «дорожная карта» с конкретными,
-                        измеримыми и достижимыми целями и задачами, следуя которой можно
-                        развить свой бизнес, сделать его прибыльнее и сократить затраты.
-                    </p>
-                </div>
-                <div class="work-info-item">
-                    <h3>04</h3>
-                    <img src="{{ asset('assets/images/ellipse.svg') }}" alt=""/>
-                    <p class="last-child">
-                        Интернет-маркетинг включает в себя стратегию онлайн-продвижения,
-                        привлечения и удержания клиентов, создание воронки
-                        Digital-маркетинга, SEO-оптимизацию и построение сквозной
-                        аналитики. Эти услуги помогут увеличить лояльную аудиторию и
-                        превратить ее в клиентов, а система аналитики определит, какие
-                        инструменты
-                    </p>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
@@ -189,7 +156,7 @@
             </div>
         </div>
     </div>
-    <x-front.project-accordion></x-front.project-accordion>
+    <x-front.projects-accordion></x-front.projects-accordion>
     <!-- FEEDBACK SECTION START -->
     <div class="container">
         <div class="consulting-wrapper">
@@ -240,7 +207,7 @@
                 </div>
             </section>
             <div class="view-all">
-                <a href="" class="more">Посмотреть все
+                <a href="{{ route('articles') }}" class="more">Посмотреть все
                     <span>
               <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M2 1H10M10 1V9M10 1L1 10" stroke="black" stroke-width="1.5"></path>

@@ -153,6 +153,14 @@
                                 <a href="{{ route('subservices.create') }}" class="sidebar-link"><i class="far fa-plus"></i><span
                                         class="hide-menu"> Добавить услугу </span></a>
                             </li>
+                            <li class="sidebar-item">
+                                <a href="{{ route('steps.index') }}" class="sidebar-link"><i class="fas fa-list"></i><span
+                                        class="hide-menu"> Этапы работ </span></a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="{{ route('steps.create') }}" class="sidebar-link"><i class="far fa-plus"></i><span
+                                        class="hide-menu"> Добавить этапы работ </span></a>
+                            </li>
                         </ul>
                     </li>
                     <li class="sidebar-item">
@@ -234,7 +242,7 @@
     <!-- ============================================================== -->
     <!-- Page wrapper  -->
     <!-- ============================================================== -->
-    <div class="page-wrapper">
+    <div class="page-wrapper" style="background: #fff">
         <!-- ============================================================== -->
         @yield('content')
         <!-- ============================================================== -->

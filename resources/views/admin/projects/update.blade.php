@@ -30,32 +30,15 @@
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
                         <textarea class="form-control {{ $errors->has('descr') ? 'is-invalid' : '' }}" id="descr" name="descr"
-                                  placeholder="Введите описание проекта">{!! $project->descr !!}</textarea>
+                                  placeholder="Введите описание проекта">{{ $project->descr }}</textarea>
                     </div>
-                    <label for="descr_img" class="col-sm-3 text-end control-label col-form-label">Загрузите
-                        картинку</label>
+                    <label for="short_descr" class="col-sm-3 text-end control-label col-form-label">Краткое описание проекта</label>
                     <div class="col-sm-9" style="margin-bottom: 20px">
-                        @error('descr_img')
+                        @error('short_descr')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
-                        <input type="file" name="descr_img"
-                               class="form-control {{ $errors->has('descr_img') ? 'is-invalid' : '' }}" value="{{ $project->descr_img }}">
-                    </div>
-                    <label for="descr" class="col-sm-3 text-end control-label col-form-label">Описание проекта</label>
-                    <div class="col-sm-9" style="margin-bottom: 20px">
-                        @error('descr2')
-                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                        @enderror
-                        <textarea class="form-control {{ $errors->has('descr2') ? 'is-invalid' : '' }}" id="descr2" name="descr2"
-                                  placeholder="Введите описание проекта">{!! $project->descr2 !!}</textarea>
-                    </div>
-                    <label for="descr" class="col-sm-3 text-end control-label col-form-label">Описание проекта</label>
-                    <div class="col-sm-9" style="margin-bottom: 20px">
-                        @error('default_txt')
-                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                        @enderror
-                        <textarea class="form-control {{ $errors->has('default_txt') ? 'is-invalid' : '' }}" name="default_txt"
-                                  placeholder="Введите описание проекта">{{ $project->default_txt }}</textarea>
+                        <textarea class="form-control {{ $errors->has('short_descr') ? 'is-invalid' : '' }}" name="short_descr"
+                                  placeholder="Введите краткое описание проекта">{{ $project->short_descr }}</textarea>
                     </div>
                     <label class="col-sm-3 text-end control-label col-form-label" for="partner_id">Партнер проекта</label>
                     <div class="col-md-9" style="margin-bottom: 20px">
@@ -100,13 +83,6 @@
                                 </option>
                             @endforeach
                         </select>
-                    </div>
-                    <label for="title" class="col-sm-3 text-end control-label col-form-label">Автор фотографии</label>
-                    <div class="col-sm-9" style="margin-bottom: 20px">
-                        @error('img_author')
-                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                        @enderror
-                        <input type="text" class="form-control" name="img_author" placeholder="Введите имя автора фотографии" value="{{ $project->img_author }}">
                     </div>
                 </div>
             </div>

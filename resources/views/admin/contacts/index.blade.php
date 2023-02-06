@@ -19,7 +19,6 @@
         </div>
     </div>
     <div class="container-fluid">
-
         <div class="row">
             <div class="col-12">
                 <div class="card">
@@ -35,7 +34,6 @@
                                     <th>Фамилия и имя</th>
                                     <th>Название компании</th>
                                     <th>Телефон номер</th>
-                                    <th>Статус</th>
                                     <th>Удалить</th>
                                 </tr>
                                 </thead>
@@ -45,13 +43,6 @@
                                         <td>{{ $contact->name }}</td>
                                         <td>{{ $contact->company_name }}</td>
                                         <td>{{ $contact->phone }}</td>
-                                        <td>
-                                            @if(!isset($contact->is_active))
-                                            Отвечено
-                                            @else
-                                            Ответить
-                                            @endif
-                                        </td>
                                         <td>
                                             <form action="{{ route('contacts.destroy', $contact->id) }}" method="post">
                                                 @csrf

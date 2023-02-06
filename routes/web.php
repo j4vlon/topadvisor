@@ -25,6 +25,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [FrontController::class, 'homepage']);
 Route::get('contacts', [FrontController::class, 'contacts'])->name('contacts');
+//Route::get('services', [ServiceController::class, 'index'])->name('services');
 Route::get('services/{slug}', [ServiceController::class, 'serviceView'])->name('services');
 Route::get('services/category/{slug}', [SubserviceController::class, 'subserviceView'])->name('category');
 Route::get('projects', [ProjectController::class, 'projects'])->name('projects');
@@ -35,6 +36,7 @@ Route::get('article/{slug}', [ArticleController::class, 'getArticle'])->name('ar
 Route::get('team', [TeamController::class, 'team'])->name('team');
 Route::get('team/{id}', [TeamController::class, 'member'])->name('member');
 Route::post('feedback', [ContactController::class, 'feedback'])->name('feedback');
+//Route::get('/success', [ContactController::class, 'success'])->name('success');
 
 
 
