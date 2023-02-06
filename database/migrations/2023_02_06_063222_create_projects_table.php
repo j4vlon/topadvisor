@@ -1,5 +1,8 @@
 <?php
 
+use App\Models\Admin\Member;
+use App\Models\Admin\Partner;
+use App\Models\Admin\Subservice;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,18 +18,23 @@ return new class extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(\App\Models\Admin\Partner::class);
-            $table->foreignIdFor(\App\Models\Admin\Subservice::class);
-            $table->foreignIdFor(\App\Models\Admin\Member::class);
+            $table->foreignIdFor(Partner::class)
+                ->constrained()
+                ->cascadeOnUpdate()
+                ->cascadeOnUpdate();
+            $table->foreignIdFor(Subservice::class)
+                ->constrained()
+                ->cascadeOnUpdate()
+                ->cascadeOnUpdate();
+            $table->foreignIdFor(Member::class)
+                ->constrained()
+                ->cascadeOnUpdate()
+                ->cascadeOnUpdate();
             $table->string('title');
             $table->string('slug');
             $table->longText('descr');
             $table->text('short_descr');
-//            $table->longText('descr2')->nullable();
-//            $table->longText('default_txt')->nullable();
             $table->string('project_img');
-//            $table->string('descr_img');
-//            $table->string('img_author');
             $table->timestamps();
         });
     }

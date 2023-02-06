@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Admin\Subservice;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,7 +16,10 @@ return new class extends Migration
     {
         Schema::create('steps', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(\App\Models\Admin\Subservice::class);
+            $table->foreignIdFor(Subservice::class)
+                ->constrained()
+                ->cascadeOnUpdate()
+                ->cascadeOnDelete();
             $table->integer('index');
             $table->text('descr');
             $table->timestamps();

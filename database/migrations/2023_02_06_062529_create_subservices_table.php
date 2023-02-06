@@ -18,10 +18,13 @@ return new class extends Migration
             $table->string('title');
             $table->longText('descr');
             $table->string('descr_title');
-            $table->text('default_txt');
+            $table->text('default_txt')->nullable();
             $table->string('slug')->unique();
             $table->string('file_url');
-            $table->foreignIdFor(\App\Models\Admin\Service::class);
+            $table->foreignIdFor(\App\Models\Admin\Service::class)
+                ->constrained()
+                ->cascadeOnUpdate()
+                ->cascadeOnDelete();
             $table->boolean('is_active')->nullable();
             $table->timestamps();
         });

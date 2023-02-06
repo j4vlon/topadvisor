@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta itemprop="name" content="@yield('title')">
     <meta itemprop="description" content="@yield('descr')">
+    <meta name="keywords" content="">
     <meta itemprop="image" content="https://lorempixel.com/400/200/">
     <title>Topadvisor - @yield('title')</title>
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}" />
