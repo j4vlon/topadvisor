@@ -1,5 +1,5 @@
 @extends('layouts._layout')
-@section('title', 'Услуги')
+@section('title', $subservice->title)
 @section('content')
     <header class="header main-nav-header">
         <nav class="container header-navigation">
