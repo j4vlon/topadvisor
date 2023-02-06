@@ -76,7 +76,7 @@
                 <!-- ============================================================== -->
                 <!-- Logo -->
                 <!-- ============================================================== -->
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="/">
                     <!-- Logo icon -->
                     <b class="logo-icon ps-2">
                         <!-- Light Logo icon -->
@@ -165,6 +165,33 @@
                     </li>
                     <li class="sidebar-item">
                         <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
+                           aria-expanded="false"><span class="hide-menu">Партнеры</span></a>
+                        <ul aria-expanded="false" class="collapse first-level">
+                            <li class="sidebar-item">
+                                <a href="{{ route('partners.index') }}" class="sidebar-link"><i class="fas fa-list"></i><span
+                                        class="hide-menu"> Все партнеры </span></a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="{{ route('partners.create') }}" class="sidebar-link"><i class="far fa-plus"></i><span class="hide-menu"> Добавить партнера </span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
+                           aria-expanded="false"><span class="hide-menu">Команда</span></a>
+                        <ul aria-expanded="false" class="collapse first-level">
+                            <li class="sidebar-item">
+                                <a href="{{ route('members.index') }}" class="sidebar-link"><i class="fas fa-users"></i><span
+                                        class="hide-menu"> Участники команды </span></a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="{{ route('members.create') }}" class="sidebar-link"><i class="fas fa-user-plus"></i><span
+                                        class="hide-menu"> Добавить участника </span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
                            aria-expanded="false"><span
                                 class="hide-menu">Проекты</span></a>
                         <ul aria-expanded="false" class="collapse first-level">
@@ -198,33 +225,6 @@
                             <li class="sidebar-item">
                                 <a href="{{ route('articles.create') }}" class="sidebar-link"><i class="far fa-plus"></i><span
                                         class="hide-menu"> Добавить статью </span></a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="sidebar-item">
-                        <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
-                           aria-expanded="false"><span class="hide-menu">Партнеры</span></a>
-                        <ul aria-expanded="false" class="collapse first-level">
-                            <li class="sidebar-item">
-                                <a href="{{ route('partners.index') }}" class="sidebar-link"><i class="fas fa-list"></i><span
-                                        class="hide-menu"> Все партнеры </span></a>
-                            </li>
-                            <li class="sidebar-item">
-                                <a href="{{ route('partners.create') }}" class="sidebar-link"><i class="far fa-plus"></i><span class="hide-menu"> Добавить партнера </span></a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="sidebar-item">
-                        <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
-                           aria-expanded="false"><span class="hide-menu">Команда</span></a>
-                        <ul aria-expanded="false" class="collapse first-level">
-                            <li class="sidebar-item">
-                                <a href="{{ route('members.index') }}" class="sidebar-link"><i class="fas fa-users"></i><span
-                                        class="hide-menu"> Участники команды </span></a>
-                            </li>
-                            <li class="sidebar-item">
-                                <a href="{{ route('members.create') }}" class="sidebar-link"><i class="fas fa-user-plus"></i><span
-                                        class="hide-menu"> Добавить участника </span></a>
                             </li>
                         </ul>
                     </li>
