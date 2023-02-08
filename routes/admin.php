@@ -2,6 +2,7 @@
 use App\Http\Controllers\Admin\ArticlesController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\ContactsController;
+use App\Http\Controllers\Admin\GetSubserviceController;
 use App\Http\Controllers\Admin\MembersController;
 use App\Http\Controllers\Admin\PartnersController;
 use App\Http\Controllers\Admin\ProjectsController;
@@ -19,6 +20,7 @@ Route::middleware('auth:admin')->group(function () {
     Route::resource('subservices', SubservicesController::class);
     Route::resource('partners', PartnersController::class);
     Route::resource('projects', ProjectsController::class);
+    Route::post('/getsubservice', [GetSubserviceController::class, 'getsubservice'])->name('getsubservice');
     Route::resource('members', MembersController::class);
     Route::resource('articles', ArticlesController::class);
     Route::resource('contacts', ContactsController::class);

@@ -9,8 +9,10 @@ use App\Http\Requests\Admin\UpdateProjectRequest;
 use App\Models\Admin\Member;
 use App\Models\Admin\Partner;
 use App\Models\Admin\Project;
+use App\Models\Admin\Service;
 use App\Models\Admin\Subservice;
 use Illuminate\Http\Request;
+use Symfony\Component\Console\Input\Input;
 
 class ProjectsController extends Controller
 {
@@ -34,8 +36,8 @@ class ProjectsController extends Controller
     {
         $partners = Partner::all();
         $members = Member::all();
-        $subservices = Subservice::with('service')->get();
-        return view('admin.projects.create', compact('partners', 'subservices', 'members'));
+        $services = Service::all();
+        return view('admin.projects.create', compact('partners', 'members', 'services'));
     }
 
     /**

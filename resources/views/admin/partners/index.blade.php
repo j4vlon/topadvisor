@@ -35,6 +35,7 @@
                                 <tr>
                                     <th>Название компании</th>
                                     <th>Логотип</th>
+                                    <th>Реализованные проекты</th>
                                     <th>Редактировать</th>
                                 </tr>
                                 </thead>
@@ -42,7 +43,12 @@
                                 @foreach($partners as $partner)
                                     <tr>
                                         <td>{{ $partner->title }}</td>
-                                        <td><img src="{{ $partner->file_url }}" alt=""></td>
+                                        <td><img src="{{ $partner->file_url }}" alt="" style="width: 248px; object-fit: cover"></td>
+                                        <td>
+                                            @foreach($partner->projects as $project)
+                                                {{ $project->title }}
+                                            @endforeach
+                                        </td>
                                         <td>
                                             <a href="{{ route('partners.edit', $partner->id) }}" class="btn btn-primary" style="margin-bottom: 5px; width: 100%">Редактировать</a>
                                             <br>

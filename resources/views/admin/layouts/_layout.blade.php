@@ -269,7 +269,7 @@
 <!-- ============================================================== -->
 <script src="{{ asset('admin/js/jquery.min.js') }}"></script>
 <!-- Bootstrap tether Core JavaScript -->
-<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
 <!-- slimscrollbar scrollbar JavaScript -->
 {{--<script src="{{ asset('admin/js/perfect-scrollbar.jquery.min.js') }}"></script>--}}
 {{--<script src="{{ asset('admin/js/sparkline.js') }}"></script>--}}

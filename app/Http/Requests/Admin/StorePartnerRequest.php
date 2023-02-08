@@ -25,7 +25,7 @@ class StorePartnerRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'file_url' => ['mimes: png,jpg,jpeg,svg', 'required']
+            'file_url' => ['mimes:png,jpg,jpeg,svg', 'required']
         ];
     }
 }

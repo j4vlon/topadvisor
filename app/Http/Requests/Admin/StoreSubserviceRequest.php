@@ -25,7 +25,10 @@ class StoreSubserviceRequest extends FormRequest
     {
         return [
             'title' => 'required',
+            'industries' => 'required',
             'descr' => 'required',
+            'descr_title' => 'required',
+            'default_txt' => 'required',
             'file_url' => ['mimes:png,jpg,jpeg,svg', 'required'],
             'is_active' => 'nullable'
         ];

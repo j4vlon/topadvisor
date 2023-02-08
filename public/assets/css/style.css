@@ -940,9 +940,12 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 20px;
+    height: 200px;
 }
 .partner-image-area img{
     width: 100%;
+    object-fit: cover;
 }
 .company-title h4 {
     font-style: normal;
@@ -1856,6 +1859,9 @@ a {
     .partners-grid{
         grid-template-columns: repeat(4, 278px);
     }
+    .partner-image-area{
+        height: 170px;
+    }
 }
 @media (max-width: 1200px) {
     .nav-list-item, .call-back a{
@@ -1955,6 +1961,9 @@ a {
     }
     .partners-grid {
         grid-template-columns: repeat(4, 233px);
+    }
+    .partner-image-area {
+        height: 160px;
     }
 }
 @media (max-width: 992px) {

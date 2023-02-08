@@ -42,6 +42,7 @@ class SubservicesController extends Controller
     {
         $subservice = new Subservice();
         $subservice->title = $request->title;
+        $subservice->industries = $request->industries;
         $subservice->descr_title = $request->descr_title;
         $subservice->descr = $request->descr;
         $subservice->default_txt = $request->default_txt;

@@ -31,4 +31,9 @@ class Service extends Model
     {
         return $this->hasMany(Subservice::class);
     }
+
+    public function projects()
+    {
+        return $this->hasMany(Project::class);
+    }
 }
