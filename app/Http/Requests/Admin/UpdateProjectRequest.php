@@ -29,7 +29,7 @@ class UpdateProjectRequest extends FormRequest
             'subservice_id' => 'required',
             'title' => 'required',
             'descr' => 'required',
-            'project_img' => ['mimes:jpg,png,jpeg,svg','required'],
+            'project_img' => ['mimes:jpg,png,jpeg,svg'],
         ];
     }
 }

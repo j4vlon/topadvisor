@@ -33,37 +33,6 @@
                         <textarea class="form-control {{ $errors->has('descr') ? 'is-invalid' : '' }}" id="descr" name="descr"
                         >{!! $article->descr !!}</textarea>
                     </div>
-                    <label for="descr" class="col-sm-3 text-end control-label col-form-label">Заголовок статьи</label>
-                    <div class="col-sm-9" style="margin-bottom: 20px">
-                        @error('descr_title')
-                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                        @enderror
-                        <input type="text" class="form-control" name="descr_title" placeholder="Заголовок статьи" value="{{ $article->descr_title }}">
-                    </div>
-                    <label for="descr2" class="col-sm-3 text-end control-label col-form-label">Описание статьи</label>
-                    <div class="col-sm-9" style="margin-bottom: 20px">
-                        @error('descr2')
-                        <div class=work_post>{{ $message }}</div>
-                        @enderror
-                        <textarea class="form-control {{ $errors->has('descr2') ? 'is-invalid' : '' }}" id="descr2" name="descr2"
-                        >{!! $article->descr2 !!}</textarea>                    </div>
-                    <label for="file_url" class="col-sm-3 text-end control-label col-form-label">Загрузите
-                        картинку статьи</label>
-                    <div class="col-sm-9" style="margin-bottom: 20px">
-                        @error('descr_img')
-                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                        @enderror
-                        <input type="file" name="descr_img" onchange="changeImgDescr(event)"
-                               value="{{ $article->descr_img }}" class="form-control {{ $errors->has('descr_img') ? 'is-invalid' : '' }}">
-                        <img width="300px" class="change-img-descr" src="{{ $article->descr_img }}">
-                    </div>
-                    <label for="img_author" class="col-sm-3 text-end control-label col-form-label">Автор фотографии</label>
-                    <div class="col-sm-9" style="margin-bottom: 20px">
-                        @error('img_author')
-                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                        @enderror
-                        <input type="text" class="form-control" name="img_author" placeholder="Заголовок статьи" value="{{ $article->img_author }}">
-                    </div>
                     <label class="col-sm-3 text-end control-label col-form-label" for="car_id">Выберите автора статьи</label>
                     <div class="col-md-9" style="margin-bottom: 20px">
                         @error('member_id')
@@ -74,14 +43,6 @@
                                 <option value="{{ $member->id }}" data-select2-id="{{ $member->id }}">{{ $member->name }}</option>
                             @endforeach
                         </select>
-                    </div>
-                    <label for="default_txt" class="col-sm-3 text-end control-label col-form-label">Описание статьи</label>
-                    <div class="col-sm-9" style="margin-bottom: 20px">
-                        @error('default_txt')
-                        <div class=work_post>{{ $message }}</div>
-                        @enderror
-                        <textarea class="form-control {{ $errors->has('default_txt') ? 'is-invalid' : '' }}" id="default_txt" name="default_txt"
-                        >{!! $article->default_txt !!}</textarea>
                     </div>
                 </div>
             </div>

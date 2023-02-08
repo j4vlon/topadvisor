@@ -10,6 +10,7 @@ use App\Http\Controllers\Front\ServiceController;
 use App\Http\Controllers\Front\SubserviceController;
 use App\Http\Controllers\Front\TeamController;
 
+use App\Http\Controllers\XMLReaderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,6 +37,7 @@ Route::get('article/{slug}', [ArticleController::class, 'getArticle'])->name('ar
 Route::get('team', [TeamController::class, 'team'])->name('team');
 Route::get('team/{id}', [TeamController::class, 'member'])->name('member');
 Route::post('feedback', [ContactController::class, 'feedback'])->name('feedback');
+Route::get('/sitemap.xml', [XMLReaderController::class, 'index'])->name('sitemap.xml');
 //Route::get('/success', [ContactController::class, 'success'])->name('success');
 
 
