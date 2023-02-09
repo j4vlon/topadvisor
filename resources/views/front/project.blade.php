@@ -1,6 +1,3 @@
-{{--{{ $project->title }}--}}
-{{--{{ $project->subservice->title }}--}}
-{{--{{ $project->partner->title }}--}}
 @extends('layouts._layout')
 @section('title', $project->title)
 @section('content')

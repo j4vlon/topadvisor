@@ -44,4 +44,8 @@ class Subservice extends Model
     public function steps(){
         return $this->hasMany(Step::class);
     }
+     public function benefits()
+     {
+         return $this->hasMany(Benefit::class);
+     }
 }

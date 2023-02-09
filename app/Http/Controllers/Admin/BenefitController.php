@@ -3,21 +3,22 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Admin\Step;
+use App\Http\Requests\Admin\StoreBenefitRequest;
+use App\Http\Requests\Admin\UpdateBenefitRequest;
+use App\Models\Admin\Benefit;
 use App\Models\Admin\Subservice;
 use Illuminate\Http\Request;
 
-class StepController extends Controller
+class BenefitController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $steps = Step::with('subservice')->get();
-        return view('admin.steps.index', compact('steps'));
+        //
     }
 
     /**
@@ -28,7 +29,7 @@ class StepController extends Controller
     public function create()
     {
         $subservices = Subservice::all();
-        return view('admin.steps.create', compact('subservices'));
+        return view('admin.benefit.create', compact('subservices'));
     }
 
     /**
@@ -37,25 +38,24 @@ class StepController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request)
+    public function store(StoreBenefitRequest $request)
     {
 
-        $request->validate([
-            'subservice_id' => 'required',
-            'addmore.*.index' => 'required',
-            'addmore.*.descr' => 'required',
-        ]);
+        foreach ($request->addmore as $key => $value){
 
-        foreach ($request->addmore as $key => $value) {
-            $steps = new Step();
-            $steps->index = $value['index'];
-            $steps->descr = $value['descr'];
-            $steps->subservice_id = $request->subservice_id;
-            $steps->save();
+
+            $benefits = new Benefit();
+            $benefits->subservice_id = $request->subservice_id;
+            $benefits->title = $value['title'];
+            $benefits->descr = $value['descr'];
+            $benefits->default_txt = $value['default_txt'];
+            $path = $value['file_url']->store('uploads', 'public');
+            $benefits->file_url = '/storage/'.$path;
+//            dd($benefits->file_url);
+            $benefits->save();
         }
-        return back()->with('success', 'Этапы успешно добавлены');
+        return redirect()->back();
     }
-
 
     /**
      * Display the specified resource.
@@ -74,10 +74,10 @@ class StepController extends Controller
      * @param  int  $id
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function edit(Step $step)
+    public function edit(Benefit $benefit)
     {
         $subservices = Subservice::all();
-        return view('admin.steps.update', compact('subservices', 'step'));
+        return view('admin.benefit.update', compact('benefit', 'subservices'));
     }
 
     /**
@@ -87,14 +87,17 @@ class StepController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, Step $step)
+    public function update(UpdateBenefitRequest $request, Benefit $benefit)
     {
-        $step->index = $request->index;
-        $step->descr = $request->descr;
-        $step->subservice_id = $request->subservice_id;
-        $step->update();
-
-        return back()->with('success', 'Record Created Successfully.');
+        $benefit->subservice_id = $request->subservice_id;
+        $benefit->title = $request->title;
+        if ($request->hasFile('file_url')){
+            $path = $request->file_url->store('uploads', 'public');
+            $benefit->file_url = '/storage/'.$path;
+        }
+        $benefit->descr = $request->descr;
+        $benefit->update();
+        return redirect()->back();
     }
 
     /**
@@ -103,9 +106,9 @@ class StepController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy(Step $step)
+    public function destroy(Benefit $benefit)
     {
-        $step->delete();
+        $benefit->delete();
         return redirect()->back();
     }
 }

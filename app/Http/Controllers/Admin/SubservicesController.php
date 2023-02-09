@@ -17,7 +17,7 @@ class SubservicesController extends Controller
      */
     public function index()
     {
-        $subservices = Subservice::all();
+        $subservices = Subservice::with('benefits', 'steps')->get();
         return view('admin.subservices.index', compact('subservices'));
     }
 

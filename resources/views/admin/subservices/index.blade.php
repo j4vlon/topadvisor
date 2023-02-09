@@ -44,6 +44,8 @@
                                 <tr>
                                     <th>Название</th>
                                     <th>Активность</th>
+                                    <th>Кому будет полезно</th>
+                                    <th>Этапы работ</th>
                                     <th>Дата добавления</th>
                                     <th>Изменить</th>
                                     <th></th>
@@ -59,7 +61,22 @@
                                         @else
                                             <td>Услуга не активна</td>
                                         @endif
-
+                                        <td>
+                                            @foreach($subservice->benefits as $benefit)
+                                               <p class="info-list">
+                                                   <span>{{ $benefit->title }}</span>
+                                                   <a href="{{ route('benefits.edit', $benefit->id) }}"><i class="fa-sharp fa-solid fa-pen"></i></a>
+                                               </p>
+                                            @endforeach
+                                        </td>
+                                        <td>
+                                            @foreach($subservice->steps as $steps)
+                                                <p class="info-list">
+                                                    <span>{{ $steps->id }}</span>
+                                                    <a href="{{ route('steps.edit', $steps->id) }}"><i class="fa-sharp fa-solid fa-pen"></i></a>
+                                                </p>
+                                            @endforeach
+                                        </td>
                                         <td>{{ $subservice->created_at }}</td>
                                         <td><a href="{{ route('subservices.edit', $subservice->id) }}" class="btn btn-primary" style="margin-bottom: 5px; width: 100%">Редактировать</a>
                                             <br>

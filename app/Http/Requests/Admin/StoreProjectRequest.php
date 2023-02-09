@@ -30,6 +30,7 @@ class StoreProjectRequest extends FormRequest
             'title' => 'required',
             'descr' => 'required',
             'project_img' => ['mimes:jpg,png,jpeg,svg','required'],
+            'form_title' => 'required'
         ];
     }
 }

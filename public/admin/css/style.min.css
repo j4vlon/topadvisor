@@ -29,3 +29,11 @@
 .login:hover{
     color: white;
 }
+.info-list{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.info-list a{
+    color: #0e1c36;
+}

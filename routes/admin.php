@@ -1,6 +1,7 @@
 <?php
 use App\Http\Controllers\Admin\ArticlesController;
 use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\BenefitController;
 use App\Http\Controllers\Admin\ContactsController;
 use App\Http\Controllers\Admin\GetSubserviceController;
 use App\Http\Controllers\Admin\MembersController;
@@ -25,5 +26,6 @@ Route::middleware('auth:admin')->group(function () {
     Route::resource('articles', ArticlesController::class);
     Route::resource('contacts', ContactsController::class);
     Route::resource('steps', StepController::class);
+    Route::resource('benefits', BenefitController::class);
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });

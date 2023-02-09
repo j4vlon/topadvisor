@@ -154,12 +154,16 @@
                                         class="hide-menu"> Добавить услугу </span></a>
                             </li>
                             <li class="sidebar-item">
-                                <a href="{{ route('steps.index') }}" class="sidebar-link"><i class="fas fa-list"></i><span
+                                <a href="{{ route('steps.index') }}" class="sidebar-link"><i class="fa-sharp fa-solid fa-bars-staggered"></i><span
                                         class="hide-menu"> Этапы работ </span></a>
                             </li>
                             <li class="sidebar-item">
                                 <a href="{{ route('steps.create') }}" class="sidebar-link"><i class="far fa-plus"></i><span
                                         class="hide-menu"> Добавить этапы работ </span></a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="{{ route('benefits.create') }}" class="sidebar-link"><i class="fa-sharp fa-solid fa-info"></i><span
+                                        class="hide-menu"> Кому будет полезно </span></a>
                             </li>
                         </ul>
                     </li>
