@@ -6,32 +6,31 @@
                 <h2>Реализованные проекты</h2>
             </div>
             <div class="col-xl-2 col-lg-2 col-md-4 accordion-container">
+                <button type='button' class="accordion" id="accordion">
+              <span class="accordion-title">
+                Направление
+              </span>
+                </button>
+                <div class="panel">
+                    <ul class="accordion-list">
+                        @foreach($services as $service)
+                            <a class="accordion-list-item btn-accordion" service-id="{{ $service->id }}">{{ $service->title }}</a>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xl-2 col-lg-2 col-md-4 accordion-container">
                 <button type="button" class="accordion" id="accordion">
 
               <span class="accordion-title">
                 Услуги
               </span>
-                    <p class="accordion-list-item">Юридическое обслуживание бизнеса</p>
                 </button>
                 <div class="panel">
                     <ul class="accordion-list">
-                        <li class="accordion-list-item">Оптимизация бизнес-процессов (BPM, BPR)</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-xl-2 col-lg-2 col-md-4 accordion-container">
-
-                <button type='button' class="accordion" id="accordion">
-              <span class="accordion-title">
-                Направление
-              </span>
-                    <p class="accordion-list-item">Оптимизация бизнес-процессов (BPM, BPR)</p>
-                </button>
-
-                <div class="panel">
-                    <ul class="accordion-list">
-                        <li class="accordion-list-item">Стратегическое развитие компании</li>
-                        <li class="accordion-list-item">Интернет-маркетинг</li>
+                        @foreach($subservices as $subservice)
+                            <a class="accordion-list-item btn-accordion" subservice-id="{{ $subservice->id }}">{{ $subservice->title }}</a>
+                        @endforeach
                     </ul>
                 </div>
             </div>
@@ -46,7 +45,7 @@
                 </button>
                 <div class="panel">
                     <ul class="accordion-list">
-                        <li class="accordion-list-item">Оптимизация бизнес-процессов (BPM, BPR)</li>
+
                     </ul>
                 </div>
             </div>

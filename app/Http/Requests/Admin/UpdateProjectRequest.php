@@ -24,12 +24,15 @@ class UpdateProjectRequest extends FormRequest
     public function rules()
     {
         return [
+            'service_id' => 'required',
             'partner_id' => 'required',
             'member_id' => 'required',
             'subservice_id' => 'required',
             'title' => 'required',
             'descr' => 'required',
+            'short_descr' => 'required',
             'project_img' => ['mimes:jpg,png,jpeg,svg'],
+            'form_title' => 'required'
         ];
     }
 }

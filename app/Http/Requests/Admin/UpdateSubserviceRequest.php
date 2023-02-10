@@ -30,6 +30,7 @@ class UpdateSubserviceRequest extends FormRequest
             'descr_title' => 'required',
             'default_txt' => 'required',
             'file_url' => ['mimes:png,jpg,jpeg,svg'],
+            'form_title' => 'required'
         ];
     }
 }

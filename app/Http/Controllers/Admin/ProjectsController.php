@@ -49,11 +49,13 @@ class ProjectsController extends Controller
     public function store(StoreProjectRequest $request)
     {
         $project = new Project();
+        $project->service_id = $request->service_id;
         $project->partner_id = $request->partner_id;
         $project->subservice_id = $request->subservice_id;
         $project->member_id = $request->member_id;
         $project->title = $request->title;
         $project->descr = $request->descr;
+        $project->form_title = $request->form_title;
         $project->short_descr = $request->short_descr;
         if ($request->hasFile('project_img')){
             $path = $request->project_img->store('uploads', 'public');
@@ -84,8 +86,9 @@ class ProjectsController extends Controller
     {
         $partners = Partner::all();
         $members = Member::all();
-        $subservices = Subservice::with('service')->get();
-        return view('admin.projects.update', compact('partners', 'subservices', 'project', 'members'));
+        $subservices = Subservice::all();
+        $services = Service::all();
+        return view('admin.projects.update', compact('partners', 'subservices', 'project', 'members', 'services'));
     }
 
     /**
@@ -97,11 +100,13 @@ class ProjectsController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
+        $project->service_id = $request->service_id;
         $project->partner_id = $request->partner_id;
         $project->subservice_id = $request->subservice_id;
         $project->member_id = $request->member_id;
         $project->title = $request->title;
         $project->descr = $request->descr;
+        $project->form_title = $request->form_title;
         $project->short_descr = $request->short_descr;
         if ($request->hasFile('project_img')){
             $path = $request->project_img->store('uploads', 'public');

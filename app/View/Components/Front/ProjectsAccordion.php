@@ -3,11 +3,15 @@
 namespace App\View\Components\Front;
 
 use App\Models\Admin\Project;
+use App\Models\Admin\Service;
+use App\Models\Admin\Subservice;
 use Illuminate\View\Component;
 use Illuminate\Database\Eloquent\Collection;
 
 class ProjectsAccordion extends Component
 {
+    public Collection $services;
+    public Collection $subservices;
     public Collection $projects;
     /**
      * Create a new component instance.
@@ -16,6 +20,8 @@ class ProjectsAccordion extends Component
      */
     public function __construct()
     {
+        $this->services = Service::all();
+        $this->subservices = Subservice::all();
         $this->projects = Project::with('subservice', 'partner')->orderByDesc('id')->limit(4)->get();
     }
 

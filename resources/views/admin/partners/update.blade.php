@@ -19,7 +19,10 @@
                         @error('file_url')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
-                        <input type="file" name="file_url" class="form-control {{ $errors->has('file_url') ? 'is-invalid' : '' }}" value="{{ $partner->file_url }}">
+                        <input type="file" name="file_url" class="form-control {{ $errors->has('file_url') ? 'is-invalid' : '' }}" value="{{ $partner->file_url }}" onchange="changeBanner(event)">
+                        @if(isset($partner->file_url))
+                            <img src="{{ $partner->file_url }}" alt="" class="change-banner">
+                        @endif
                     </div>
                 </div>
             </div>

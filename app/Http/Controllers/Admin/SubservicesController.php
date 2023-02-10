@@ -44,6 +44,7 @@ class SubservicesController extends Controller
         $subservice->title = $request->title;
         $subservice->industries = $request->industries;
         $subservice->descr_title = $request->descr_title;
+        $subservice->form_title = $request->form_title;
         $subservice->descr = $request->descr;
         $subservice->default_txt = $request->default_txt;
         if ($request->hasfile('file_url')){
@@ -90,7 +91,9 @@ class SubservicesController extends Controller
     public function update(Request $request, Subservice $subservice)
     {
         $subservice->title = $request->title;
+        $subservice->industries = $request->industries;
         $subservice->descr_title = $request->descr_title;
+        $subservice->form_title = $request->form_title;
         $subservice->descr = $request->descr;
         $subservice->default_txt = $request->default_txt;
         if ($request->hasfile('file_url')){
@@ -107,7 +110,7 @@ class SubservicesController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Subservice $subservice)
     {

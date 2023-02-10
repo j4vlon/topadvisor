@@ -1,3 +1,4 @@
+// Project accordion btn animation
 $(function () {
   $(".btn-round").click(
     { animateIn: "closeButton", animateOut: "plusButton" },
@@ -15,7 +16,31 @@ $(function () {
   }
 
 });
+// Project accordion btn animation end
 
+// Project accordion start
+const accordion = document.querySelectorAll(".accordion");
+
+accordion.forEach((element) => {
+    element.addEventListener("click", () => {
+        element.classList.toggle("toggle");
+        let panel = element.nextElementSibling;
+        if (panel.style.maxHeight) {
+            panel.style.maxHeight = null;
+        } else {
+            panel.style.maxHeight = panel.scrollHeight + "px";
+        }
+    });
+});
+
+$(document).ready(function(){
+    $(".accordion").click(function(){
+        $(this).parent().toggleClass('active-border');
+    });
+});
+// Project accordion end
+
+// Header hamburger btn
 $(document).ready(function() {
     $('.hamburger').on('click', function(){
         $('.hamburger').toggleClass('is-active');
@@ -36,27 +61,7 @@ $(document).ready(function() {
     // });
 });
 
-// accordion start
-const accordion = document.querySelectorAll(".accordion");
 
-accordion.forEach((element) => {
-  element.addEventListener("click", () => {
-    element.classList.toggle("toggle");
-    let panel = element.nextElementSibling;
-    if (panel.style.maxHeight) {
-      panel.style.maxHeight = null;
-    } else {
-      panel.style.maxHeight = panel.scrollHeight + "px";
-    }
-  });
-});
-
-$(document).ready(function(){
-  $(".accordion").click(function(){
-    $(this).parent().toggleClass('active-border');
-  });
-});
-// accordion end
 
 // slider js
 $(".owl-carousel").owlCarousel({
@@ -136,3 +141,27 @@ $(document).ready(function() {
     });
 
 });
+
+$(document).ready(function(){
+    $(".btn-accordion").on("click", function(){
+        var service_id = $(this).attr("service-id");
+    });
+    $.ajax({
+        url: "{{route('getProjects')}}",
+        type: "POST",
+        data: {
+            service_id: service_id,
+            _token: '{{csrf_token()}}'
+        },
+        dataType: 'json',
+        success: function (result) {
+            $('#subservice_id').html('<option value="">Выберите услугу</option>');
+            $.each(result.subservice_id, function (key, value) {
+                $("#subservice_id").append('<option value="' + value
+                    .id + '">' + value.title + '</option>');
+            });
+        }
+    });
+});
+// var subservice_id = $(this).attr("subservice-id");
+

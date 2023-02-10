@@ -36,4 +36,8 @@ class Service extends Model
     {
         return $this->hasMany(Project::class);
     }
+    public function articles()
+    {
+        return $this->hasMany(Project::class);
+    }
 }

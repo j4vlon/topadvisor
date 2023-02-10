@@ -37,3 +37,14 @@
 .info-list a{
     color: #0e1c36;
 }
+.change-img{
+    width: 320px;
+    display: block;
+    margin: 10px auto;
+}
+.change-banner{
+    width: 600px;
+    display: block;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}

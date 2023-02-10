@@ -40,15 +40,16 @@ body {
     font-size: 14px;
     text-align: center;
 }
-ul {
-    list-style-type: none;
-}
+
 a {
     text-decoration: none;
 }
 .header {
     width: 100%;
     padding: 28px 0 20px 0;
+}
+.header ul, footer ul {
+    list-style-type: none;
 }
 .header-wrapper {
     background: radial-gradient(
@@ -674,6 +675,7 @@ a {
     font-style: normal;
     font-weight: 500;
     font-size: 38px;
+    width: 573px;
     line-height: 46px;
     letter-spacing: -0.03em;
     color: #ffffff;
@@ -1537,7 +1539,7 @@ a {
 }
 .projects-box{
     margin-bottom: 30px;
-    min-height: 240px;
+    /*min-height: 240px;*/
 }
 .accordion {
     width: 100%;
@@ -1596,7 +1598,7 @@ a {
 }
 .panel {
     overflow: hidden;
-    max-height: 0;
+    max-height: 30px;
     transition: 0.5s ease-in-out;
 }
 .accordion-list {
@@ -1610,7 +1612,12 @@ a {
     line-height: 18px;
     letter-spacing: -0.01em;
     color: #6B99C3;
+    display: block;
     margin-bottom: 10px;
+    cursor: pointer;
+}
+.accordion-list-item:hover{
+    color: #6B99C3;
 }
 .active-border{
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -1941,8 +1948,6 @@ a {
     }
     .member-list .author-details{
         flex-direction: column;
-        height: auto;
-        width: auto;
         align-items: normal;
     }
     .team-item .author-details h2{

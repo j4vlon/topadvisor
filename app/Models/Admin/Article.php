@@ -28,4 +28,14 @@ class Article extends Model
     public function member(){
         return $this->belongsTo(Member::class);
     }
+
+    public function subservice()
+    {
+        return $this->belongsTo(Subservice::class);
+    }
+
+    public function service()
+    {
+        return $this->belongsTo(Service::class);
+    }
 }

@@ -3,8 +3,9 @@
     <div class="container">
         <div class="card">
             <h4 class="card-title" style="margin-top: 30px; margin-bottom: 30px">Обновить</h4>
-            <form action="{{ route('benefits.store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('benefits.update', $benefit->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
+                @method('PUT')
                 @if (Session::has('success'))
                     <div class="alert alert-success text-center">
                         <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
@@ -39,7 +40,12 @@
                         <td><input type="text" name="title" placeholder="Назавние" class="form-control" value="{{ $benefit->title }}" /></td>
                         <td><textarea type="text" name="descr" placeholder="Описание преимущества" class="form-control">{{ $benefit->descr }}</textarea></td>
                         <td><textarea type="text" name="default_txt" placeholder="Краткое описание преимущества" class="form-control">{{ $benefit->default_txt }}</textarea></td>
-                        <td><input type="file" class="form-control " name="file_url" value="{{ $benefit->file_url }}"></td>
+                        <td>
+                            <input type="file" class="form-control " name="file_url" onchange="changeImg(event)" value="{{ $benefit->file_url }}">
+                            @if(isset($benefit->file_url))
+                                <img class="change-img" src="{{ $benefit->file_url }}">
+                            @endif
+                        </td>
                     </tr>
                 </table>
                 <button type="submit" class="btn btn-success">Отправить</button>

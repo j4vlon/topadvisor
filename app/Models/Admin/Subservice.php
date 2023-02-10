@@ -48,4 +48,8 @@ class Subservice extends Model
      {
          return $this->hasMany(Benefit::class);
      }
+    public function articles()
+    {
+        return $this->hasMany(Project::class);
+    }
 }

@@ -12,7 +12,7 @@
                         @error('title')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
-                        <input type="text" class="form-control" name="title" placeholder="Название проекта">
+                        <input type="text" class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}" name="title" placeholder="Название проекта">
                     </div>
                     <label for="project_img" class="col-sm-3 text-end control-label col-form-label">Загрузите
                         баннер</label>
@@ -21,7 +21,8 @@
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
                         <input type="file" name="project_img"
-                               class="form-control {{ $errors->has('project_img') ? 'is-invalid' : '' }}">
+                               class="form-control {{ $errors->has('project_img') ? 'is-invalid' : '' }}" onchange="changeBanner(event)">
+                        <img alt="" class="change-banner">
                     </div>
                     <label for="descr" class="col-sm-3 text-end control-label col-form-label">Описание проекта</label>
                     <div class="col-sm-9" style="margin-bottom: 20px">
@@ -30,6 +31,13 @@
                         @enderror
                         <textarea class="form-control {{ $errors->has('descr') ? 'is-invalid' : '' }}" id="descr" name="descr"
                                   placeholder="Введите описание проекта"></textarea>
+                    </div>
+                    <label for="short_descr" class="col-sm-3 text-end control-label col-form-label">Название формы отправки заявки</label>
+                    <div class="col-sm-9" style="margin-bottom: 20px">
+                        @error('form_title')
+                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                        @enderror
+                        <input type="text" class="form-control {{ $errors->has('form_title') ? 'is-invalid' : '' }}" name="form_title" placeholder="Название формы">
                     </div>
                     <label for="short_descr" class="col-sm-3 text-end control-label col-form-label">Краткое описание проекта</label>
                     <div class="col-sm-9" style="margin-bottom: 20px">
@@ -142,7 +150,7 @@
                     dataType: 'json',
                     success: function (result) {
                         $('#subservice_id').html('<option value="">Выберите услугу</option>');
-                        $.each(result.subservice_id, function (key, value) {
+                        $.each(result.service_id, function (key, value) {
                             $("#subservice_id").append('<option value="' + value
                                 .id + '">' + value.title + '</option>');
                         });

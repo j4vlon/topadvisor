@@ -20,12 +20,20 @@
                         @enderror
                         <input type="text" class="form-control {{ $errors->has('descr_title') ? 'is-invalid' : '' }}" name="descr_title" placeholder="Введите название услуги">
                     </div>
-                    <label for="file_url" class="col-sm-3 text-end control-label col-form-label">Баннер услуги</label>
+                    <label for="short_descr" class="col-sm-3 text-end control-label col-form-label">Название формы отправки заявки</label>
+                    <div class="col-sm-9" style="margin-bottom: 20px">
+                        @error('form_title')
+                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                        @enderror
+                        <input type="text" class="form-control {{ $errors->has('form_title') ? 'is-invalid' : '' }}" name="form_title" placeholder="Название формы" value="">
+                    </div>
+                    <label for="file_url" class="col-sm-3 text-end control-label col-form-label">Баннер услуги (1296х495)</label>
                     <div class="col-sm-9" style="margin-bottom: 20px">
                         @error('file_url')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
-                        <input type="file" name="file_url" class="form-control {{ $errors->has('file_url') ? 'is-invalid' : '' }}">
+                        <input type="file" name="file_url" class="form-control {{ $errors->has('file_url') ? 'is-invalid' : '' }}" onchange="changeBanner(event)">
+                        <img class="change-banner">
                     </div>
                     <label for="specific" class="col-sm-3 text-end control-label col-form-label">Описание услуги</label>
                     <div class="col-sm-9" style="margin-bottom: 20px">
@@ -35,9 +43,9 @@
                         <textarea class="form-control {{ $errors->has('descr') ? 'is-invalid' : '' }}" id="descr" name="descr"
                                   placeholder="Введите описание категории услуги"></textarea>
                     </div>
-                    <label for="specific" class="col-sm-3 text-end control-label col-form-label">Описание услуги</label>
+                    <label for="default_txt" class="col-sm-3 text-end control-label col-form-label">Описание услуги</label>
                     <div class="col-sm-9" style="margin-bottom: 20px">
-                        @error('descr')
+                        @error('default_txt')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
                         <textarea class="form-control {{ $errors->has('default_txt') ? 'is-invalid' : '' }}" name="default_txt"
@@ -48,7 +56,7 @@
                         @error('industries')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
-                        <select name="service_id" class="select2 form-select shadow-none select2-hidden-accessible {{ $errors->has('industries') ? 'is-invalid' : '' }}" style="width: 100%; height: 36px" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                        <select name="industries" class="select2 form-select shadow-none select2-hidden-accessible {{ $errors->has('industries') ? 'is-invalid' : '' }}" style="width: 100%; height: 36px" data-select2-id="1" tabindex="-1" aria-hidden="true">
                                 <option value="Органы государственного управления">Органы государственного управления</option>
                                 <option value="Международные организации">Международные организации</option>
                                 <option value="Иностранные организации">Иностранные организации</option>

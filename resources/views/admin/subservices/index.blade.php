@@ -72,7 +72,7 @@
                                         <td>
                                             @foreach($subservice->steps as $steps)
                                                 <p class="info-list">
-                                                    <span>{{ $steps->id }}</span>
+                                                    <span>{{ $steps->index }}. {{ Str::limit($steps->descr, 50) }}</span>
                                                     <a href="{{ route('steps.edit', $steps->id) }}"><i class="fa-sharp fa-solid fa-pen"></i></a>
                                                 </p>
                                             @endforeach

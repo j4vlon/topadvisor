@@ -21,12 +21,22 @@
                         @enderror
                         <input type="text" value="{{ $subservice->descr_title }}" class="form-control {{ $errors->has('descr_title') ? 'is-invalid' : '' }}" name="descr_title" placeholder="Введите название услуги">
                     </div>
+                    <label for="short_descr" class="col-sm-3 text-end control-label col-form-label">Название формы отправки заявки</label>
+                    <div class="col-sm-9" style="margin-bottom: 20px">
+                        @error('form_title')
+                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                        @enderror
+                        <input type="text" class="form-control {{ $errors->has('form_title') ? 'is-invalid' : '' }}" name="form_title" placeholder="Название формы" value="{{ $subservice->form_title }}">
+                    </div>
                     <label for="file_url" class="col-sm-3 text-end control-label col-form-label">Баннер услуги</label>
                     <div class="col-sm-9" style="margin-bottom: 20px">
                         @error('file_url')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
-                        <input type="file" name="file_url" class="form-control {{ $errors->has('file_url') ? 'is-invalid' : '' }}" value="{{ $subservice->file_url }}">
+                        <input type="file" name="file_url" class="form-control {{ $errors->has('file_url') ? 'is-invalid' : '' }}" value="{{ $subservice->file_url }}" onchange="changeBanner(event)">
+                        @if(isset($subservice->file_url))
+                            <img src="{{ $subservice->file_url }}" alt="" onchange="changeBanner(event)" class="change-banner">
+                        @endif
                     </div>
                     <label for="specific" class="col-sm-3 text-end control-label col-form-label">Описание услуги</label>
                     <div class="col-sm-9" style="margin-bottom: 20px">

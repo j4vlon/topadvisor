@@ -3,6 +3,7 @@ use App\Http\Controllers\Admin\ArticlesController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\BenefitController;
 use App\Http\Controllers\Admin\ContactsController;
+use App\Http\Controllers\Admin\GetProjectsController;
 use App\Http\Controllers\Admin\GetSubserviceController;
 use App\Http\Controllers\Admin\MembersController;
 use App\Http\Controllers\Admin\PartnersController;
@@ -22,6 +23,7 @@ Route::middleware('auth:admin')->group(function () {
     Route::resource('partners', PartnersController::class);
     Route::resource('projects', ProjectsController::class);
     Route::post('/getsubservice', [GetSubserviceController::class, 'getsubservice'])->name('getsubservice');
+    Route::post('/getprojects', [GetProjectsController::class, 'getprojects'])->name('getprojects');
     Route::resource('members', MembersController::class);
     Route::resource('articles', ArticlesController::class);
     Route::resource('contacts', ContactsController::class);
