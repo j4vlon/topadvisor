@@ -1618,6 +1618,7 @@ a {
     display: block;
     margin-bottom: 10px;
     cursor: pointer;
+    display: block;
 }
 .accordion-list-item:hover{
     color: #6B99C3;
