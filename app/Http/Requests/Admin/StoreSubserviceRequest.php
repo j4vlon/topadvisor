@@ -24,6 +24,8 @@ class StoreSubserviceRequest extends FormRequest
     public function rules()
     {
         return [
+            'meta_title' => 'required',
+            'meta_descr' => 'required',
             'title' => 'required',
             'industries' => 'required',
             'descr' => 'required',

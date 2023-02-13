@@ -49,6 +49,8 @@ class ProjectsController extends Controller
     public function store(StoreProjectRequest $request)
     {
         $project = new Project();
+        $project->meta_title = $request->meta_title;
+        $project->meta_descr = $request->meta_descr;
         $project->service_id = $request->service_id;
         $project->partner_id = $request->partner_id;
         $project->subservice_id = $request->subservice_id;
@@ -100,6 +102,8 @@ class ProjectsController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
+        $project->meta_title = $request->meta_title;
+        $project->meta_descr = $request->meta_descr;
         $project->service_id = $request->service_id;
         $project->partner_id = $request->partner_id;
         $project->subservice_id = $request->subservice_id;

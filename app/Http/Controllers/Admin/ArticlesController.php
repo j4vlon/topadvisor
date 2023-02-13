@@ -42,6 +42,8 @@ class ArticlesController extends Controller
     public function store(StoreArticleRequest $request)
     {
         $article = new Article();
+        $article->meta_title = $request->meta_title;
+        $article->meta_descr = $request->meta_descr;
         $article->title = $request->title;
         $article->descr = $request->descr;
         $article->member_id = $request->member_id;
@@ -85,6 +87,8 @@ class ArticlesController extends Controller
      */
     public function update(UpdateArticleRequest $request, Article $article)
     {
+        $article->meta_title = $request->meta_title;
+        $article->meta_descr = $request->meta_descr;
         $article->title = $request->title;
         $article->descr = $request->descr;
         if ($request->hasFile('file_url')){

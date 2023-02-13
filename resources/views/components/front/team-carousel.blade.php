@@ -20,9 +20,11 @@
                         </div>
                         <div class="info-area">
                             <h4>{{ $member->name }}</h4>
-                            <p>
-                                {{ $member->work_post }}
-                            </p>
+                            <a href="{{ route('member', $member->id) }}">
+                                <p>
+                                    {{ $member->work_post }}
+                                </p>
+                            </a>
                         </div>
                     </div>
                     @endforeach

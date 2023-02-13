@@ -24,6 +24,8 @@ class StoreProjectRequest extends FormRequest
     public function rules()
     {
         return [
+            'meta_title' => 'required',
+            'meta_descr' => 'required',
             'service_id' => 'required',
             'partner_id' => 'required',
             'member_id' => 'required',

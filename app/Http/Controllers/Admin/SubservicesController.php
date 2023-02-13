@@ -41,6 +41,8 @@ class SubservicesController extends Controller
     public function store(StoreSubserviceRequest $request)
     {
         $subservice = new Subservice();
+        $subservice->meta_title = $request->meta_title;
+        $subservice->meta_descr = $request->meta_descr;
         $subservice->title = $request->title;
         $subservice->industries = $request->industries;
         $subservice->descr_title = $request->descr_title;
@@ -90,6 +92,8 @@ class SubservicesController extends Controller
      */
     public function update(Request $request, Subservice $subservice)
     {
+        $subservice->meta_title = $request->meta_title;
+        $subservice->meta_descr = $request->meta_descr;
         $subservice->title = $request->title;
         $subservice->industries = $request->industries;
         $subservice->descr_title = $request->descr_title;

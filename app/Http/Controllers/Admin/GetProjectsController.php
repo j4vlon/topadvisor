@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class GetProjectsController extends Controller
 {
     public function getprojects(Request $request){
-        $service['service_id'] = Project::where('service_id', $request->service_id)-get();
+        $service['service_id'] = Project::where('service_id', $request->service_id)->get();
         $subservice['subservice_id'] = Project::where('subservice_id', $request->subservice_id)->get();
         return response()->json($service, $subservice);
     }

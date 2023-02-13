@@ -1,5 +1,6 @@
 @extends('layouts._layout')
-@section('title', $article->title)
+@section('meta_title', $article->meta_title)
+@section('meta_title', $article->meta_descr)
 @section('content')
     <header class="header main-nav-header">
         <nav class="container header-navigation">

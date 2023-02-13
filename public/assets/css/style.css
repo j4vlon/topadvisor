@@ -716,9 +716,12 @@ a {
 }
 
 /* OUR TEAM SLIDER */
-.owl-stage-outer {
+#team{
     margin-bottom: 90px;
 }
+/*.owl-stage-outer {*/
+/*    margin-bottom: 90px;*/
+/*}*/
 .owl-carousel {
     padding-top: 40px;
 }
@@ -743,7 +746,7 @@ a {
 }
 .owl-nav {
     position: absolute;
-    top: 0;
+    top: -55px;
     right: 0;
     width: 100px;
     display: flex;
@@ -1598,7 +1601,7 @@ a {
 }
 .panel {
     overflow: hidden;
-    max-height: 30px;
+    max-height: 40px;
     transition: 0.5s ease-in-out;
 }
 .accordion-list {

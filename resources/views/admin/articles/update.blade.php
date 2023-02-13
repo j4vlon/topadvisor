@@ -8,6 +8,21 @@
             <div class="card-body">
                 <h4 class="card-title">Редактировать статью</h4>
                 <div class="form-group row">
+                    <label for="meta_title" class="col-sm-3 text-end control-label col-form-label">Мета название</label>
+                    <div class="col-sm-9" style="margin-bottom: 20px">
+                        @error('meta_title')
+                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                        @enderror
+                        <input type="text" class="form-control" name="meta_title" placeholder="Название статьи" value="{{ $article->meta_title }}">
+                    </div>
+                    <label for="meta_descr" class="col-sm-3 text-end control-label col-form-label">Мета описание</label>
+                    <div class="col-sm-9" style="margin-bottom: 20px">
+                        @error('meta_descr')
+                        <div class=work_post>{{ $message }}</div>
+                        @enderror
+                        <textarea class="form-control {{ $errors->has('meta_descr') ? 'is-invalid' : '' }}"name="meta_descr"
+                        >{{ $article->meta_descr }}</textarea>
+                    </div>
                     <label for="title" class="col-sm-3 text-end control-label col-form-label">Название статьи</label>
                     <div class="col-sm-9" style="margin-bottom: 20px">
                         @error('title')
@@ -16,7 +31,7 @@
                         <input type="text" class="form-control" name="title" placeholder="Название статьи" value="{{ $article->title }}">
                     </div>
                     <label for="file_url" class="col-sm-3 text-end control-label col-form-label">Загрузите
-                        баннер</label>
+                        баннер (1296х495)</label>
                     <div class="col-sm-9" style="margin-bottom: 20px">
                         @error('file_url')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>

@@ -24,6 +24,8 @@ class StoreArticleRequest extends FormRequest
     public function rules()
     {
         return [
+            'meta_title' => 'required',
+            'meta_descr' => 'required',
             'title' => 'required',
             'member_id' => 'required',
             'descr' => 'required',
