@@ -102,9 +102,7 @@
                         <h3 class="box-title" style="margin-bottom: 55px;">Приезжайте к нам</h3>
                         <div class="mapouter">
                             <div class="gmap_canvas">
-                                <iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no"
-                                        marginheight="0" marginwidth="0"
-                                        src="https://maps.google.com/maps?width=416&amp;height=401&amp;hl=en&amp;q=Uzbekistan, Tashkent, Shevchenko 42&amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+                                <iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/place?q=30+Niyozbek+Yo'li+ko'chasi,+Tashkent,+Узбекистан&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe>
                             </div>
                             <style>
                                 .mapouter {
