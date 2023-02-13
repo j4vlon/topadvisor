@@ -165,7 +165,7 @@
                     dataType: 'json',
                     success: function (result) {
                         $('#subservice_id').html('<option value="">Выберите услугу</option>');
-                        $.each(result.service_id, function (key, value) {
+                        $.each(result.subservice_id, function (key, value) {
                             $("#subservice_id").append('<option value="' + value
                                 .id + '">' + value.title + '</option>');
                         });

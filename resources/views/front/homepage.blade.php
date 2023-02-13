@@ -159,7 +159,106 @@
         </div>
     </div>
 
-    <x-front.projects-accordion></x-front.projects-accordion>
+    <div class="project-block">
+        <div class="container">
+            <div class="row projects-box">
+                <div class="col-xl-6 col-lg-6 col-md-12 block-header">
+                    <h2>Реализованные проекты</h2>
+                </div>
+                <div class="col-xl-2 col-lg-2 col-md-4 accordion-container">
+                    <button type='button' class="accordion" id="accordion">
+              <span class="accordion-title">
+                Направление
+              </span>
+                    </button>
+                    <div class="panel">
+                        <ul class="accordion-list">
+                            @foreach($services as $service)
+                                <a class="accordion-list-item btn-accordion" data-id="{{ $service->id }}">{{ $service->title }}</a>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-2 col-lg-2 col-md-4 accordion-container">
+                    <button type="button" class="accordion" id="accordion">
+
+              <span class="accordion-title">
+                Услуги
+              </span>
+                    </button>
+                    <div class="panel">
+                        <ul class="accordion-list">
+                            @foreach($subservices as $subservice)
+                                <a class="accordion-list-item btn-accordion" data-id="{{ $subservice->id }}">{{ $subservice->title }}</a>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-2 col-lg-2 col-md-4 accordion-container">
+
+                    <button type="button" class="accordion" id="accordion">
+
+              <span class="accordion-title">
+                Отрасли клиентов
+              </span>
+                        <p class="accordion-list-item">По дате</p>
+                    </button>
+                    <div class="panel">
+                        <ul class="accordion-list">
+                            <ul class="accordion-list">
+                                <a href="" class="accordion-list-item btn-accordion">
+                                    Органы государственного управления
+                                </a>
+                                <a href="" class="accordion-list-item btn-accordion">
+                                    Международные организации
+                                </a>
+                                <a href="" class="accordion-list-item btn-accordion">
+                                    Иностранные организации
+                                </a>
+                                <a href="" class="accordion-list-item btn-accordion">
+                                    Информационные услуги
+                                </a>
+                                <a href="" class="accordion-list-item btn-accordion">
+                                    Производственные предприятия
+                                </a>
+                                <a href="" class="accordion-list-item btn-accordion">
+                                    Финансовые организации
+                                </a>
+                                <a href="" class="accordion-list-item btn-accordion">
+                                    Страховые организации
+                                </a>
+                                <a href="" class="accordion-list-item btn-accordion">
+                                    Прочие организации в сфере услуг
+                                </a>
+                                <a href="" class="accordion-list-item btn-accordion">
+                                    Негосударственные некоммерческие организации
+                                </a>
+                                <a href="" class="accordion-list-item btn-accordion">
+                                    СМИ
+                                </a>
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+                <div class="info-list-wrapper">
+
+                </div>
+
+
+            <div class="view-all">
+                <a href="{{ route('projects') }}" class="more">Посмотреть все
+                    <span>
+              <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 1H10M10 1V9M10 1L1 10" stroke="black" stroke-width="1.5"></path>
+              </svg>
+            </span>
+                </a>
+            </div>
+        </div>
+    </div>
 
     <x-front.team-carousel></x-front.team-carousel>
     <!-- FEEDBACK SECTION START -->

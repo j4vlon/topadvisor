@@ -1,9 +1,9 @@
 <?php
+
 use App\Http\Controllers\Admin\ArticlesController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\BenefitController;
 use App\Http\Controllers\Admin\ContactsController;
-use App\Http\Controllers\Admin\GetProjectsController;
 use App\Http\Controllers\Admin\GetSubserviceController;
 use App\Http\Controllers\Admin\MembersController;
 use App\Http\Controllers\Admin\PartnersController;
@@ -11,7 +11,7 @@ use App\Http\Controllers\Admin\ProjectsController;
 use App\Http\Controllers\Admin\ServicesController;
 use App\Http\Controllers\Admin\StepController;
 use App\Http\Controllers\Admin\SubservicesController;
-
+use App\Http\Controllers\Front\GetProjectsController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('login', [AuthController::class, 'index'])->name('login');
