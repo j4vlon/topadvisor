@@ -13,6 +13,13 @@
                         @enderror
                         <input type="text" class="form-control" name="title" placeholder="Введите название услуги">
                     </div>
+                    <label for="form_title" class="col-sm-3 text-end control-label col-form-label">Название формы</label>
+                    <div class="col-sm-9" style="margin-bottom: 20px">
+                        @error('form_title')
+                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                        @enderror
+                        <input type="text" class="form-control" name="form_title" placeholder="Введите заголовок формы">
+                    </div>
                 </div>
             </div>
             <div class="border-top">

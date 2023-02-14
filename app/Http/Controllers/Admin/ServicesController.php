@@ -39,12 +39,10 @@ class ServicesController extends Controller
      */
     public function store(StoreServiceRequest $request)
     {
-        $data = $request->validated();
-        $service = Service::create($data);
-        if ($request->hasfile('file_url')){
-            $path = $request->file_url->store('uploads', 'public');
-            $service->file_url = '/storage/'.$path;
-        }
+        $service = new Service();
+        $service->title = $request->title;
+        $service->form_title = $request->form_title;
+        $service->save();
         return redirect()->back();
     }
 
@@ -80,7 +78,8 @@ class ServicesController extends Controller
     public function update(UpdateServiceRequest $request, Service $service)
     {
         $service->title = $request->title;
-        $service->save();
+        $service->form_title = $request->form_title;
+        $service->update();
         return redirect()->back();
     }
 

@@ -187,10 +187,8 @@
               </span>
                     </button>
                     <div class="panel">
-                        <ul class="accordion-list">
-                            @foreach($subservices as $subservice)
-                                <a class="accordion-list-item btn-accordion subservice" data-id-subservice="{{ $subservice->id }}">{{ $subservice->title }}</a>
-                            @endforeach
+                        <ul class="accordion-list subservices-list">
+
                         </ul>
                     </div>
                 </div>
@@ -243,8 +241,10 @@
             </div>
 
 
-                <div class="info-list-wrapper">
-
+                <div class="project-info-list-wrapper">
+                    @foreach($projects as $project)
+                        {{ $project->title }}
+                    @endforeach
                 </div>
 
 

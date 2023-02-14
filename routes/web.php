@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [FrontController::class, 'homepage']);
+Route::match(['get', 'post'],'/', [FrontController::class, 'homepage']);
 Route::get('contacts', [FrontController::class, 'contacts'])->name('contacts');
 //Route::get('services', [ServiceController::class, 'index'])->name('services');
 Route::get('services/{slug}', [ServiceController::class, 'serviceView'])->name('services');
