@@ -12,6 +12,7 @@ class GetProjectsController extends Controller
     public function getprojects(Request $request){
 
     if(isset($request->service_id)){
+
             $projects['service_id'] = Project::where('service_id', $request->service_id)->with('partner')->orderByDesc('id')->get();
         }
         elseif($request->service_id && $request->subservice_id){

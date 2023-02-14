@@ -25,7 +25,6 @@ class UpdateSubserviceRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'industries' => 'required',
             'descr' => 'required',
             'descr_title' => 'required',
             'default_txt' => 'required',

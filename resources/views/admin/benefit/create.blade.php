@@ -22,7 +22,6 @@
                         @foreach($subservices as $subservice)
                             <option value="{{ $subservice->id }}"
                                     data-select2-id="{{ $subservice->id }}">{{ $subservice->title }}
-                                ({{ $subservice->title }})
                             </option>
                         @endforeach
                     </select>
@@ -31,14 +30,12 @@
                     <tr>
                         <th>Кому будет полезно</th>
                         <th>Описание</th>
-                        <th>Краткое описание</th>
                         <th>Загрузите иконку</th>
                         <th>Добавить поля</th>
                     </tr>
                     <tr>
                         <td><input type="text" name="addmore[0][title]" placeholder="Назавние" class="form-control " /></td>
                         <td><textarea type="text" name="addmore[0][descr]" placeholder="Описание преимущества" class="form-control "></textarea></td>
-                        <td><textarea type="text" name="addmore[0][default_txt]" placeholder="Краткое описание преимущества" class="form-control "></textarea></td>
                         <td><input type="file" class="form-control " name="addmore[0][file_url]"></td>
                         <td><button type="button" name="add" id="add" class="btn btn-success">Добавить</button></td>
                     </tr>
@@ -57,7 +54,7 @@
 
                 ++i;
 
-                $("#dynamicTable").append('<tr><td><input type="text" name="addmore['+i+'][title]" placeholder="Назавние" class="form-control" /></td><td><textarea type="text" name="addmore['+i+'][descr]" placeholder="Описание преимущества" class="form-control"></textarea></td><td><textarea type="text" name="addmore['+i+'][default_txt]" placeholder="Краткое описание преимущества" class="form-control"></textarea></td><td><input type="file" class="form-control" name="addmore['+i+'][file_url]"></td><td><button type="button" class="btn btn-danger remove-tr">Убрать</button></td></tr>');
+                $("#dynamicTable").append('<tr><td><input type="text" name="addmore['+i+'][title]" placeholder="Назавние" class="form-control" /></td><td><textarea type="text" name="addmore['+i+'][descr]" placeholder="Описание преимущества" class="form-control"></textarea></td><td><input type="file" class="form-control" name="addmore['+i+'][file_url]"></td><td><button type="button" class="btn btn-danger remove-tr">Убрать</button></td></tr>');
             });
 
             $(document).on('click', '.remove-tr', function(){

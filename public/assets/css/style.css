@@ -1214,13 +1214,13 @@ a {
 .card-body {
     padding: 0;
 }
-.bg-blue {
+.bg-card:nth-child(2), .bg-card:nth-child(5), .bg-card:nth-child(8) {
     background: #6b99c3;
 }
-.bg-darkblue {
+.bg-card:nth-child(3), .bg-card:nth-child(6), .bg-card:nth-child(9) {
     background: #16354d;
 }
-.bg-gray {
+.bg-card:nth-child(4), .bg-card:nth-child(7), .bg-card:nth-child(10) {
     background: #e4e5ea;
 }
 .bg-gray .card-text,

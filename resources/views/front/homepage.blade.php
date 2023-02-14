@@ -174,7 +174,7 @@
                     <div class="panel">
                         <ul class="accordion-list">
                             @foreach($services as $service)
-                                <a class="accordion-list-item btn-accordion" data-id="{{ $service->id }}">{{ $service->title }}</a>
+                                <a class="accordion-list-item btn-accordion service" data-id="{{ $service->id }}">{{ $service->title }}</a>
                             @endforeach
                         </ul>
                     </div>
@@ -189,7 +189,7 @@
                     <div class="panel">
                         <ul class="accordion-list">
                             @foreach($subservices as $subservice)
-                                <a class="accordion-list-item btn-accordion" data-id="{{ $subservice->id }}">{{ $subservice->title }}</a>
+                                <a class="accordion-list-item btn-accordion subservice" data-id-subservice="{{ $subservice->id }}">{{ $subservice->title }}</a>
                             @endforeach
                         </ul>
                     </div>

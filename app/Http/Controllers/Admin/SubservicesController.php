@@ -44,7 +44,6 @@ class SubservicesController extends Controller
         $subservice->meta_title = $request->meta_title;
         $subservice->meta_descr = $request->meta_descr;
         $subservice->title = $request->title;
-        $subservice->industries = $request->industries;
         $subservice->descr_title = $request->descr_title;
         $subservice->form_title = $request->form_title;
         $subservice->descr = $request->descr;
@@ -95,7 +94,6 @@ class SubservicesController extends Controller
         $subservice->meta_title = $request->meta_title;
         $subservice->meta_descr = $request->meta_descr;
         $subservice->title = $request->title;
-        $subservice->industries = $request->industries;
         $subservice->descr_title = $request->descr_title;
         $subservice->form_title = $request->form_title;
         $subservice->descr = $request->descr;

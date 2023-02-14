@@ -28,6 +28,7 @@ class UpdateProjectRequest extends FormRequest
             'partner_id' => 'required',
             'member_id' => 'required',
             'subservice_id' => 'required',
+            'industries' => 'required',
             'title' => 'required',
             'descr' => 'required',
             'short_descr' => 'required',

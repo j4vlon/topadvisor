@@ -48,7 +48,6 @@ class BenefitController extends Controller
             $benefits->subservice_id = $request->subservice_id;
             $benefits->title = $value['title'];
             $benefits->descr = $value['descr'];
-            $benefits->default_txt = $value['default_txt'];
             $path = $value['file_url']->store('uploads', 'public');
             $benefits->file_url = '/storage/'.$path;
 //            dd($benefits->file_url);

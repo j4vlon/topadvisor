@@ -141,7 +141,7 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
-    $(".btn-accordion").on("click", function () {
+    $(".service").on("click", function () {
         var service_id = $(this).attr("data-id");
         console.log(service_id);
         $.ajaxSetup({

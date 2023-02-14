@@ -77,7 +77,7 @@
                 </div>
             </div>
             @foreach($subservice->benefits as $benefit)
-                <div class="bg-blue card">
+                <div class="bg-card card">
                     <div class="card-body">
                         <div class="card-title-block">
                             <h5 class="card-title">{{ $benefit->title }}</h5>
@@ -103,59 +103,6 @@
                     </div>
                 </div>
             @endforeach
-
-            <div class="bg-darkblue card">
-                <div class="card-body">
-                    <div class="card-title-block">
-                        <h5 class="card-title">Руководителю</h5>
-                        <img src="images/head.svg" alt="" />
-                    </div>
-                    <div class="card-txt-body">
-                        <p class="card-text">
-                            Который усомнился в чистоте учета и отчетности своего штатного
-                            бухгалтера, или аутсорсинговой бухгалтерии
-                        </p>
-                        <svg
-                            width="31"
-                            height="38"
-                            viewBox="0 0 31 38"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <path
-                                d="M2.71673 0V6.21186H20.832C12.9073 10.1587 0 15.1484 0 26.1145C0 33.1785 5.58 38 13.3131 38C13.3469 38 24.9916 38 24.9916 38V32.1582H13.7527C7.89091 32.2254 6.448 28.7495 6.448 25.3408C6.448 17.2228 24.6985 10.5624 24.7549 10.54V25.4866H31V0H2.71673Z"
-                                fill="white"
-                            />
-                        </svg>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-gray card">
-                <div class="card-body">
-                    <div class="card-title-block">
-                        <h5 class="card-title">Бухгалтеру</h5>
-                        <img src="images/bookkeep.svg" alt="" />
-                    </div>
-                    <div class="card-txt-body">
-                        <p class="card-text">
-                            У которого накопилось много вопросов и проблем в 1С, и он не
-                            знает как начать распутывать «клубок»
-                        </p>
-                        <svg
-                            width="31"
-                            height="38"
-                            viewBox="0 0 31 38"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <path
-                                d="M2.71673 0V6.21186H20.832C12.9073 10.1587 0 15.1484 0 26.1145C0 33.1785 5.58 38 13.3131 38C13.3469 38 24.9916 38 24.9916 38V32.1582H13.7527C7.89091 32.2254 6.448 28.7495 6.448 25.3408C6.448 17.2228 24.6985 10.5624 24.7549 10.54V25.4866H31V0H2.71673Z"
-                                fill="black"
-                            />
-                        </svg>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
     <x-front.projects-accordion></x-front.projects-accordion>

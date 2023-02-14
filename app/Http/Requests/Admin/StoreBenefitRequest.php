@@ -26,7 +26,6 @@ class StoreBenefitRequest extends FormRequest
         return [
             'subservice_id' => 'required',
             'addmore.*.title' => 'required',
-            'addmore.*.default_txt' => 'required',
             'addmore.*.descr' => 'required',
             'addmore.*.file_url' => ['mimes:png,jpg,jpeg,svg', 'required'],
         ];

@@ -55,6 +55,7 @@ class ProjectsController extends Controller
         $project->partner_id = $request->partner_id;
         $project->subservice_id = $request->subservice_id;
         $project->member_id = $request->member_id;
+        $project->industries = $request->industries;
         $project->title = $request->title;
         $project->descr = $request->descr;
         $project->form_title = $request->form_title;
@@ -108,6 +109,7 @@ class ProjectsController extends Controller
         $project->partner_id = $request->partner_id;
         $project->subservice_id = $request->subservice_id;
         $project->member_id = $request->member_id;
+        $project->industries = $request->industries;
         $project->title = $request->title;
         $project->descr = $request->descr;
         $project->form_title = $request->form_title;
