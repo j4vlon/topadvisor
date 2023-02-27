@@ -143,7 +143,9 @@ $(document).ready(function () {
 $(document).ready(function () {
     $(".service").on("click", function () {
         var service_id = $(this).attr("data-id");
+        var subservice_id = $(this).attr('data-id-subservice');
         console.log(service_id);
+        console.log(subservice_id);
         $.ajaxSetup({
             headers: {
                 "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
@@ -155,6 +157,7 @@ $(document).ready(function () {
             type: "POST",
             data: {
                 service_id: service_id,
+                subservice_id: subservice_id,
             },
             dataType: "json",
             success: function (result) {
