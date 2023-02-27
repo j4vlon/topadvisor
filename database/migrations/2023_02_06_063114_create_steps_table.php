@@ -20,7 +20,7 @@ return new class extends Migration
                 ->constrained()
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
-            $table->integer('index');
+            $table->string('index');
             $table->text('descr');
             $table->timestamps();
         });

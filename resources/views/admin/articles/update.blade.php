@@ -59,6 +59,37 @@
                             @endforeach
                         </select>
                     </div>
+                    <label class="col-sm-3 text-end control-label col-form-label" for="service_id">Выберите услугу</label>
+                    <div class="col-md-9" style="margin-bottom: 20px">
+                        @error('service_id')
+                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                        @enderror
+                        <select name="service_id" id="service_id"
+                                class="select2 form-select shadow-none select2-hidden-accessible {{ $errors->has('service_id') ? 'is-invalid' : '' }}"
+                                style="width: 100%; height: 36px" data-select2-id="1" tabindex="-1" aria-hidden="true" >
+                                <option value="{{ $article->service->id }}" selected>
+                                    {{ $article->service->title }}
+                                </option>
+                            @foreach($services as $service)
+                                <option value="{{ $service->id }}">
+                                    {{ $service->title }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <label class="col-sm-3 text-end control-label col-form-label" for="subservice_id">Выберите услугу</label>
+                    <div class="col-md-9" style="margin-bottom: 20px">
+                        @error('subservice_id')
+                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                        @enderror
+                        <select name="subservice_id"
+                                class="select2 form-select shadow-none select2-hidden-accessible {{ $errors->has('subservice_id') ? 'is-invalid' : '' }}"
+                                style="width: 100%; height: 36px" data-select2-id="1" tabindex="-1" aria-hidden="true" id="subservice_id">
+                            <option value="{{ $article->subservice->id }}" selected>
+                                {{ $article->subservice->title }}
+                            </option>
+                        </select>
+                    </div>
                 </div>
             </div>
             <div class="border-top">
@@ -105,6 +136,29 @@
                 ['insert', ['link', 'picture', 'video']],
                 ['view', ['fullscreen', 'codeview', 'help']]
             ]
+        });
+        $(document).ready(function () {
+            $('#service_id').on('change', function () {
+                var service_id = this.value;
+                console.log(service_id);
+
+                $.ajax({
+                    url: "{{route('getsubservice')}}",
+                    type: "POST",
+                    data: {
+                        service_id: service_id,
+                        _token: '{{csrf_token()}}'
+                    },
+                    dataType: 'json',
+                    success: function (result) {
+                        $('#subservice_id').html('<option value="">Выберите услугу</option>');
+                        $.each(result.subservice_id, function (key, value) {
+                            $("#subservice_id").append('<option value="' + value
+                                .id + '">' + value.title + '</option>');
+                        });
+                    }
+                });
+            });
         });
     </script>
 @endpush

@@ -12,7 +12,7 @@ class ProjectsAccordion extends Component
 {
     public Collection $services;
     public Collection $subservices;
-//    public Collection $projects;
+    public Collection $projects;
     /**
      * Create a new component instance.
      *
@@ -22,7 +22,7 @@ class ProjectsAccordion extends Component
     {
         $this->services = Service::all();
         $this->subservices = Subservice::all();
-//        $this->projects = Project::with('subservice', 'partner')->orderByDesc('id')->limit(4)->get();
+        $this->projects = Project::with('subservice', 'partner')->orderByDesc('id')->limit(4)->get();
     }
 
     /**

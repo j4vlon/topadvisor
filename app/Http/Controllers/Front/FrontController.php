@@ -8,6 +8,7 @@ use App\Models\Admin\Project;
 use App\Models\Admin\Service;
 use App\Models\Admin\Subservice;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class FrontController extends Controller
 {
@@ -26,17 +27,30 @@ class FrontController extends Controller
                     'subservices' => $subservices,
                 ]);
             }
-            if ($request->ajax()){
+            if ($request->subservice_id){
                 $projects = $query->where('subservice_id', $request->subservice_id)->with('partner')->get();
                 return response()->json([
                     'projects' => $projects,
                 ]);
             }
+                if ($request->date){
+                    $projects = Project::with('partner')->orderBy('created_at', 'DESC')->get();
+                    return response()->json([
+                        'projects' => $projects,
+                    ]);
+                }
+                if ($request->industries){
+                    $projects = Project::with('partner')->where('industries', $request->industries)->get();
+                    return response()->json([
+                        'projects' => $projects,
+                    ]);
+                }
         }
 
-        $projects = $query->get();
-        $subservices = $subservices_query->get();
-        return view('front.homepage', compact('partners', 'services', 'subservices', 'projects'));
+//        $projects = $query->get();
+//        $subservices = $subservices_query->get();
+        dd(App::getLocale());
+        return view('front.homepage', compact('partners', 'services'));
     }
 
     public function contacts(){

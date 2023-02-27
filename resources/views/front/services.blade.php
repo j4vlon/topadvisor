@@ -35,8 +35,10 @@
                 </svg>
             </a>
         </div>
+    </div>
         <!-- HERO BLOCK END -->
         <!-- ACCORDION START -->
+    <div class="container">
         <div class="accordion-flush accordion-flush-wrapper" id="accordionFlushExample">
             @foreach($service->subservices as $subservice)
                 <div class="accordion-item">
@@ -126,6 +128,7 @@
                 </div>
             @endforeach
         </div>
+    </div>
         <x-front.projects-accordion></x-front.projects-accordion>
         <!-- FEEDBACK SECTION START -->
         <div class="container">
@@ -158,6 +161,7 @@
             </div>
         </div>
         <!-- FEEDBACK SECTION END -->
+    <div class="container">
         <div class="articles-block external-indentation">
             <div class="container">
                 <section id="articles">

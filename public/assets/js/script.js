@@ -172,8 +172,10 @@ $(document).ready(function () {
 
                if (projects.length > 0){
                    for (let i = 0; i < projects.length; i++){
-                       console.log('projects', projects);
-
+                       var dateString = projects[i]['created_at'];
+                       var options = { year: 'numeric', month: 'long', day: 'numeric' };
+                       var myDate = new Date(dateString);
+                       var created_at = myDate.toLocaleDateString("ru-US", options)
                        html +=
                            '<div class="info-list-wrapper">' +
                            '<div class="row">' +
@@ -181,7 +183,7 @@ $(document).ready(function () {
                            '<div class="info-list-title">' +
                            '<div class="date">' +
                            "<span>" +
-                           projects[i]['created_at'] +
+                           created_at +
                            "</span>" +
                            "</div>" +
                            "<h4>" +
@@ -235,8 +237,10 @@ $(document).ready(function () {
                 var html = '';
                 if (projects.length > 0){
                     for (let i = 0; i < projects.length; i++){
-                        console.log('projects', projects);
-
+                        var dateString = projects[i]['created_at'];
+                        var options = { year: 'numeric', month: 'long', day: 'numeric' };
+                        var myDate = new Date(dateString);
+                        var created_at = myDate.toLocaleDateString("ru-US", options)
                         html +=
                             '<div class="info-list-wrapper">' +
                             '<div class="row">' +
@@ -244,7 +248,7 @@ $(document).ready(function () {
                             '<div class="info-list-title">' +
                             '<div class="date">' +
                             "<span>" +
-                            projects[i]['created_at'] +
+                            created_at +
                             "</span>" +
                             "</div>" +
                             "<h4>" +
@@ -276,4 +280,133 @@ $(document).ready(function () {
         });
 
     });
+});
+
+$(document).ready(function () {
+    $(document).on("click", ".date", function () {
+        var date = $(this).attr("date");
+
+        $.ajaxSetup({
+            headers: {
+                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+            },
+        });
+        $.ajax({
+            url: "/",
+            type: "POST",
+            data: {
+                date: date,
+            },
+            success: function (data){
+                var projects = data.projects;
+                var htmlDate = '';
+                if (projects.length > 0){
+                    for (let i = 0; i < projects.length; i++){
+                        var dateString = projects[i]['created_at'];
+                        var options = { year: 'numeric', month: 'long', day: 'numeric' };
+                        var myDate = new Date(dateString);
+                        var created_at = myDate.toLocaleDateString("ru-US", options)
+                        console.log(created_at);
+                        htmlDate +=
+                            '<div class="info-list-wrapper">' +
+                            '<div class="row">' +
+                            '<div class="col-xl-4 col-lg-4 col-md-12 project-info-list">' +
+                            '<div class="info-list-title">' +
+                            '<div class="date">' +
+                            "<span>" +
+                            created_at +
+                            "</span>" +
+                            "</div>" +
+                            "<h4>" +
+                            projects[i]['title'] +
+                            "</h4>" +
+                            "</div>" +
+                            "</div>" +
+
+                            '<div class="col-xl-4 col-lg-4 col-md-12 project-info-list">' +
+                            '<div class="info-list-txt">' +
+                            '<p class="date">' +
+                            projects[i]['short_descr'] +
+                            "</p>" +
+                            "</div>" +
+                            "</div>" +
+
+                            '<div class="col-xl-4 col-lg-4 col-md-12 project-info-list">' +
+                            '<div class="info-list-img">' +
+                            '<img src="'+projects[i].partner['file_url']+'">'+
+                            "</div>" +
+                            "</div>" +
+                            "</div>" +
+                            "</div>"
+                        ;
+                    }
+                }
+                $('.project-info-list-wrapper').html(htmlDate);
+            }
+        });
+    });
+});
+
+$(document).ready(function () {
+   $(document).on("click", ".industries", function (){
+       var industries = $(this).attr("data-direction");
+       $.ajaxSetup({
+           headers: {
+               "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+           },
+       });
+       $.ajax({
+           url: "/",
+           type: "POST",
+           data: {
+               industries: industries,
+           },
+           success: function (data){
+               console.log(data)
+               var projects = data.projects;
+               var htmlDir = '';
+               if (projects.length > 0){
+                   for (let i = 0; i < projects.length; i++){
+                       var dateString = projects[i]['created_at'];
+                       var options = { year: 'numeric', month: 'long', day: 'numeric' };
+                       var myDate = new Date(dateString);
+                       var created_at = myDate.toLocaleDateString("ru-US", options)
+                       htmlDir +=
+                           '<div class="info-list-wrapper">' +
+                           '<div class="row">' +
+                           '<div class="col-xl-4 col-lg-4 col-md-12 project-info-list">' +
+                           '<div class="info-list-title">' +
+                           '<div class="date">' +
+                           "<span>" +
+                           created_at +
+                           "</span>" +
+                           "</div>" +
+                           "<h4>" +
+                           projects[i]['title'] +
+                           "</h4>" +
+                           "</div>" +
+                           "</div>" +
+
+                           '<div class="col-xl-4 col-lg-4 col-md-12 project-info-list">' +
+                           '<div class="info-list-txt">' +
+                           '<p class="date">' +
+                           projects[i]['short_descr'] +
+                           "</p>" +
+                           "</div>" +
+                           "</div>" +
+
+                           '<div class="col-xl-4 col-lg-4 col-md-12 project-info-list">' +
+                           '<div class="info-list-img">' +
+                           '<img src="'+projects[i].partner['file_url']+'">'+
+                           "</div>" +
+                           "</div>" +
+                           "</div>" +
+                           "</div>"
+                       ;
+                   }
+               }
+               $('.project-info-list-wrapper').html(htmlDir);
+           }
+       });
+   });
 });

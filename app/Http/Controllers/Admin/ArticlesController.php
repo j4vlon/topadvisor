@@ -7,6 +7,8 @@ use App\Http\Requests\Admin\StoreArticleRequest;
 use App\Http\Requests\Admin\UpdateArticleRequest;
 use App\Models\Admin\Article;
 use App\Models\Admin\Member;
+use App\Models\Admin\Service;
+use App\Models\Admin\Subservice;
 use Illuminate\Http\Request;
 
 class ArticlesController extends Controller
@@ -30,7 +32,9 @@ class ArticlesController extends Controller
     public function create()
     {
         $members = Member::all();
-        return view('admin.articles.create', compact('members'));
+        $services = Service::all();
+        $subservices = Subservice::all();
+        return view('admin.articles.create', compact('members','services', 'subservices'));
     }
 
     /**
@@ -42,15 +46,7 @@ class ArticlesController extends Controller
     public function store(StoreArticleRequest $request)
     {
         $article = new Article();
-        $article->meta_title = $request->meta_title;
-        $article->meta_descr = $request->meta_descr;
-        $article->title = $request->title;
-        $article->descr = $request->descr;
-        $article->member_id = $request->member_id;
-        if ($request->hasFile('file_url')){
-            $path = $request->file_url->store('uploads', 'public');
-            $article->file_url = '/storage/'.$path;
-        }
+        $this->extracted($request, $article);
         $article->save();
         return redirect()->back();
     }
@@ -75,7 +71,9 @@ class ArticlesController extends Controller
     public function edit(Article $article)
     {
         $members = Member::all();
-        return view('admin.articles.update', compact('article', 'members'));
+        $services = Service::all();
+        $subservices = Subservice::all();
+        return view('admin.articles.update', compact('article', 'members', 'services', 'subservices'));
     }
 
     /**
@@ -87,15 +85,7 @@ class ArticlesController extends Controller
      */
     public function update(UpdateArticleRequest $request, Article $article)
     {
-        $article->meta_title = $request->meta_title;
-        $article->meta_descr = $request->meta_descr;
-        $article->title = $request->title;
-        $article->descr = $request->descr;
-        if ($request->hasFile('file_url')){
-            $path = $request->file_url->store('uploads', 'public');
-            $article->file_url = '/storage/'.$path;
-        }
-        $article->member_id = $request->member_id;
+        $this->extracted($request, $article);
         $article->update();
         return redirect()->back();
     }
@@ -110,5 +100,25 @@ class ArticlesController extends Controller
     {
         $article->delete();
         return redirect()->back();
+    }
+
+    /**
+     * @param UpdateArticleRequest|Request $request
+     * @param Article $article
+     * @return void
+     */
+    public function extracted(UpdateArticleRequest|Request $request, Article $article): void
+    {
+        $article->meta_title = $request->meta_title;
+        $article->meta_descr = $request->meta_descr;
+        $article->member_id = $request->member_id;
+        $article->service_id = $request->service_id;
+        $article->subservice_id = $request->subservice_id;
+        $article->title = $request->title;
+        $article->descr = $request->descr;
+        if ($request->hasFile('file_url')) {
+            $path = $request->file_url->store('uploads', 'public');
+            $article->file_url = '/storage/' . $path;
+        }
     }
 }

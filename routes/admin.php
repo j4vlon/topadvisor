@@ -23,7 +23,7 @@ Route::middleware('auth:admin')->group(function () {
     Route::resource('partners', PartnersController::class);
     Route::resource('projects', ProjectsController::class);
     Route::post('/getsubservice', [GetSubserviceController::class, 'getsubservice'])->name('getsubservice');
-    Route::post('/getprojects', [GetProjectsController::class, 'getprojects'])->name('getprojects');
+   // Route::post('/getprojects', [GetProjectsController::class, 'getprojects'])->name('getprojects');
     Route::resource('members', MembersController::class);
     Route::resource('articles', ArticlesController::class);
     Route::resource('contacts', ContactsController::class);
