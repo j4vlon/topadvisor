@@ -28,7 +28,7 @@ class UsefulInformationController extends Controller
      */
     public function create()
     {
-        return view('admin.information.create');
+        return view('admin.informations.create');
     }
 
     /**
