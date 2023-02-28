@@ -1262,17 +1262,18 @@ a {
     margin-bottom: 50px;
 }
 .page-info-img {
-    width: 1296px;
+    /*width: 1296px;*/
     height: 495px;
     overflow: hidden;
     margin-bottom: 90px;
 }
 .page-info-img img {
-    position: relative;
+    /*position: relative;*/
     width: 100%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    display: block;
+    /*top: 50%;*/
+    /*left: 50%;*/
+    /*transform: translate(-50%, -50%);*/
 }
 .business-info-body {
     display: flex;
@@ -1540,10 +1541,11 @@ a {
 .block-header {
     text-align: start;
 }
-.projects-box{
+.accordion-box{
     margin-bottom: 30px;
-    /*min-height: 240px;*/
+    position: relative;
 }
+
 .accordion {
     width: 100%;
     display: block;
@@ -1581,7 +1583,9 @@ a {
 .block{
   padding-left: 16px;
 }*/
-
+.project-block .block-header{
+    width: 520px;
+}
 .project-block .accordion::after {
     content: "\2b";
     font-family: "Font Awesome 5 Free";
@@ -1627,11 +1631,23 @@ a {
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     border-radius: 0.5em;
     transition: 0.5s;
-    z-index: 1;
+    z-index: 9;
 }
 .accordion-container {
+    position: absolute;
     background-color: #fff;
     padding: 20px 15px 10px 16px;
+    top: 0;
+    width: 230px;
+}
+.accordion-body .accordion-container:nth-child(1){
+    left: 580px;
+}
+.accordion-body .accordion-container:nth-child(2){
+    right: 235px;
+}
+.accordion-body .accordion-container:nth-child(3){
+    right: 0;
 }
 .team-info-block-area{
     margin-bottom: 60px;
@@ -1856,6 +1872,18 @@ a {
         right: 27px;
         top: 20px;
     }
+    .accordion-container{
+        width: 185px;
+    }
+    .accordion-body .accordion-container:nth-child(1) {
+        left: 555px;
+    }
+    .accordion-body .accordion-container:nth-child(2) {
+        right: 188px;
+    }
+    .accordion-body .accordion-container:nth-child(3) {
+        right: 0;
+    }
     .work-info-item img{
         left: 480px;
     }
@@ -1916,6 +1944,7 @@ a {
     .info-block-link {
         font-size: 20px;
     }
+
     .accordion{
         padding-right: 10px;
     }
@@ -1925,6 +1954,22 @@ a {
     .accordion-title h4{
         font-size: 34px;
         line-height: 42px;
+    }
+    .accordion-body{
+        position: relative;
+        height: 160px;
+    }
+    .accordion-container {
+        width: 245px;
+    }
+    .accordion-body .accordion-container:nth-child(1) {
+        left: 0;
+    }
+    .accordion-body .accordion-container:nth-child(2) {
+        right: 370px;
+    }
+    .accordion-body .accordion-container:nth-child(3) {
+        right: 0;
     }
     .card{
         padding: 40px 35px;
@@ -2048,6 +2093,12 @@ a {
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+    .accordion-container {
+        width: 220px;
+    }
+    .accordion-body .accordion-container:nth-child(2) {
+        right: 235px;
     }
     .consulting-wrapper {
         padding: 35px;
@@ -2214,6 +2265,15 @@ a {
     .info-block-link span {
         display: none;
     }
+    .accordion-container {
+        width: 170px;
+    }
+    .accordion-body .accordion-container:nth-child(2) {
+        right: 170px;
+    }
+    .more-btn{
+        width: 240px;
+    }
     .partner-wrapper {
         border: 0;
         border-left: 0 !important;
@@ -2303,9 +2363,9 @@ a {
     .hero-txt p {
         margin-bottom: 40px;
     }
-    .more-btn {
-        width: auto;
-    }
+    /*.more-btn {*/
+    /*    width: auto;*/
+    /*}*/
     .info-list-txt {
         padding-left: 15px;
     }
@@ -2321,8 +2381,8 @@ a {
         margin-bottom: 23px;
     }
     .block-header h1 {
-        font-size: 58px;
-        line-height: 72px;
+        font-size: 38px;
+        line-height: 45px;
     }
     .page-info-img {
         margin-bottom: 50px;
@@ -2333,6 +2393,12 @@ a {
     }
     .business-info-title h3{
         margin-bottom: 30px;
+    }
+    .accordion-container {
+        width: 155px;
+    }
+    .accordion-body .accordion-container:nth-child(2) {
+        right: 160px;
     }
     .author{
         flex-direction: row;
@@ -2352,8 +2418,28 @@ a {
     }
 }
 @media (max-width: 500px) {
+    .more-btn{
+        width: 200px;
+    }
     .partners-grid {
         grid-template-columns: repeat(1, 381px);
+    }
+    .accordion-body .accordion-container:nth-child(2) {
+        right: 140px;
+    }
+}
+@media (max-width: 480px){
+    .more-btn{
+        width: 170px;
+        font-size: 15px;
+    }
+    .block-header h1 {
+        font-size: 48px;
+        line-height: 60px;
+    }
+    .block-header h2 {
+        font-size: 45px;
+        line-height: 56px;
     }
 }
 /* MEDIA QUERIES END */

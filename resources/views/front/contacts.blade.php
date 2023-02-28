@@ -102,7 +102,7 @@
                         <h3 class="box-title" style="margin-bottom: 55px;">Приезжайте к нам</h3>
                         <div class="mapouter">
                             <div class="gmap_canvas">
-                                <iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/place?q=30+Niyozbek+Yo'li+ko'chasi,+Tashkent,+Узбекистан&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe>
+                                <iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/place?q=Stella_Laundry_Uz,+улица+Ниёзбек+Йули,+Ташкент,+Узбекистан&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe>
                             </div>
                             <style>
                                 .mapouter {

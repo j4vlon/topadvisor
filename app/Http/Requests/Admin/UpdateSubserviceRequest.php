@@ -24,11 +24,15 @@ class UpdateSubserviceRequest extends FormRequest
     public function rules()
     {
         return [
+            'meta_title' => 'required',
+            'meta_descr' => 'required',
+            'service_id' => 'required',
             'title' => 'required',
             'descr' => 'required',
             'descr_title' => 'required',
             'default_txt' => 'required',
             'file_url' => ['mimes:png,jpg,jpeg,svg'],
+            'is_active' => 'nullable',
             'form_title' => 'required'
         ];
     }

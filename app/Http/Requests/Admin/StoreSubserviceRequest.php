@@ -26,6 +26,7 @@ class StoreSubserviceRequest extends FormRequest
         return [
             'meta_title' => 'required',
             'meta_descr' => 'required',
+            'service_id' => 'required',
             'title' => 'required',
             'descr' => 'required',
             'descr_title' => 'required',

@@ -4,12 +4,14 @@
 use App\Http\Controllers\Front\ArticleController;
 use App\Http\Controllers\Front\ContactController;
 use App\Http\Controllers\Front\FrontController;
+use App\Http\Controllers\Front\NewsController;
 use App\Http\Controllers\Front\PartnerController;
 use App\Http\Controllers\Front\ProjectController;
 use App\Http\Controllers\Front\ServiceController;
 use App\Http\Controllers\Front\SubserviceController;
 use App\Http\Controllers\Front\TeamController;
 
+use App\Http\Controllers\Front\UsefulInformationController;
 use App\Http\Controllers\XMLReaderController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,7 +26,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [FrontController::class, 'homepage']);
+Route::match(['get', 'post'],'/', [FrontController::class, 'homepage']);
 Route::get('contacts', [FrontController::class, 'contacts'])->name('contacts');
 //Route::get('services', [ServiceController::class, 'index'])->name('services');
 Route::get('services/{slug}', [ServiceController::class, 'serviceView'])->name('services');
@@ -38,6 +40,8 @@ Route::get('team', [TeamController::class, 'team'])->name('team');
 Route::get('team/{id}', [TeamController::class, 'member'])->name('member');
 Route::post('feedback', [ContactController::class, 'feedback'])->name('feedback');
 Route::get('/sitemap.xml', [XMLReaderController::class, 'index'])->name('sitemap.xml');
+Route::get('news', [NewsController::class, 'index'])->name('index');
+Route::get('/useful-information', [UsefulInformationController::class, 'index'])->name('useful-info');
 //Route::get('/success', [ContactController::class, 'success'])->name('success');
 
 

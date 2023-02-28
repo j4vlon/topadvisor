@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Admin\Subservice;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -14,14 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('steps', function (Blueprint $table) {
+        Schema::create('news', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Subservice::class)
-                ->constrained()
-                ->cascadeOnUpdate()
-                ->cascadeOnDelete();
-            $table->string('index');
-            $table->text('descr');
+            $table->string('title');
+            $table->string('slug');
+            $table->longText('descr');
+            $table->string('file_url');
             $table->timestamps();
         });
     }
@@ -33,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('steps');
+        Schema::dropIfExists('news');
     }
 };

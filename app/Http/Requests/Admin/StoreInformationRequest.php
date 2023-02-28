@@ -4,7 +4,7 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateServiceRequest extends FormRequest
+class StoreInformationRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class UpdateServiceRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -24,8 +24,10 @@ class UpdateServiceRequest extends FormRequest
     public function rules()
     {
         return [
+            'infodirection_id' => 'required',
+            'meta_title' => 'required',
             'title' => 'required',
-            'form_title' => 'required',
+            'file_url' => ['mimes:pdf,doc,docx','required'],
         ];
     }
 }

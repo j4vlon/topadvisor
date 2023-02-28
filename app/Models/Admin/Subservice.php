@@ -11,8 +11,14 @@ class Subservice extends Model
     use HasFactory;
 
     protected $fillable = [
+        'meta_title',
+        'meta_descr',
+        'service_id',
         'title',
+        'descr_title',
+        'form_title',
         'descr',
+        'default_txt',
         'file_url',
         'is_active',
     ];

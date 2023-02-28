@@ -48,18 +48,7 @@ class ProjectsController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
-        $project = new Project();
-        $project->meta_title = $request->meta_title;
-        $project->meta_descr = $request->meta_descr;
-        $project->service_id = $request->service_id;
-        $project->partner_id = $request->partner_id;
-        $project->subservice_id = $request->subservice_id;
-        $project->member_id = $request->member_id;
-        $project->industries = $request->industries;
-        $project->title = $request->title;
-        $project->descr = $request->descr;
-        $project->form_title = $request->form_title;
-        $project->short_descr = $request->short_descr;
+        $project = new Project($request->validated());
         if ($request->hasFile('project_img')){
             $path = $request->project_img->store('uploads', 'public');
             $project->project_img = '/storage/'.$path;
@@ -103,17 +92,7 @@ class ProjectsController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
-        $project->meta_title = $request->meta_title;
-        $project->meta_descr = $request->meta_descr;
-        $project->service_id = $request->service_id;
-        $project->partner_id = $request->partner_id;
-        $project->subservice_id = $request->subservice_id;
-        $project->member_id = $request->member_id;
-        $project->industries = $request->industries;
-        $project->title = $request->title;
-        $project->descr = $request->descr;
-        $project->form_title = $request->form_title;
-        $project->short_descr = $request->short_descr;
+        $project->fill($request->validated());
         if ($request->hasFile('project_img')){
             $path = $request->project_img->store('uploads', 'public');
             $project->project_img = '/storage/'.$path;

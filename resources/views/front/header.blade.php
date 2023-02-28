@@ -18,27 +18,41 @@
     </li>
     <li class="nav-list-item">
         <a href="{{ route('projects') }}">Проекты</a>
-        <div class="dropdown-content-wrapper">
-            <div class="dropdown-content">
-                @foreach($subservices as $subservice)
-                    <ul class="dropdown-list">
-                        <li class="dropdown-list-item dropdown-head">
-                            <a href="{{ route('category',$subservice->slug) }}" class="dropdown-link">{{ $subservice->title }}</a>
-                        </li>
-                        @foreach($subservice->projects as $project)
-                            <li class="dropdown-list-item">
-                                <a href="{{ route('project', $project->slug) }}" class="dropdown-link">{{ $project->title }}</a>
-                            </li>
-                        @endforeach
-                    </ul>
-                @endforeach
-            </div>
-        </div>
+{{--        <div class="dropdown-content-wrapper">--}}
+{{--            <div class="dropdown-content">--}}
+{{--                @foreach($subservices as $subservice)--}}
+{{--                    <ul class="dropdown-list">--}}
+{{--                        <li class="dropdown-list-item dropdown-head">--}}
+{{--                            <a href="{{ route('category',$subservice->slug) }}" class="dropdown-link">{{ $subservice->title }}</a>--}}
+{{--                        </li>--}}
+{{--                        @foreach($subservice->projects as $project)--}}
+{{--                            <li class="dropdown-list-item">--}}
+{{--                                <a href="{{ route('project', $project->slug) }}" class="dropdown-link">{{ $project->title }}</a>--}}
+{{--                            </li>--}}
+{{--                        @endforeach--}}
+{{--                    </ul>--}}
+{{--                @endforeach--}}
+{{--            </div>--}}
+{{--        </div>--}}
     </li>
     <li class="nav-list-item">
         <a href="{{ route('team') }}">Команда</a>
     </li>
-    <li class="nav-list-item"><a href="{{ route('articles') }}">Статьи</a></li>
+    <li class="nav-list-item">
+        <a href="{{ route('articles') }}">Статьи</a>
+                <div class="dropdown-content-wrapper">
+                    <div class="dropdown-content">
+                            <ul class="dropdown-list">
+                                <li class="dropdown-list-item dropdown-head">
+                                    <a href="{{ route('news') }}" class="dropdown-link">Новости</a>
+                                </li>
+                                    <li class="dropdown-list-item">
+                                        <a href="{{ route('useful-info') }}" class="dropdown-link">Полезная информация</a>
+                                    </li>
+                            </ul>
+                    </div>
+                </div>
+    </li>
     <li class="nav-list-item"><a href="{{ route('contacts') }}">Контакты</a></li>
     <li class="nav-list-item">
         <div class="call-back">

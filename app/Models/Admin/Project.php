@@ -23,6 +23,19 @@ class Project extends Model
             ]
         ];
     }
+    protected $fillable = [
+        'meta_title',
+        'meta_descr',
+        'service_id',
+        'partner_id',
+        'subservice_id',
+        'member_id',
+        'industries',
+        'title',
+        'descr',
+        'form_title',
+        'short_descr',
+    ];
     public function partner()
     {
        return $this->belongsTo(Partner::class);

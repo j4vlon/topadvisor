@@ -109,7 +109,6 @@ $(".owl-carousel").owlCarousel({
         },
     },
 });
-
 $(document).ready(function () {
     let count = $(".results").length,
         start = 6,
@@ -143,9 +142,13 @@ $(document).ready(function () {
 $(document).ready(function () {
     $(".service").on("click", function () {
         var service_id = $(this).attr("data-id");
+
         var subservice_id = $(this).attr('data-id-subservice');
         console.log(service_id);
         console.log(subservice_id);
+
+
+
         $.ajaxSetup({
             headers: {
                 "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
@@ -153,29 +156,110 @@ $(document).ready(function () {
         });
 
         $.ajax({
-            url: "admin/getprojects",
+            url: "/",
             type: "POST",
             data: {
                 service_id: service_id,
                 subservice_id: subservice_id,
             },
-            dataType: "json",
-            success: function (result) {
-                $("#service_id").html(
-                    '<option value="">Выберите услугу</option>'
-                );
-                $.each(result.service_id, function (key, value) {
-                    $(".info-list-wrapper").append(
-                        '<div class="row">' +
+            success: function (data) {
+               var projects = data.projects;
+               var subservices = data.subservices;
+               var html = '';
+               var list = '';
+                if (subservices.length > 0){
+                    for (let i = 0; i < subservices.length; i++){
+                        list +=
+                            '<a class="subservice accordion-list-item btn-accordion" data-id="'+ subservices[i]['id'] +'">'
+                        + subservices[i]['title'] +
+                            '</a>'
+                    }
+                }
+                $(".subservices-list").html(list);
+
+               if (projects.length > 0){
+                   for (let i = 0; i < projects.length; i++){
+                       var dateString = projects[i]['created_at'];
+                       var options = { year: 'numeric', month: 'long', day: 'numeric' };
+                       var myDate = new Date(dateString);
+                       var created_at = myDate.toLocaleDateString("ru-US", options)
+                       html +=
+                           '<div class="info-list-wrapper">' +
+                           '<div class="row">' +
+                           '<div class="col-xl-4 col-lg-4 col-md-12 project-info-list">' +
+                           '<div class="info-list-title">' +
+                           '<div class="date">' +
+                           "<span>" +
+                           created_at +
+                           "</span>" +
+                           "</div>" +
+                           "<h4>" +
+                           projects[i]['title'] +
+                           "</h4>" +
+                           "</div>" +
+                           "</div>" +
+
+                           '<div class="col-xl-4 col-lg-4 col-md-12 project-info-list">' +
+                           '<div class="info-list-txt">' +
+                           '<p class="date">' +
+                           projects[i]['short_descr'] +
+                           "</p>" +
+                           "</div>" +
+                           "</div>" +
+
+                           '<div class="col-xl-4 col-lg-4 col-md-12 project-info-list">' +
+                           '<div class="info-list-img">' +
+                           '<img src="'+projects[i].partner['file_url']+'">'+
+                           "</div>" +
+                           "</div>" +
+                           "</div>" +
+                           "</div>"
+                       ;
+                   }
+               }
+               $('.project-info-list-wrapper').html(html);
+            },
+        });
+    });
+});
+
+
+$(document).ready(function () {
+    $(document).on("click", '.subservice', function () {
+        var subservice_id = $(this).attr("data-id");
+
+        $.ajaxSetup({
+            headers: {
+                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+            },
+        });
+        $.ajax({
+            url: "/",
+            type: "POST",
+            data: {
+                subservice_id: subservice_id,
+            },
+            success: function (data){
+                var projects = data.projects;
+                var html = '';
+                if (projects.length > 0){
+                    for (let i = 0; i < projects.length; i++){
+                        var dateString = projects[i]['created_at'];
+                        var options = { year: 'numeric', month: 'long', day: 'numeric' };
+                        var myDate = new Date(dateString);
+                        var created_at = myDate.toLocaleDateString("ru-US", options)
+                        html +=
+                            '<div class="info-list-wrapper">' +
+                            '<div class="row">' +
                             '<div class="col-xl-4 col-lg-4 col-md-12 project-info-list">' +
                             '<div class="info-list-title">' +
                             '<div class="date">' +
                             "<span>" +
-                            value.created_at +
+                            created_at +
                             "</span>" +
                             "</div>" +
                             "<h4>" +
-                            value.title +
+                            projects[i]['title'] +
                             "</h4>" +
                             "</div>" +
                             "</div>" +
@@ -183,24 +267,156 @@ $(document).ready(function () {
                             '<div class="col-xl-4 col-lg-4 col-md-12 project-info-list">' +
                             '<div class="info-list-txt">' +
                             '<p class="date">' +
-                           value.short_descr +
+                            projects[i]['short_descr'] +
                             "</p>" +
                             "</div>" +
                             "</div>" +
 
-                        '<div class="col-xl-4 col-lg-4 col-md-12 project-info-list">' +
-                        '<div class="info-list-img">' +
-                        '<img src="'+value.partner.file_url+'">'+
-                        "</div>" +
-                        "</div>" +
-
+                            '<div class="col-xl-4 col-lg-4 col-md-12 project-info-list">' +
+                            '<div class="info-list-img">' +
+                            '<img src="'+projects[i].partner['file_url']+'">'+
+                            "</div>" +
+                            "</div>" +
+                            "</div>" +
                             "</div>"
-                    );
-                });
+                        ;
+                    }
+                }
+                $('.project-info-list-wrapper').html(html);
             },
+        });
+
+    });
+});
+
+$(document).ready(function () {
+    $(document).on("click", ".date", function () {
+        var date = $(this).attr("date");
+
+        $.ajaxSetup({
+            headers: {
+                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+            },
+        });
+        $.ajax({
+            url: "/",
+            type: "POST",
+            data: {
+                date: date,
+            },
+            success: function (data){
+                var projects = data.projects;
+                var htmlDate = '';
+                if (projects.length > 0){
+                    for (let i = 0; i < projects.length; i++){
+                        var dateString = projects[i]['created_at'];
+                        var options = { year: 'numeric', month: 'long', day: 'numeric' };
+                        var myDate = new Date(dateString);
+                        var created_at = myDate.toLocaleDateString("ru-US", options)
+                        console.log(created_at);
+                        htmlDate +=
+                            '<div class="info-list-wrapper">' +
+                            '<div class="row">' +
+                            '<div class="col-xl-4 col-lg-4 col-md-12 project-info-list">' +
+                            '<div class="info-list-title">' +
+                            '<div class="date">' +
+                            "<span>" +
+                            created_at +
+                            "</span>" +
+                            "</div>" +
+                            "<h4>" +
+                            projects[i]['title'] +
+                            "</h4>" +
+                            "</div>" +
+                            "</div>" +
+
+                            '<div class="col-xl-4 col-lg-4 col-md-12 project-info-list">' +
+                            '<div class="info-list-txt">' +
+                            '<p class="date">' +
+                            projects[i]['short_descr'] +
+                            "</p>" +
+                            "</div>" +
+                            "</div>" +
+
+                            '<div class="col-xl-4 col-lg-4 col-md-12 project-info-list">' +
+                            '<div class="info-list-img">' +
+                            '<img src="'+projects[i].partner['file_url']+'">'+
+                            "</div>" +
+                            "</div>" +
+                            "</div>" +
+                            "</div>"
+                        ;
+                    }
+                }
+                $('.project-info-list-wrapper').html(htmlDate);
+            }
         });
     });
 });
 
-// var subservice_id = $(this).attr("subservice-id");
-// '<p>' + value.title + '</p>'
+$(document).ready(function () {
+   $(document).on("click", ".industries", function (){
+       var industries = $(this).attr("data-direction");
+       console.log(industries);
+       $.ajaxSetup({
+           headers: {
+               "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+           },
+       });
+       $.ajax({
+           url: "/",
+           type: "POST",
+           data: {
+               industries: industries,
+           },
+           success: function (data){
+               console.log(data)
+               var projects = data.projects;
+               var htmlDir = '';
+               if (projects.length > 0){
+                   for (let i = 0; i < projects.length; i++){
+                       var dateString = projects[i]['created_at'];
+                       var options = { year: 'numeric', month: 'long', day: 'numeric' };
+                       var myDate = new Date(dateString);
+                       var created_at = myDate.toLocaleDateString("ru-US", options)
+                       htmlDir +=
+                           '<div class="info-list-wrapper">' +
+                           '<div class="row">' +
+                           '<div class="col-xl-4 col-lg-4 col-md-12 project-info-list">' +
+                           '<div class="info-list-title">' +
+                           '<div class="date">' +
+                           "<span>" +
+                           created_at +
+                           "</span>" +
+                           "</div>" +
+                           "<h4>" +
+                           projects[i]['title'] +
+                           "</h4>" +
+                           "</div>" +
+                           "</div>" +
+
+                           '<div class="col-xl-4 col-lg-4 col-md-12 project-info-list">' +
+                           '<div class="info-list-txt">' +
+                           '<p class="date">' +
+                           projects[i]['short_descr'] +
+                           "</p>" +
+                           "</div>" +
+                           "</div>" +
+
+                           '<div class="col-xl-4 col-lg-4 col-md-12 project-info-list">' +
+                           '<div class="info-list-img">' +
+                           '<img src="'+projects[i].partner['file_url']+'">'+
+                           "</div>" +
+                           "</div>" +
+                           "</div>" +
+                           "</div>"
+                       ;
+                   }
+               }
+               $('.project-info-list-wrapper').html(htmlDir);
+           }
+       });
+   });
+});
+
+

@@ -67,9 +67,9 @@
                         <select name="service_id" id="service_id"
                                 class="select2 form-select shadow-none select2-hidden-accessible {{ $errors->has('service_id') ? 'is-invalid' : '' }}"
                                 style="width: 100%; height: 36px" data-select2-id="1" tabindex="-1" aria-hidden="true" >
-                                <option value="{{ $article->service->id }}" selected>
-                                    {{ $article->service->title }}
-                                </option>
+                            <option value="{{ $article->service->id }}" selected>
+                                {{ $article->service->title }}
+                            </option>
                             @foreach($services as $service)
                                 <option value="{{ $service->id }}">
                                     {{ $service->title }}

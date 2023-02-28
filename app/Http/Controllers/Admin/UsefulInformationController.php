@@ -3,13 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\StoreSubserviceRequest;
-use App\Http\Requests\Admin\UpdateSubserviceRequest;
-use App\Models\Admin\Service;
-use App\Models\Admin\Subservice;
+use App\Http\Requests\Admin\StoreInformationRequest;
+use App\Models\Admin\Information;
+use Illuminate\Console\View\Components\Info;
 use Illuminate\Http\Request;
 
-class SubservicesController extends Controller
+class UsefulInformationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,8 +17,8 @@ class SubservicesController extends Controller
      */
     public function index()
     {
-        $subservices = Subservice::with('benefits', 'steps')->get();
-        return view('admin.subservices.index', compact('subservices'));
+        $informations = Information::all();
+        return view('admin.informations.index', compact('informations'));
     }
 
     /**
@@ -29,8 +28,7 @@ class SubservicesController extends Controller
      */
     public function create()
     {
-        $services = Service::all();
-        return view('admin.subservices.create', compact('services'));
+        return view('admin.information.create');
     }
 
     /**
@@ -39,14 +37,14 @@ class SubservicesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(StoreSubserviceRequest $request)
+    public function store(StoreInformationRequest $request)
     {
-        $subservice = new Subservice($request->validated());
+        $information = new Information($request->validated());
         if ($request->hasfile('file_url')){
             $path = $request->file_url->store('uploads', 'public');
-            $subservice->file_url = '/storage/'.$path;
+            $information->file_url = '/storage/'.$path;
         }
-        $subservice->save();
+        $information->save();
         return redirect()->back();
     }
 
@@ -67,10 +65,9 @@ class SubservicesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function edit(Subservice $subservice)
+    public function edit(Information $information)
     {
-        $services = Service::all();
-        return view('admin.subservices.update', compact('subservice', 'services'));
+        return view('admin.informations.update', compact('information'));
     }
 
     /**
@@ -78,17 +75,16 @@ class SubservicesController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\RedirectResponse
+     * @return \Illuminate\Http\Response
      */
-    public function update(UpdateSubserviceRequest $request, Subservice $subservice)
+    public function update(Request $request, Information $information)
     {
-        $subservice->fill($request->validated());
+        $information->fill($request->validated());
         if ($request->hasfile('file_url')){
             $path = $request->file_url->store('uploads', 'public');
-            $subservice->file_url = '/storage/'.$path;
+            $information->file_url = '/storage/'.$path;
         }
-        $subservice->save();
-        return redirect()->back();
+        $information->save();
     }
 
     /**
@@ -97,9 +93,9 @@ class SubservicesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy(Subservice $subservice)
+    public function destroy(Information $information)
     {
-        $subservice->delete();
+        $information->delete();
         return redirect()->back();
     }
 }

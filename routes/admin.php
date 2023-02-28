@@ -6,11 +6,13 @@ use App\Http\Controllers\Admin\BenefitController;
 use App\Http\Controllers\Admin\ContactsController;
 use App\Http\Controllers\Admin\GetSubserviceController;
 use App\Http\Controllers\Admin\MembersController;
+use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\PartnersController;
 use App\Http\Controllers\Admin\ProjectsController;
 use App\Http\Controllers\Admin\ServicesController;
 use App\Http\Controllers\Admin\StepController;
 use App\Http\Controllers\Admin\SubservicesController;
+use App\Http\Controllers\Admin\UsefulInformationController;
 use App\Http\Controllers\Front\GetProjectsController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,11 +25,13 @@ Route::middleware('auth:admin')->group(function () {
     Route::resource('partners', PartnersController::class);
     Route::resource('projects', ProjectsController::class);
     Route::post('/getsubservice', [GetSubserviceController::class, 'getsubservice'])->name('getsubservice');
-    Route::post('/getprojects', [GetProjectsController::class, 'getprojects'])->name('getprojects');
+   // Route::post('/getprojects', [GetProjectsController::class, 'getprojects'])->name('getprojects');
     Route::resource('members', MembersController::class);
     Route::resource('articles', ArticlesController::class);
     Route::resource('contacts', ContactsController::class);
     Route::resource('steps', StepController::class);
     Route::resource('benefits', BenefitController::class);
+    Route::resource('news', NewsController::class);
+    Route::resource('useful-info', UsefulInformationController::class);
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
