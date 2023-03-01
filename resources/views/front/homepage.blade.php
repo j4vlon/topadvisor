@@ -35,9 +35,6 @@
             </div>
         </div>
     </header>
-<?php
-phpinfo()
-?>
     <!-- INFO BLOCK START -->
     <div class="info-block">
         <div class="container">

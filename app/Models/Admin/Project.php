@@ -54,4 +54,9 @@ class Project extends Model
     public function member(){
         return $this->belongsTo(Member::class);
     }
+
+    public function industry()
+    {
+        return $this->belongsTo(Industry::class);
+    }
 }

@@ -9,13 +9,22 @@ class Information extends Model
 {
     use HasFactory;
 
+    protected $table = 'informations';
     protected $fillable = [
-        'infodirection_id',
+        'info_direction_id',
         'meta_title',
         'title',
+        'file_url'
     ];
+    public static function storeFile($file)
+    {
+        $filename = $file->getClientOriginalName();
+        $path = $file->store('uploads/docs', 'public');
 
-     function infodirection
+        return static::create(['filename' => $filename, 'path' => '/storage/'.$path]);
+    }
+
+     function infodirection()
     {
         return $this->belongsTo(InfoDirection::class);
     }

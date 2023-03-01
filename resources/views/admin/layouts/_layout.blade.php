@@ -238,7 +238,7 @@
                                 class="hide-menu">Полезная информация</span></a>
                         <ul aria-expanded="false" class="collapse first-level">
                             <li class="sidebar-item">
-                                <a href="{{ route('useful-info.index') }}" class="sidebar-link"><i class="fas fa-list"></i><span class="hide-menu"> Все статьи </span></a>
+                                <a href="{{ route('useful-info.index') }}" class="sidebar-link"><i class="fas fa-list"></i><span class="hide-menu"> Полезная информация </span></a>
                             </li>
                             <li class="sidebar-item">
                                 <a href="{{ route('useful-info.create') }}" class="sidebar-link"><i class="far fa-plus"></i><span

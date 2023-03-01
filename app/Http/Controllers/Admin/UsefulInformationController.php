@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreInformationRequest;
+use App\Models\Admin\InfoDirection;
 use App\Models\Admin\Information;
 use Illuminate\Console\View\Components\Info;
 use Illuminate\Http\Request;
@@ -28,7 +29,8 @@ class UsefulInformationController extends Controller
      */
     public function create()
     {
-        return view('admin.informations.create');
+        $infodirections = InfoDirection::all();
+        return view('admin.informations.create', compact('infodirections'));
     }
 
     /**
@@ -39,13 +41,12 @@ class UsefulInformationController extends Controller
      */
     public function store(StoreInformationRequest $request)
     {
+
         $information = new Information($request->validated());
-        if ($request->hasfile('file_url')){
-            $path = $request->file_url->store('uploads', 'public');
-            $information->file_url = '/storage/'.$path;
+        foreach ($request->file_url as $file) {
+            Information::storeFile($file);
         }
         $information->save();
-        return redirect()->back();
     }
 
     /**

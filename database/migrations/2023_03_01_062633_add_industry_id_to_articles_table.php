@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Admin\Industry;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,8 +14,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('subservices', function (Blueprint $table) {
-            $table->string('industries')->after('title');
+        Schema::table('articles', function (Blueprint $table) {
+            $table->foreignIdFor(Industry::class)->after('member_id');
         });
     }
 
@@ -25,8 +26,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('subservices', function (Blueprint $table) {
-            $table->dropColumn('industries');
+        Schema::table('articles', function (Blueprint $table) {
+            $table->dropColumn('industry_id')->after('membder_id');
         });
     }
 };

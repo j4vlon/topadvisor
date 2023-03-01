@@ -13,7 +13,7 @@ class StoreInformationRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,10 +24,10 @@ class StoreInformationRequest extends FormRequest
     public function rules()
     {
         return [
-            'infodirection_id' => 'required',
+            'info_direction_id' => 'required',
             'meta_title' => 'required',
             'title' => 'required',
-            'file_url' => ['mimes:pdf,doc,docx','required'],
+            'file_url.*' => ['mimes:pdf,doc,docx','required'],
         ];
     }
 }

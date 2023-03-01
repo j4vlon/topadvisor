@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('subservices', function (Blueprint $table) {
-                $table->dropColumn('industries');
+        Schema::table('projects', function (Blueprint $table) {
+            $table->dropColumn('industries')->after('title');
         });
     }
 
@@ -25,8 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('subservices', function (Blueprint $table) {
-            //
+        Schema::table('projects', function (Blueprint $table) {
+            $table->string('industries')->after('title');
         });
     }
 };
