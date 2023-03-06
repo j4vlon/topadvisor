@@ -10,6 +10,7 @@
     <meta name="keywords" content="">
     <meta itemprop="image" content="https://lorempixel.com/400/200/">
     <title>Topadvisor - @yield('title')</title>
+    <link rel="shortcut icon" href="{{ asset('assets/images/logos/advisor-black.svg') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-table.min.css') }}" />

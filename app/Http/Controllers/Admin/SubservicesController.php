@@ -46,6 +46,7 @@ class SubservicesController extends Controller
             $path = $request->file_url->store('uploads', 'public');
             $subservice->file_url = '/storage/'.$path;
         }
+
         $subservice->save();
         return redirect()->back();
     }

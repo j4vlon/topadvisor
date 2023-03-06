@@ -197,6 +197,21 @@
                     <li class="sidebar-item">
                         <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
                            aria-expanded="false"><span
+                                class="hide-menu">Отрасли</span></a>
+                        <ul aria-expanded="false" class="collapse first-level">
+                            <li class="sidebar-item">
+                                <a href="{{ route('industry.index') }}" class="sidebar-link"><i class="fas fa-list"></i><span
+                                        class="hide-menu"> Все отрасли </span></a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="{{ route('industry.create') }}" class="sidebar-link"><i class="far fa-plus"></i><span
+                                        class="hide-menu"> Добавить отрасль </span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
+                           aria-expanded="false"><span
                                 class="hide-menu">Проекты</span></a>
                         <ul aria-expanded="false" class="collapse first-level">
                             <li class="sidebar-item">
@@ -234,14 +249,30 @@
                     </li>
                     <li class="sidebar-item">
                         <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
+                           aria-expanded="false"><span class="hide-menu">Новости</span></a>
+                        <ul aria-expanded="false" class="collapse first-level">
+                            <li class="sidebar-item">
+                                <a href="{{ route('news.index') }}" class="sidebar-link"><i class="fas fa-list"></i><span class="hide-menu"> Все новости </span></a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="{{ route('news.create') }}" class="sidebar-link"><i class="far fa-plus"></i><span class="hide-menu"> Добавить новость </span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
                            aria-expanded="false"><span
                                 class="hide-menu">Полезная информация</span></a>
                         <ul aria-expanded="false" class="collapse first-level">
                             <li class="sidebar-item">
-                                <a href="{{ route('useful-info.index') }}" class="sidebar-link"><i class="fas fa-list"></i><span class="hide-menu"> Полезная информация </span></a>
+                                <a href="{{ route('information.index') }}" class="sidebar-link"><i class="fas fa-list"></i><span class="hide-menu"> Полезная информация </span></a>
                             </li>
                             <li class="sidebar-item">
-                                <a href="{{ route('useful-info.create') }}" class="sidebar-link"><i class="far fa-plus"></i><span
+                                <a href="{{ route('info-direction.create') }}" class="sidebar-link"><i class="far fa-plus"></i><span
+                                        class="hide-menu"> Раздел информации </span></a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="{{ route('information.create') }}" class="sidebar-link"><i class="far fa-plus"></i><span
                                         class="hide-menu"> Добавить информацию </span></a>
                             </li>
                         </ul>

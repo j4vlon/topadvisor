@@ -20,7 +20,6 @@
                     <select name="subservice_id"
                             class="select2 form-select shadow-none select2-hidden-accessible {{ $errors->has('subservice_id') ? 'is-invalid' : '' }}"
                             style="width: 100%; height: 36px">
-
                         @foreach($subservices as $subservice)
                             <option value="{{ $subservice->id }}">
                                 {{ $subservice->title }}
@@ -28,6 +27,12 @@
                         @endforeach
                             <option selected value="{{ $benefit->subservice->id }}">{{ $benefit->subservice->title }}</option>
                     </select>
+                </div>
+                <label for="title" class="col-sm-3 control-label col-form-label">Текст подзаголовки</label>
+                <div class="col-sm-9" style="margin-bottom: 20px">
+                    @error('title')
+                    <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                    @enderror
                 </div>
                 <table class="table table-bordered" id="dynamicTable">
                     <tr>

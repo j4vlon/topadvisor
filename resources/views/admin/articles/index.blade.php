@@ -41,7 +41,7 @@
                                 <tr>
                                     <th>Название</th>
                                     <th>Автор</th>
-                                    <th>Заголовок</th>
+                                    <th>Краткое описание</th>
                                     <th>Изменить</th>
                                 </tr>
                                 </thead>
@@ -50,7 +50,7 @@
                                     <tr>
                                         <td>{{ $article->title }}</td>
                                         <td>{{ $article->member->name }}</td>
-                                        <td>{{ $article->descr_title }}</td>
+                                        <td>{{ $article->short_descr }}</td>
                                         <td>
                                             <a href="{{ route('articles.edit', $article->id) }}" class="btn btn-primary" style="margin-bottom: 5px; width: 100%">Редактировать</a>
                                             <br>

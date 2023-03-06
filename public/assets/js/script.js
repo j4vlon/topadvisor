@@ -109,35 +109,7 @@ $(".owl-carousel").owlCarousel({
         },
     },
 });
-$(document).ready(function () {
-    let count = $(".results").length,
-        start = 6,
-        show = 6;
 
-    $(".results").addClass("d-none");
-    $(".results:lt(" + start + ")").removeClass("d-none");
-
-    $(".show-more").click(function (e) {
-        e.preventDefault();
-
-        let load = $(this).data("load"),
-            more = $(this).data("more");
-
-        start = start + show <= count ? start + show : count;
-
-        $(this).text(load);
-
-        setTimeout(() => {
-            $(".results:lt(" + start + ")").removeClass("d-none");
-
-            if ($(".results:not(.d-none)").length == count) {
-                $(this).parent().remove();
-            }
-
-            $(this).text(more);
-        }, 1000);
-    });
-});
 
 $(document).ready(function () {
     $(".service").on("click", function () {
@@ -222,7 +194,6 @@ $(document).ready(function () {
         });
     });
 });
-
 
 $(document).ready(function () {
     $(document).on("click", '.subservice', function () {
@@ -356,8 +327,8 @@ $(document).ready(function () {
 
 $(document).ready(function () {
    $(document).on("click", ".industries", function (){
-       var industries = $(this).attr("data-direction");
-       console.log(industries);
+       var industry_id = $(this).attr("data-direction");
+       console.log(industry_id);
        $.ajaxSetup({
            headers: {
                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
@@ -367,7 +338,7 @@ $(document).ready(function () {
            url: "/",
            type: "POST",
            data: {
-               industries: industries,
+               industry_id: industry_id,
            },
            success: function (data){
                console.log(data)
@@ -417,6 +388,402 @@ $(document).ready(function () {
            }
        });
    });
+});
+
+
+$(document). ready(function (){
+    $(document).on('click', '.subservice', function (){
+        var subservice_id = $(this). attr('data-id');
+        console.log(subservice_id);
+        $.ajaxSetup({
+            headers: {
+                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+            }
+        });
+        $.ajax({
+            url: 'articles',
+            type: 'POST',
+            data: {
+                subservice_id: subservice_id,
+            },
+            success: function (data){
+                console.log(data)
+                var articles = data.articles;
+                console.log(data.articles)
+                var article_card = '';
+                if (articles.length > 0){
+                    for (let i = 0; i < articles.length; i++){
+                        var dateString = articles[i]['created_at'];
+                        var options = { year: 'numeric', month: 'long', day: 'numeric' };
+                        var myDate = new Date(dateString);
+                        var created_at = myDate.toLocaleDateString("ru-US", options)
+                        article_card +=
+                            '<div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">'+
+                           '<div class="artcile-card">' +
+                                '<div class="author">' +
+                                    '<div class="author-img">' +
+                                        '<img alt="" class="img-fluid move-animation" src="'+articles[i].member['file_url']+'">' +
+                                    '</div>' +
+                                    '<div class="author-dateails">' +
+                                       ' <p class="">'+
+                            articles[i].member['name']+
+                                        '</p>' +
+                                        '<span class="date">'+
+                                            created_at +
+                                        '</span>' +
+                                    '</div>' +
+                               ' </div>' +
+                               ' <div class="article-img">' +
+                                    '<img src="'+articles[i]['file_url']+'" alt=""/>' +
+                                '</div>' +
+                               ' <div class="article-info">' +
+                                   '<div class="article-link">'+
+                                        '<a href="article/'+articles[i]["slug"]+'">' +
+                            'раздел статьи' +
+                                    '</a>' +
+                                   ' </div>' +
+                                    '<div class="article-header">' +
+                                        '<h2>' +
+                                            articles[i]['title']+
+                                        '</h2>' +
+                                    '</div>' +
+                                    '<div class="article-txt">' +
+                                       '<p>' +
+                            articles[i]['short_descr']+
+                                        '</p>' +
+                                        '<span>'+
+                            'время чтения:'+
+                            articles[i]['read_time'] +
+                                        '</span>'+
+                                    '</div>' +
+                                '</div>' +
+                            '</div>'+
+                            '</div>'
+                    }
+                }
+                if (articles.length < 16 || articles.length > 16){
+                    $('.load-more').addClass('d-none')
+                }
+
+                $('.article-row').html(article_card);
+            }
+        })
+    })
+});
+
+$(document). ready(function (){
+    $(document).on("click", ".industries", function (){
+        var industry_id = $(this).attr("data-direction");
+        console.log(industry_id);
+        $.ajaxSetup({
+            headers: {
+                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+            }
+        });
+        $.ajax({
+            url: 'articles',
+            type: 'POST',
+            data: {
+                industry_id: industry_id,
+            },
+            success: function (data){
+                console.log(data)
+                var articles = data.articles;
+                console.log(data.articles)
+                var article_card = '';
+                if (articles.length > 0){
+                    for (let i = 0; i < articles.length; i++){
+                        var dateString = articles[i]['created_at'];
+                        var options = { year: 'numeric', month: 'long', day: 'numeric' };
+                        var myDate = new Date(dateString);
+                        var created_at = myDate.toLocaleDateString("ru-US", options)
+                        article_card +=
+                            '<div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">'+
+                            '<div class="artcile-card">' +
+                            '<div class="author">' +
+                            '<div class="author-img">' +
+                            '<img alt="" class="img-fluid move-animation" src="'+articles[i].member['file_url']+'">' +
+                            '</div>' +
+                            '<div class="author-dateails">' +
+                            ' <p class="">'+
+                            articles[i].member['name']+
+                            '</p>' +
+                            '<span class="date">'+
+                            created_at +
+                            '</span>' +
+                            '</div>' +
+                            ' </div>' +
+                            ' <div class="article-img">' +
+                            '<img src="'+articles[i]['file_url']+'" alt=""/>' +
+                            '</div>' +
+                            ' <div class="article-info">' +
+                            '<div class="article-link">'+
+                            '<a href="article/'+articles[i]['slug']+'">' +
+                            'раздел статьи' +
+                            '</a>' +
+                            ' </div>' +
+                            '<div class="article-header">' +
+                            '<h2>' +
+                            articles[i]['title']+
+                            '</h2>' +
+                            '</div>' +
+                            '<div class="article-txt">' +
+                            '<p>' +
+                            articles[i]['short_descr']+
+                            '</p>' +
+                            '<span>'+
+                            'время чтения:'+
+                            articles[i]['read_time'] +
+                            '</span>'+
+                            '</div>' +
+                            '</div>' +
+                            '</div>'+
+                            '</div>'
+                    }
+                }
+                if (articles.length < 16 || articles.length > 16){
+                    $('.load-more').addClass('d-none')
+                }
+                $('.article-row').html(article_card);
+            }
+        })
+    })
+});
+
+$(document). ready(function (){
+    $(document).on("click", ".member", function (){
+        var member_id = $(this).attr("data-id");
+        console.log(member_id);
+        $.ajaxSetup({
+            headers: {
+                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+            }
+        });
+        $.ajax({
+            url: 'articles',
+            type: 'POST',
+            data: {
+                member_id: member_id,
+            },
+            success: function (data){
+                console.log(data)
+                var articles = data.articles;
+                console.log(data.articles)
+                var article_card = '';
+                if (articles.length > 0){
+                    for (let i = 0; i < articles.length; i++){
+                        var dateString = articles[i]['created_at'];
+                        var options = { year: 'numeric', month: 'long', day: 'numeric' };
+                        var myDate = new Date(dateString);
+                        var created_at = myDate.toLocaleDateString("ru-US", options)
+                        article_card +=
+                            '<div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">'+
+                            '<div class="artcile-card">' +
+                            '<div class="author">' +
+                            '<div class="author-img">' +
+                            '<img alt="" class="img-fluid move-animation" src="'+articles[i].member['file_url']+'">' +
+                            '</div>' +
+                            '<div class="author-dateails">' +
+                            ' <p class="">'+
+                            articles[i].member['name']+
+                            '</p>' +
+                            '<span class="date">'+
+                            created_at +
+                            '</span>' +
+                            '</div>' +
+                            ' </div>' +
+                            ' <div class="article-img">' +
+                            '<img src="'+articles[i]['file_url']+'" alt=""/>' +
+                            '</div>' +
+                            ' <div class="article-info">' +
+                            '<div class="article-link">'+
+                            '<a href="article/'+articles[i]['slug']+'">' +
+                            'раздел статьи' +
+                            '</a>' +
+                            ' </div>' +
+                            '<div class="article-header">' +
+                            '<h2>' +
+                            articles[i]['title']+
+                            '</h2>' +
+                            '</div>' +
+                            '<div class="article-txt">' +
+                            '<p>' +
+                            articles[i]['short_descr']+
+                            '</p>' +
+                            '<span>'+
+                            'время чтения:'+
+                            articles[i]['read_time'] +
+                            '</span>'+
+                            '</div>' +
+                            '</div>' +
+                            '</div>'+
+                            '</div>'
+                    }
+                }
+                if (articles.length < 16 || articles.length > 16){
+                    $('.load-more').addClass('d-none')
+                }
+                $('.article-row').html(article_card);
+            }
+        })
+    })
+});
+
+$(document). ready(function (){
+    $(document).on("click", ".date", function (){
+        var date = $(this).attr("date");
+        console.log(date);
+        $.ajaxSetup({
+            headers: {
+                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+            }
+        });
+        $.ajax({
+            url: 'articles',
+            type: 'POST',
+            data: {
+                date: date,
+            },
+            success: function (data){
+                console.log(data)
+                var articles = data.articles;
+                console.log(data.articles)
+                var article_card = '';
+                if (articles.length > 0){
+                    for (let i = 0; i < articles.length; i++){
+                        var dateString = articles[i]['created_at'];
+                        var options = { year: 'numeric', month: 'long', day: 'numeric' };
+                        var myDate = new Date(dateString);
+                        var created_at = myDate.toLocaleDateString("ru-US", options)
+                        article_card +=
+                            '<div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">'+
+                            '<div class="artcile-card">' +
+                            '<div class="author">' +
+                            '<div class="author-img">' +
+                            '<img alt="" class="img-fluid move-animation" src="'+articles[i].member['file_url']+'">' +
+                            '</div>' +
+                            '<div class="author-dateails">' +
+                            ' <p class="">'+
+                            articles[i].member['name']+
+                            '</p>' +
+                            '<span class="date">'+
+                            created_at +
+                            '</span>' +
+                            '</div>' +
+                            ' </div>' +
+                            ' <div class="article-img">' +
+                            '<img src="'+articles[i]['file_url']+'" alt=""/>' +
+                            '</div>' +
+                            ' <div class="article-info">' +
+                            '<div class="article-link">'+
+                            '<a href="article/'+articles[i]['slug']+'">' +
+                            'раздел статьи' +
+                            '</a>' +
+                            ' </div>' +
+                            '<div class="article-header">' +
+                            '<h2>' +
+                            articles[i]['title']+
+                            '</h2>' +
+                            '</div>' +
+                            '<div class="article-txt">' +
+                            '<p>' +
+                            articles[i]['short_descr']+
+                            '</p>' +
+                            '<span>'+
+                            'время чтения:'+
+                            articles[i]['read_time'] +
+                            '</span>'+
+                            '</div>' +
+                            '</div>' +
+                            '</div>'+
+                            '</div>'
+                    }
+                }
+                if (articles.length < 16 || articles.length > 16){
+                    $('.load-more').addClass('d-none')
+                }
+                $('.article-row').html(article_card);
+            }
+        })
+    })
+});
+
+$(document). ready(function (){
+    $(document).on("click", ".load-more", function (){
+        var load_more = $(this).attr("data-load");
+        console.log(load_more);
+        $.ajaxSetup({
+            headers: {
+                "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+            }
+        });
+        $.ajax({
+            url: 'articles',
+            type: 'POST',
+            data: {
+                load_more: load_more,
+            },
+            success: function (data){
+
+                var articles = data.articles;
+                console.log(data.articles)
+                var article_card = '';
+                if (articles.length > 0){
+                    for (let i = 0; i < articles.length; i++){
+                        var dateString = articles[i]['created_at'];
+                        var options = { year: 'numeric', month: 'long', day: 'numeric' };
+                        var myDate = new Date(dateString);
+                        var created_at = myDate.toLocaleDateString("ru-US", options)
+                        article_card +=
+                            '<div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">'+
+                            '<div class="artcile-card">' +
+                            '<div class="author">' +
+                            '<div class="author-img">' +
+                            '<img alt="" class="img-fluid move-animation" src="'+articles[i].member['file_url']+'">' +
+                            '</div>' +
+                            '<div class="author-dateails">' +
+                            ' <p class="">'+
+                            articles[i].member['name']+
+                            '</p>' +
+                            '<span class="date">'+
+                            created_at +
+                            '</span>' +
+                            '</div>' +
+                            ' </div>' +
+                            ' <div class="article-img">' +
+                            '<img src="'+articles[i]['file_url']+'" alt=""/>' +
+                            '</div>' +
+                            ' <div class="article-info">' +
+                            '<div class="article-link">'+
+                            '<a href="'+articles[i]['slug']+'">' +
+                            'раздел статьи' +
+                            '</a>' +
+                            ' </div>' +
+                            '<div class="article-header">' +
+                            '<h2>' +
+                            articles[i]['title']+
+                            '</h2>' +
+                            '</div>' +
+                            '<div class="article-txt">' +
+                            '<p>' +
+                            articles[i]['descr_title']+
+                            '</p>' +
+                            '<span>'+
+                            'время чтения: 10 минут' +
+                            '</span>'+
+                            '</div>' +
+                            '</div>' +
+                            '</div>'+
+                            '</div>'
+                    }
+                }
+                if (articles.length < 16 || articles.length > 16){
+                    $('.load-more').addClass('d-none')
+                }
+                $('.article-row').html(article_card);
+            }
+        })
+    })
 });
 
 

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreArticleRequest;
 use App\Http\Requests\Admin\UpdateArticleRequest;
 use App\Models\Admin\Article;
+use App\Models\Admin\Industry;
 use App\Models\Admin\Member;
 use App\Models\Admin\Service;
 use App\Models\Admin\Subservice;
@@ -34,7 +35,8 @@ class ArticlesController extends Controller
         $members = Member::all();
         $services = Service::all();
         $subservices = Subservice::all();
-        return view('admin.articles.create', compact('members','services', 'subservices'));
+        $industries = Industry::all();
+        return view('admin.articles.create', compact('members','services', 'subservices', 'industries'));
     }
 
     /**
@@ -45,8 +47,11 @@ class ArticlesController extends Controller
      */
     public function store(StoreArticleRequest $request)
     {
-        $article = new Article();
-        $this->extracted($request, $article);
+        $article = new Article($request->validated());
+        if ($request->hasFile('file_url')) {
+            $path = $request->file_url->store('uploads', 'public');
+            $article->file_url = '/storage/' . $path;
+        }
         $article->save();
         return redirect()->back();
     }
@@ -73,7 +78,8 @@ class ArticlesController extends Controller
         $members = Member::all();
         $services = Service::all();
         $subservices = Subservice::all();
-        return view('admin.articles.update', compact('article', 'members', 'services', 'subservices'));
+        $industries = Industry::all();
+        return view('admin.articles.update', compact('article', 'members', 'services', 'subservices', 'industries'));
     }
 
     /**
@@ -85,7 +91,9 @@ class ArticlesController extends Controller
      */
     public function update(UpdateArticleRequest $request, Article $article)
     {
-        $this->extracted($request, $article);
+
+        $article->fill($request->validated());
+        dd($article->read_time);
         $article->update();
         return redirect()->back();
     }
@@ -116,9 +124,6 @@ class ArticlesController extends Controller
         $article->subservice_id = $request->subservice_id;
         $article->title = $request->title;
         $article->descr = $request->descr;
-        if ($request->hasFile('file_url')) {
-            $path = $request->file_url->store('uploads', 'public');
-            $article->file_url = '/storage/' . $path;
-        }
+
     }
 }

@@ -33,17 +33,39 @@
                             >
                                 <thead>
                                 <tr>
-                                    <th>Назавние</th>
+                                    <th>Рзадел информации</th>
+                                    <th>Назавние информации</th>
+                                    <th>Редактировать</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($informations as $information)
+                                @foreach($infodirections as $infodirection)
                                     <tr>
-                                        <td>{{ $information->title }}</td>
+                                        <td style="display: flex; justify-content: space-between;">
+                                            <p>{{ $infodirection->title }}</p>
+                                            <div class="actions" style="display: flex; justify-content: space-between; align-items: center">
+                                                <a href="{{ route('info-direction.edit', $infodirection->id) }}" class="btn btn-primary"><i class="fa-sharp fa-solid fa-pen"></i></a>
+                                                <form action="{{ route('info-direction.destroy', $infodirection) }}" method="post" style="margin-left: 10px;">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger" style="width: 100%">
+                                                        <i class="fa-sharp fa-solid fa-trash-can"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </td>
                                         <td>
-                                            <a href="{{ route('useful-info.edit', $information->id) }}" class="btn btn-primary" style="margin-bottom: 5px; width: 100%">Редактировать</a>
+                                            @foreach($infodirection->informations as $information)
+                                                <p>{{ $information->title }}</p>
+                                                @foreach(json_decode($information->file_url) as $files)
+                                                    <a href="{{ $files }}" target="_blank">посмотреть</a>
+                                                @endforeach
+                                            @endforeach
+                                        </td>
+                                        <td>
+                                            <a href="{{ route('information.edit', $infodirection->id) }}" class="btn btn-primary" style="margin-bottom: 5px; width: 100%">Редактировать</a>
                                             <br>
-                                            <form action="{{ route('useful-info.destroy', $information->id) }}" method="post">
+                                            <form action="{{ route('information.destroy', $infodirection->id) }}" method="post">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger" style="width: 100%">

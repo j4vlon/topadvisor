@@ -11,6 +11,7 @@ class InfoDirection extends Model
     protected $fillable = [
         'title'
     ];
+    protected $table = 'info_directions';
     public function informations()
     {
         return $this->hasMany(Information::class);

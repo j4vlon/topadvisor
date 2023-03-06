@@ -3,13 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\StoreBenefitRequest;
-use App\Http\Requests\Admin\UpdateBenefitRequest;
-use App\Models\Admin\Benefit;
-use App\Models\Admin\Subservice;
+use App\Models\Admin\InfoDirection;
 use Illuminate\Http\Request;
 
-class BenefitController extends Controller
+class InfoDirectionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +15,7 @@ class BenefitController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -28,8 +25,7 @@ class BenefitController extends Controller
      */
     public function create()
     {
-        $subservices = Subservice::all();
-        return view('admin.benefit.create', compact('subservices'));
+        return view('admin.informations.create-direction');
     }
 
     /**
@@ -38,20 +34,12 @@ class BenefitController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(StoreBenefitRequest $request)
+    public function store(Request $request)
     {
-
-        foreach ($request->addmore as $key => $value){
-
-
-            $benefits = new Benefit();
-            $benefits->subservice_id = $request->subservice_id;
-            $benefits->title = $value['title'];
-            $benefits->descr = $value['descr'];
-            $path = $value['file_url']->store('uploads', 'public');
-            $benefits->file_url = '/storage/'.$path;
-            $benefits->save();
-        }
+        $infodirection = new InfoDirection();
+        $infodirection->title = $request->title;
+        $infodirection->meta_title = $request->meta_title;
+        $infodirection->save();
         return redirect()->back();
     }
 
@@ -72,10 +60,9 @@ class BenefitController extends Controller
      * @param  int  $id
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function edit(Benefit $benefit)
+    public function edit(InfoDirection $InfoDirection)
     {
-        $subservices = Subservice::all();
-        return view('admin.benefit.update', compact('benefit', 'subservices'));
+        return view('admin.informations.update-direction', compact('InfoDirection'));
     }
 
     /**
@@ -85,16 +72,12 @@ class BenefitController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(UpdateBenefitRequest $request, Benefit $benefit)
+    public function update(Request $request, InfoDirection $InfoDirection)
     {
-        $benefit->subservice_id = $request->subservice_id;
-        $benefit->title = $request->title;
-        if ($request->hasFile('file_url')){
-            $path = $request->file_url->store('uploads', 'public');
-            $benefit->file_url = '/storage/'.$path;
-        }
-        $benefit->descr = $request->descr;
-        $benefit->update();
+
+        $InfoDirection->meta_title = $request->meta_title;
+        $InfoDirection->title = $request->title;
+        $InfoDirection->update();
         return redirect()->back();
     }
 
@@ -104,9 +87,9 @@ class BenefitController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy(Benefit $benefit)
+    public function destroy(InfoDirection $InfoDirection)
     {
-        $benefit->delete();
+        $InfoDirection->delete();
         return redirect()->back();
     }
 }

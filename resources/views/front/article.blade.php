@@ -32,7 +32,7 @@
                         <span class="date">{{ \Jenssegers\Date\Date::parse($article->created_at)->format('j F Y') }}</span>
                     </div>
                 </div>
-                <div class="gray-txt"><span>время чтения: 10 минут</span></div>
+                <div class="gray-txt"><span>время чтения: {{ $article->read_time }}</span></div>
             </div>
 
             <p>{!! $article->descr !!}</p>
@@ -58,7 +58,7 @@
                 </div>
             </section>
             <div class="view-all">
-                <a href="" class="more">Посмотреть все
+                <a href="{{ route('articles') }}" class="more">Посмотреть все
                     <span>
               <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M2 1H10M10 1V9M10 1L1 10" stroke="black" stroke-width="1.5"></path>

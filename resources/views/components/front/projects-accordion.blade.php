@@ -45,36 +45,11 @@
                     <div class="panel">
                         <ul class="accordion-list">
                             <ul class="accordion-list">
-                                <a class="accordion-list-item btn-accordion industries" data-direction="Органы государственного управления">
-                                    Органы государственного управления
-                                </a>
-                                <a class="accordion-list-item btn-accordion industries" data-direction="Международные организации">
-                                    Международные организации
-                                </a>
-                                <a class="accordion-list-item btn-accordion industries" data-direction="Иностранные организации">
-                                    Иностранные организации
-                                </a>
-                                <a class="accordion-list-item btn-accordion industries" data-direction="Информационные услуги">
-                                    Информационные услуги
-                                </a>
-                                <a class="accordion-list-item btn-accordion industries" data-direction="Производственные предприятия">
-                                    Производственные предприятия
-                                </a>
-                                <a class="accordion-list-item btn-accordion industries" data-direction="Финансовые организации">
-                                    Финансовые организации
-                                </a>
-                                <a class="accordion-list-item btn-accordion industries" data-direction="Страховые организации">
-                                    Страховые организации
-                                </a>
-                                <a class="accordion-list-item btn-accordion industries" data-direction="Прочие организации в сфере услуг">
-                                    Прочие организации в сфере услуг
-                                </a>
-                                <a class="accordion-list-item btn-accordion industries" data-direction="Негосударственные некоммерческие организации">
-                                    Негосударственные некоммерческие организации
-                                </a>
-                                <a class="accordion-list-item btn-accordion industries" data-direction="СМИ">
-                                    СМИ
-                                </a>
+                                @foreach($industries as $industry)
+                                    <a class="accordion-list-item btn-accordion industries" data-direction="{{ $industry->id }}">
+                                        {{ $industry->title }}
+                                    </a>
+                                @endforeach
                             </ul>
                         </ul>
                     </div>

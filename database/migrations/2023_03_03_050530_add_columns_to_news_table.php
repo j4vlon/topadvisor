@@ -13,8 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('benefits', function (Blueprint $table) {
-            $table->dropColumn('default_txt');
+        Schema::table('news', function (Blueprint $table) {
+            $table->string('meta_title')->after('id');
+            $table->text('meta_descr')->after('meta_title');
         });
     }
 
@@ -25,8 +26,9 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('benefits', function (Blueprint $table) {
-            $table->string('default_txt');
+        Schema::table('news', function (Blueprint $table) {
+            $table->dropColumn('meta_title')->after('id');
+            $table->dropColumn('meta_descr')->after('meta_title');
         });
     }
 };

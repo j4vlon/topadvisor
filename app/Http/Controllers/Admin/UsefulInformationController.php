@@ -18,8 +18,8 @@ class UsefulInformationController extends Controller
      */
     public function index()
     {
-        $informations = Information::all();
-        return view('admin.informations.index', compact('informations'));
+        $infodirections = InfoDirection::with('informations')->get();
+        return view('admin.informations.index', compact('infodirections'));
     }
 
     /**
@@ -43,10 +43,19 @@ class UsefulInformationController extends Controller
     {
 
         $information = new Information($request->validated());
-        foreach ($request->file_url as $file) {
-            Information::storeFile($file);
+        if ($request->hasfile('file_url'))
+        {
+            foreach ($request->file('file_url') as $file)
+            {
+                $path = $file->store('uploads/docs', 'public');
+                $fileName = '/storage/'.$path;
+                $fileData[] = $fileName;
+            }
+            $images = json_encode($fileData);
+            $information->file_url = $images;
         }
         $information->save();
+        return redirect()->back();
     }
 
     /**
@@ -68,7 +77,8 @@ class UsefulInformationController extends Controller
      */
     public function edit(Information $information)
     {
-        return view('admin.informations.update', compact('information'));
+        $infodirections = InfoDirection::all();
+        return view('admin.informations.update', compact('information', 'infodirections'));
     }
 
     /**

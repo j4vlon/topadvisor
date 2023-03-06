@@ -2,7 +2,7 @@
 @section('content')
     <div class="container">
         <div class="card">
-            <h4 class="card-title" style="margin-top: 30px; margin-bottom: 30px">Добавить раздел</h4>
+            <h4 class="card-title" style="margin-top: 30px; margin-bottom: 30px">Кому будет полезно</h4>
             <form action="{{ route('benefits.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @if (Session::has('success'))

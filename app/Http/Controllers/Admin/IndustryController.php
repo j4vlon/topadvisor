@@ -3,22 +3,20 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\StoreBenefitRequest;
-use App\Http\Requests\Admin\UpdateBenefitRequest;
-use App\Models\Admin\Benefit;
-use App\Models\Admin\Subservice;
+use App\Models\Admin\Industry;
 use Illuminate\Http\Request;
 
-class BenefitController extends Controller
+class IndustryController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function index()
     {
-        //
+        $industries = Industry::all();
+        return view('admin.industry.index', compact('industries'));
     }
 
     /**
@@ -28,8 +26,7 @@ class BenefitController extends Controller
      */
     public function create()
     {
-        $subservices = Subservice::all();
-        return view('admin.benefit.create', compact('subservices'));
+        return view('admin.industry.create');
     }
 
     /**
@@ -38,20 +35,13 @@ class BenefitController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(StoreBenefitRequest $request)
+    public function store(Request $request)
     {
-
-        foreach ($request->addmore as $key => $value){
-
-
-            $benefits = new Benefit();
-            $benefits->subservice_id = $request->subservice_id;
-            $benefits->title = $value['title'];
-            $benefits->descr = $value['descr'];
-            $path = $value['file_url']->store('uploads', 'public');
-            $benefits->file_url = '/storage/'.$path;
-            $benefits->save();
-        }
+        $data = $request->validate([
+            'title' => 'required'
+        ]);
+        $industry = new Industry($data);
+        $industry->save();
         return redirect()->back();
     }
 
@@ -72,10 +62,9 @@ class BenefitController extends Controller
      * @param  int  $id
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function edit(Benefit $benefit)
+    public function edit(Industry $industry)
     {
-        $subservices = Subservice::all();
-        return view('admin.benefit.update', compact('benefit', 'subservices'));
+        return view('admin.industry.update', compact('industry'));
     }
 
     /**
@@ -85,16 +74,13 @@ class BenefitController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(UpdateBenefitRequest $request, Benefit $benefit)
+    public function update(Request $request, Industry $industry)
     {
-        $benefit->subservice_id = $request->subservice_id;
-        $benefit->title = $request->title;
-        if ($request->hasFile('file_url')){
-            $path = $request->file_url->store('uploads', 'public');
-            $benefit->file_url = '/storage/'.$path;
-        }
-        $benefit->descr = $request->descr;
-        $benefit->update();
+        $data = $request->validate([
+            'title' => 'required'
+        ]);
+        $industry->fill($data);
+        $industry->save();
         return redirect()->back();
     }
 
@@ -104,9 +90,9 @@ class BenefitController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy(Benefit $benefit)
+    public function destroy(Industry $industry)
     {
-        $benefit->delete();
+        $industry->delete();
         return redirect()->back();
     }
 }

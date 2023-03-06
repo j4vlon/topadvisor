@@ -16,13 +16,13 @@ class Information extends Model
         'title',
         'file_url'
     ];
-    public static function storeFile($file)
-    {
-        $filename = $file->getClientOriginalName();
-        $path = $file->store('uploads/docs', 'public');
-
-        return static::create(['filename' => $filename, 'path' => '/storage/'.$path]);
-    }
+//    public static function storeFile($file)
+//    {
+//        $filename = $file->getClientOriginalName();
+//        $path = $file->store('uploads/docs', 'public');
+//
+//        return static::create(['filename' => $filename, 'path' => '/storage/'.$path]);
+//    }
 
      function infodirection()
     {

@@ -1,7 +1,7 @@
 @extends('admin.layouts._layout')
 @section('content')
     <div class="card">
-        <form class="form-horizontal" method="POST" action="{{ route('projects.update', $project->id) }}"
+        <form class="form-horizontal" method="POST" action="{{ route('projects.update', $project) }}"
               enctype="multipart/form-data">
             @csrf
             @method('PUT')
@@ -25,20 +25,13 @@
                     </div>
                     <label class="col-sm-3 text-end control-label col-form-label" for="industries">Выберите отрасль</label>
                     <div class="col-md-9" style="margin-bottom: 20px">
-                        @error('industries')
+                        @error('industry_id')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
-                        <select name="industries" class="select2 form-select shadow-none select2-hidden-accessible {{ $errors->has('industries') ? 'is-invalid' : '' }}" style="width: 100%; height: 36px" data-select2-id="1" tabindex="-1" aria-hidden="true">
-                            <option value="Органы государственного управления">Органы государственного управления</option>
-                            <option value="Международные организации">Международные организации</option>
-                            <option value="Иностранные организации">Иностранные организации</option>
-                            <option value="Информационные услуги">Информационные услуги</option>
-                            <option value="Производственные предприятия">Производственные предприятия</option>
-                            <option value="Финансовые организации">Финансовые организации</option>
-                            <option value="Страховые организации">Страховые организации</option>
-                            <option value="Прочие организации в сфере услуг">Прочие организации в сфере услуг</option>
-                            <option value="Негосударственные некоммерческие организации">Негосударственные некоммерческие организации</option>
-                            <option value="СМИ">СМИ</option>
+                        <select name="industry_id" class="select2 form-select shadow-none select2-hidden-accessible {{ $errors->has('industry_id') ? 'is-invalid' : '' }}" style="width: 100%; height: 36px" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                            @foreach($industries as $industry)
+                                <option value="{{ $industry->id }}">{{ $industry->title }}</option>
+                            @endforeach
                         </select>
                     </div>
                     <label for="title" class="col-sm-3 text-end control-label col-form-label">Название проекта</label>
@@ -111,7 +104,7 @@
                             @endforeach
                         </select>
                     </div>
-                    <label class="col-sm-3 text-end control-label col-form-label" for="service_id">Выберите услугу</label>
+                    <label class="col-sm-3 text-end control-label col-form-label" for="service_id">Выберите раздел услуги</label>
                     <div class="col-md-9" style="margin-bottom: 20px">
                         @error('service_id')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>

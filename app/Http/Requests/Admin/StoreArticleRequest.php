@@ -26,9 +26,14 @@ class StoreArticleRequest extends FormRequest
         return [
             'meta_title' => 'required',
             'meta_descr' => 'required',
+            'member_id' => 'nullable',
+            'industry_id' => 'required',
+            'subservice_id' => 'required',
+            'service_id' => 'required',
             'title' => 'required',
-            'member_id' => 'required',
+            'short_descr' => 'required',
             'descr' => 'required',
+            'read_time' => 'required',
             'file_url' => ['mimes:jpg,png,jpeg,svg','required'],
         ];
     }

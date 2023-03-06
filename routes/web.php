@@ -34,13 +34,14 @@ Route::get('services/category/{slug}', [SubserviceController::class, 'subservice
 Route::get('projects', [ProjectController::class, 'projects'])->name('projects');
 Route::get('projects/{slug}', [ProjectController::class, 'project'])->name('project');
 Route::get('partners', [PartnerController::class, 'partners'])->name('partners');
-Route::get('articles', [ArticleController::class, 'articles'])->name('articles');
+Route::match(['get', 'post'],'articles', [ArticleController::class, 'articles'])->name('articles');
 Route::get('article/{slug}', [ArticleController::class, 'getArticle'])->name('article');
 Route::get('team', [TeamController::class, 'team'])->name('team');
 Route::get('team/{id}', [TeamController::class, 'member'])->name('member');
 Route::post('feedback', [ContactController::class, 'feedback'])->name('feedback');
 Route::get('/sitemap.xml', [XMLReaderController::class, 'index'])->name('sitemap.xml');
-Route::get('news', [NewsController::class, 'index'])->name('index');
+Route::get('news', [NewsController::class, 'index'])->name('news');
+Route::get('news/{slug}', [NewsController::class, 'newsView'])->name('newsView');
 Route::get('/useful-information', [UsefulInformationController::class, 'index'])->name('useful-info');
 //Route::get('/success', [ContactController::class, 'success'])->name('success');
 

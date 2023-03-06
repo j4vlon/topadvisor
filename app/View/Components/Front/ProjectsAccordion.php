@@ -2,6 +2,7 @@
 
 namespace App\View\Components\Front;
 
+use App\Models\Admin\Industry;
 use App\Models\Admin\Project;
 use App\Models\Admin\Service;
 use App\Models\Admin\Subservice;
@@ -13,6 +14,7 @@ class ProjectsAccordion extends Component
     public Collection $services;
     public Collection $subservices;
     public Collection $projects;
+    public Collection $industries;
     /**
      * Create a new component instance.
      *
@@ -22,6 +24,7 @@ class ProjectsAccordion extends Component
     {
         $this->services = Service::all();
         $this->subservices = Subservice::all();
+        $this->industries = Industry::all();
         $this->projects = Project::with('subservice', 'partner')->orderByDesc('id')->limit(4)->get();
     }
 

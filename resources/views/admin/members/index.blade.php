@@ -44,6 +44,7 @@
                                     <th>Обязанности</th>
                                     <th>Статьи</th>
                                     <th>фото</th>
+                                    <th>Редактировать</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -59,6 +60,7 @@
                                                 <p>У {{ $member->name }} нет статей</p>
                                             @endforelse
                                         </td>
+                                        <td><img src="{{ $member->file_url }}" alt=""></td>
                                         <td>
                                             <a href="{{ route('members.edit', $member->id) }}" class="btn btn-primary" style="margin-bottom: 5px; width: 100%">Изменить</a>
                                             <br>

@@ -18,10 +18,10 @@
                         @error('meta_descr')
                         <div class=work_post>{{ $message }}</div>
                         @enderror
-                        <textarea class="form-control {{ $errors->has('meta_descr') ? 'is-invalid' : '' }}"name="meta_descr"
+                        <textarea class="form-control {{ $errors->has('meta_descr') ? 'is-invalid' : '' }}"name="meta_descr" placeholder="Мета описание"
                         ></textarea>
                     </div>
-                    <label for="title" class="col-sm-3 text-end control-label col-form-label">Название услугу</label>
+                    <label for="title" class="col-sm-3 text-end control-label col-form-label">Название услуги</label>
                     <div class="col-sm-9" style="margin-bottom: 20px">
                         @error('title')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -35,12 +35,19 @@
                         @enderror
                         <input type="text" class="form-control {{ $errors->has('descr_title') ? 'is-invalid' : '' }}" name="descr_title" placeholder="Введите название услуги">
                     </div>
-                    <label for="short_descr" class="col-sm-3 text-end control-label col-form-label">Название формы отправки заявки</label>
+                    <label for="form_title" class="col-sm-3 text-end control-label col-form-label">Название формы отправки заявки</label>
                     <div class="col-sm-9" style="margin-bottom: 20px">
                         @error('form_title')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
-                        <input type="text" class="form-control {{ $errors->has('form_title') ? 'is-invalid' : '' }}" name="form_title" placeholder="Название формы" value="">
+                        <input type="text" class="form-control {{ $errors->has('form_title') ? 'is-invalid' : '' }}" name="form_title" placeholder="Название формы">
+                    </div>
+                    <label for="subtitle" class="col-sm-3 text-end control-label col-form-label">Подзаголовок "Кому будет полезно"</label>
+                    <div class="col-sm-9" style="margin-bottom: 20px">
+                        @error('subtitle')
+                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                        @enderror
+                        <input type="text" class="form-control {{ $errors->has('form_title') ? 'is-invalid' : '' }}" name="subtitle" placeholder="Введите текст подзаголовки">
                     </div>
                     <label for="file_url" class="col-sm-3 text-end control-label col-form-label">Загрузите баннер (1296х495)</label>
                     <div class="col-sm-9" style="margin-bottom: 20px">

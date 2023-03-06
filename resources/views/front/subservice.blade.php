@@ -73,7 +73,7 @@
             <div id="sticky">
                 <div class="header-block">
                     <h2>Кому будет полезно</h2>
-                    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
+                    <span>{{ $subservice->subtitle }}</span>
                 </div>
             </div>
             @foreach($subservice->benefits as $benefit)

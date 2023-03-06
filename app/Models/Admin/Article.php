@@ -10,6 +10,18 @@ class Article extends Model
 {
     use HasFactory;
     use Sluggable;
+    protected $fillable = [
+        'meta_title',
+        'meta_descr',
+        'member_id',
+        'industry_id',
+        'subservice_id',
+        'service_id',
+        'title',
+        'short_descr',
+        'descr',
+        'read_time',
+    ];
 
     /**
      * Return the sluggable configuration array for this model.

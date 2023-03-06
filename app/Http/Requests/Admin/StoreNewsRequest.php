@@ -13,7 +13,7 @@ class StoreNewsRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,11 @@ class StoreNewsRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'meta_title' => 'required',
+            'meta_descr' => 'required',
+            'title' => 'required',
+            'descr' => 'required',
+            'file_url' => ['mimes:jpg,png,jpeg,svg','required'],
         ];
     }
 }

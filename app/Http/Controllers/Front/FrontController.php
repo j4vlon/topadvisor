@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin\Industry;
 use App\Models\Admin\Partner;
 use App\Models\Admin\Project;
 use App\Models\Admin\Service;
@@ -39,8 +40,8 @@ class FrontController extends Controller
                         'projects' => $projects,
                     ]);
                 }
-                if ($request->industries){
-                    $projects = Project::with('partner')->where('industries', $request->industries)->get();
+                if ($request->industry_id){
+                    $projects = Project::with('partner')->where('industry_id', $request->industry_id)->get();
                     return response()->json([
                         'projects' => $projects,
                     ]);

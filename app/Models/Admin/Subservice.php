@@ -15,6 +15,7 @@ class Subservice extends Model
         'meta_descr',
         'service_id',
         'title',
+        'subtitle',
         'descr_title',
         'form_title',
         'descr',

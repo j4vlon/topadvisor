@@ -25,6 +25,7 @@ class UpdateBenefitRequest extends FormRequest
     {
         return [
             'subservice_id' => 'required',
+            'subtitle' => 'required',
             'title' => 'required',
             'descr' => 'required',
             'file_url' => ['mimes:png,jpg,jpeg,svg'],

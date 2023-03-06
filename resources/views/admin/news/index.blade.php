@@ -40,21 +40,17 @@
                                 <thead>
                                 <tr>
                                     <th>Название</th>
-                                    <th>Автор</th>
-                                    <th>Заголовок</th>
                                     <th>Изменить</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($articles as $article)
+                                @foreach($news as $new)
                                     <tr>
-                                        <td>{{ $article->title }}</td>
-                                        <td>{{ $article->member->name }}</td>
-                                        <td>{{ $article->descr_title }}</td>
+                                        <td>{{ $new->title }}</td>
                                         <td>
-                                            <a href="{{ route('articles.edit', $article->id) }}" class="btn btn-primary" style="margin-bottom: 5px; width: 100%">Редактировать</a>
+                                            <a href="{{ route('news.edit', $new) }}" class="btn btn-primary" style="margin-bottom: 5px; width: 100%">Редактировать</a>
                                             <br>
-                                            <form action="{{ route('articles.destroy', $article->id) }}" method="post">
+                                            <form action="{{ route('news.destroy', $new) }}" method="post">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger" style="width: 100%">

@@ -4,7 +4,7 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreBenefitRequest extends FormRequest
+class UpdateNewsRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,11 +24,11 @@ class StoreBenefitRequest extends FormRequest
     public function rules()
     {
         return [
-            'subservice_id' => 'required',
-            'subtitle' => 'required',
-            'addmore.*.title' => 'required',
-            'addmore.*.descr' => 'required',
-            'addmore.*.file_url' => ['mimes:png,jpg,jpeg,svg', 'required'],
+            'meta_title' => 'required',
+            'meta_descr' => 'required',
+            'title' => 'required',
+            'descr' => 'required',
+            'file_url' => ['mimes:jpg,png,jpeg,svg'],
         ];
     }
 }

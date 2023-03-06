@@ -40,6 +40,13 @@
                                value="{{ $article->file_url }}" class="form-control {{ $errors->has('file_url') ? 'is-invalid' : '' }}">
                         <img width="300px" class="change-img" src="{{ $article->file_url }}">
                     </div>
+                    <label for="short_descr" class="col-sm-3 text-end control-label col-form-label">Красткое описание</label>
+                    <div class="col-sm-9" style="margin-bottom: 20px">
+                        @error('short_descr')
+                        <div class=work_post>{{ $message }}</div>
+                        @enderror
+                        <input type="text" class="form-control" placeholder="Введите краткое описание (1 предложение)" name="short_descr" value="{{ $article->short_descr }}">
+                    </div>
                     <label for="descr" class="col-sm-3 text-end control-label col-form-label">Описание статьи</label>
                     <div class="col-sm-9" style="margin-bottom: 20px">
                         @error('descr')
@@ -47,6 +54,24 @@
                         @enderror
                         <textarea class="form-control {{ $errors->has('descr') ? 'is-invalid' : '' }}" id="descr" name="descr"
                         >{!! $article->descr !!}</textarea>
+                    </div>
+                    <label for="read_time" class="col-sm-3 text-end control-label col-form-label">Время чтения</label>
+                    <div class="col-sm-9" style="margin-bottom: 20px">
+                        @error('read_time')
+                        <div class=work_post>{{ $message }}</div>
+                        @enderror
+                        <input type="text" class="form-control" placeholder="10 минут" name="read_time" value="{{ $article->read_time }}">
+                    </div>
+                    <label class="col-sm-3 text-end control-label col-form-label" for="industries">Выберите отрасль</label>
+                    <div class="col-md-9" style="margin-bottom: 20px">
+                        @error('industry_id')
+                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                        @enderror
+                        <select name="industry_id" class="select2 form-select shadow-none select2-hidden-accessible {{ $errors->has('industry_id') ? 'is-invalid' : '' }}" style="width: 100%; height: 36px" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                            @foreach($industries as $industry)
+                                <option value="{{ $industry->id }}">{{ $industry->title }}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <label class="col-sm-3 text-end control-label col-form-label" for="car_id">Выберите автора статьи</label>
                     <div class="col-md-9" style="margin-bottom: 20px">
@@ -59,7 +84,7 @@
                             @endforeach
                         </select>
                     </div>
-                    <label class="col-sm-3 text-end control-label col-form-label" for="service_id">Выберите услугу</label>
+                    <label class="col-sm-3 text-end control-label col-form-label" for="service_id">Выберите раздел услуги</label>
                     <div class="col-md-9" style="margin-bottom: 20px">
                         @error('service_id')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>

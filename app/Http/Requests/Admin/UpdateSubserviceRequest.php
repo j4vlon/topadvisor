@@ -27,6 +27,7 @@ class UpdateSubserviceRequest extends FormRequest
             'meta_title' => 'required',
             'meta_descr' => 'required',
             'service_id' => 'required',
+            'subtitle' => 'required',
             'title' => 'required',
             'descr' => 'required',
             'descr_title' => 'required',

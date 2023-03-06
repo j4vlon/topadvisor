@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreProjectRequest;
 use App\Http\Requests\Admin\UpdatePartnerRequest;
 use App\Http\Requests\Admin\UpdateProjectRequest;
+use App\Models\Admin\Industry;
 use App\Models\Admin\Member;
 use App\Models\Admin\Partner;
 use App\Models\Admin\Project;
@@ -37,7 +38,8 @@ class ProjectsController extends Controller
         $partners = Partner::all();
         $members = Member::all();
         $services = Service::all();
-        return view('admin.projects.create', compact('partners', 'members', 'services'));
+        $industries = Industry::all();
+        return view('admin.projects.create', compact('partners', 'members', 'services', 'industries'));
     }
 
     /**
@@ -80,7 +82,8 @@ class ProjectsController extends Controller
         $members = Member::all();
         $subservices = Subservice::all();
         $services = Service::all();
-        return view('admin.projects.update', compact('partners', 'subservices', 'project', 'members', 'services'));
+        $industries = Industry::all();
+        return view('admin.projects.update', compact('partners', 'subservices', 'project', 'members', 'services', 'industries'));
     }
 
     /**
@@ -92,11 +95,13 @@ class ProjectsController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
+
         $project->fill($request->validated());
         if ($request->hasFile('project_img')){
             $path = $request->project_img->store('uploads', 'public');
             $project->project_img = '/storage/'.$path;
         }
+        $project->industry_id = $request->industry_id;
         $project->update();
         return redirect()->back();
     }

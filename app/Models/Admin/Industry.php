@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Industry extends Model
 {
     use HasFactory;
+    protected $fillable = [
+      'title'
+    ];
 
     public function projects()
     {
