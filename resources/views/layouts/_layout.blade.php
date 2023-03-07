@@ -47,12 +47,12 @@
 {{--    <meta name="msapplication-square150x150logo" content="{{ asset('assets/images/icons/mstile-150x150.png') }}">--}}
 {{--    <meta name="msapplication-wide310x150logo" content="{{ asset('assets/images/icons/mstile-310x310.png') }}">--}}
 {{--    <meta name="msapplication-square310x310logo" content="{{ asset('assets/images/icons/mstile-310x150.png') }}">--}}
-{{--    <link rel="shortcut icon" href="{{ asset('assets/images/logos/advisor-black.svg') }}" type="image/x-icon">--}}
-{{--    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}" />--}}
-{{--    <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.min.css') }}" />--}}
-{{--    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-table.min.css') }}" />--}}
-{{--    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />--}}
-{{--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />--}}
+    <link rel="shortcut icon" href="{{ asset('assets/images/logos/advisor-black.svg') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-table.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body>
