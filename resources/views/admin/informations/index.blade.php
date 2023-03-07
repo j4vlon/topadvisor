@@ -41,10 +41,10 @@
                                 <tbody>
                                 @foreach($infodirections as $infodirection)
                                     <tr>
-                                        <td style="display: flex; justify-content: space-between;">
+                                        <td style="display: flex; justify-content: space-between; align-items: center;">
                                             <p>{{ $infodirection->title }}</p>
-                                            <div class="actions" style="display: flex; justify-content: space-between; align-items: center">
-                                                <a href="{{ route('info-direction.edit', $infodirection->id) }}" class="btn btn-primary"><i class="fa-sharp fa-solid fa-pen"></i></a>
+                                            <div class="actions" style="display: flex; justify-content: space-between; align-items: end; flex-direction: column;">
+                                                <a href="{{ route('info-direction.edit', $infodirection->id) }}" class="btn btn-primary" style="margin-bottom: 5px;"><i class="fa-sharp fa-solid fa-pen"></i></a>
                                                 <form action="{{ route('info-direction.destroy', $infodirection) }}" method="post" style="margin-left: 10px;">
                                                     @csrf
                                                     @method('DELETE')

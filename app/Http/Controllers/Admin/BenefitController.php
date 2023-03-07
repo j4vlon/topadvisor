@@ -40,10 +40,7 @@ class BenefitController extends Controller
      */
     public function store(StoreBenefitRequest $request)
     {
-
         foreach ($request->addmore as $key => $value){
-
-
             $benefits = new Benefit();
             $benefits->subservice_id = $request->subservice_id;
             $benefits->title = $value['title'];
