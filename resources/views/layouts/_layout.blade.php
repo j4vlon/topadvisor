@@ -54,6 +54,9 @@
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <script src="{{ asset('manifest.json') }}"></script>
+    <script src="{{ asset('push-worker.js') }}"></script>
+    <script src="https://cdn.gravitec.net/storage/2c6f2ef71e9ac5784e9b6de8255b09b3/client.js" async></script>
 </head>
 <body>
 <div class="alert alert-primary alert-dismissible fade show" role="alert">
