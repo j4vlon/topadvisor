@@ -28,7 +28,7 @@
                 <img src="{{ asset('assets/images/globus.svg') }}" alt=""/>
             </div>
 
-            <a href="" class="service-consulting more-btn"><span>Консультация</span>
+            <a href="#feedbackform" class="service-consulting more-btn"><span>Консультация</span>
                 <svg width="11" height="11" viewBox="0 0 11 11"
                      fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M2 1H10M10 1V9M10 1L1 10" stroke="white" stroke-width="1.5"></path>
@@ -94,7 +94,7 @@
                                         </p>
                                     </div>
                                     <div class="d-flex">
-                                        <a class="more-btn" type="submit">
+                                        <a class="more-btn" type="submit" href="#feedbackform">
                                             <span>Оставить заявку</span>
                                             <svg width="11" height="11" viewBox="0 0 11 11" fill="none"
                                                  xmlns="http://www.w3.org/2000/svg">
@@ -132,7 +132,7 @@
         <x-front.projects-accordion></x-front.projects-accordion>
         <!-- FEEDBACK SECTION START -->
         <div class="container">
-            <div class="consulting-wrapper">
+            <div class="consulting-wrapper"  id="feedbackform">
                 <div class="consulting-block">
                     <div class="consulting-header">
                         <h3>Заказать стратегическое<br/>развитие компании</h3>

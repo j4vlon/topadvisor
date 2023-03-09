@@ -1946,12 +1946,16 @@ footer ul {
     border-bottom: 1.5px solid #000000;
 }
 .info-title {
-    height: 85px;
+    /*height: 85px;*/
 }
 .informations-wrapper {
     padding: 16px;
     border-bottom: 1.5px solid #d2d2d4;
     margin-bottom: 30px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .info-title h5 {
     margin-bottom: 45px;

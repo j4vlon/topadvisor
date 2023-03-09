@@ -62,14 +62,16 @@
             @foreach($projects as $project)
             <div class="info-list-wrapper">
                 <div class="row">
-                    <div class="col-xl-4 col-lg-4 col-md-12 project-info-list">
+                    <div class="col-xl-4 col-lg-4 col-md-12">
                         <div class="info-list-title">
                             <div class="date">
                                 <span>20 мая, 2022</span>
                             </div>
-                            <h4>
-                                {{ $project->title }}
-                            </h4>
+                            <a href="{{ route('project', $project->slug) }}">
+                                <h4>
+                                    {{ $project->title }}
+                                </h4>
+                            </a>
                         </div>
                     </div>
                     <div class="col-xl-4 col-lg-4 col-md-12 project-info-list">

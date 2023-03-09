@@ -1,6 +1,6 @@
 @extends('layouts._layout')
+@section('title', $subservice->title)
 @section('meta_title', $subservice->meta_title)
-@section('title', $subservice->meta_title)
 @section('meta_descr', $subservice->meta_descr)
 @section('content')
     <header class="header main-nav-header">
@@ -21,7 +21,7 @@
                 </div>
                 <h1>{{ $subservice->title }}</h1>
             </div>
-            <a href="" class="more-btn" type="submit">
+            <a href="#feedbackform" class="more-btn" type="submit">
                 <span>Оставить заявку</span>
                 <svg width="11" height="11" viewBox="0 0 11 11" fill="none"
                      xmlns="http://www.w3.org/2000/svg">
@@ -96,7 +96,7 @@
     <x-front.projects-accordion></x-front.projects-accordion>
     <!-- FEEDBACK SECTION START -->
     <div class="container">
-        <div class="consulting-wrapper">
+        <div class="consulting-wrapper" id="feedbackform">
             <div class="consulting-block">
                 <div class="consulting-header">
                     <h3>{{ $subservice->form_title }}</h3>

@@ -26,7 +26,7 @@
                 <p>
                     Снижаем правовые риски, защищаем нематериальные активы и делаем ваш бизнес прибыльнее – комплексно и эффективно.
                 </p>
-                <a href="" class="more-btn"><span>Консультация</span>
+                <a href="#feedbackform" class="more-btn"><span>Консультация</span>
                     <svg width="11" height="11" viewBox="0 0 11 11"
                          fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M2 1H10M10 1V9M10 1L1 10" stroke="white" stroke-width="1.5"/>
@@ -161,7 +161,7 @@
     <x-front.team-carousel></x-front.team-carousel>
     <!-- FEEDBACK SECTION START -->
     <div class="container">
-        <div class="consulting-wrapper">
+        <div class="consulting-wrapper"  id="feedbackform">
             <div class="consulting-block">
                 <div class="consulting-header">
                     <h3>Запишитесь <br/>на консультацию</h3>
