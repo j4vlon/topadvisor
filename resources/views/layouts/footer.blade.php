@@ -34,10 +34,12 @@
             @foreach($services as $service)
             <div class="col-md-3">
                 <ul class="footer-nav-items">
-                    <li class="nav-title">{{ $service->title }}</li>
+                    <li class="nav-title">
+                        <a class="nav-title" href="{{ route('services', $service->slug) }}">{{ $service->title }}</a>
+                    </li>
                     @foreach($service->subservices as $subservice)
                     <li class="footer-nav-item">
-                      <a href="" class="footer-nav-link">
+                      <a href="{{ route('category', $subservice->slug) }}" class="footer-nav-link">
                         {{ $subservice->title }}
                       </a>
                     </li>
